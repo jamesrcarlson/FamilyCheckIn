@@ -10,9 +10,17 @@
 @import MapKit;
 @import CoreLocation;
 
+@protocol  newLocationViewControllerDelegate <NSObject>
+
+- (void) userDidSetNewLocation:(CLLocationCoordinate2D )location;
+
+@end
+
 @interface SetNewLocationMapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate, UIAdaptivePresentationControllerDelegate, UISearchBarDelegate>{
     MKMapView *mapView;
 }
+
+@property id <newLocationViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) NSString *latitudeText;
 @property (strong, nonatomic) NSString *longitudeText;

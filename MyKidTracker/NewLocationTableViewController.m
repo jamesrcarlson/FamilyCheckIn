@@ -7,9 +7,9 @@
 //
 
 #import "NewLocationTableViewController.h"
-#import "SetNewLocationMapViewController.h"
+#import "LocationController.h"
 
-@interface NewLocationTableViewController ()
+@interface NewLocationTableViewController () <newLocationViewControllerDelegate>
 
 @property (strong, nonatomic) SetNewLocationMapViewController *setLocation;
 
@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *longitudeLabel;
 @property (strong, nonatomic) IBOutlet UITextField *locationTitleTextField;
 @property (strong, nonatomic) IBOutlet UITextField *locationDescriptionTextField;
+@property (strong, nonatomic) IBOutlet UITextField *familyNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *radiusTextField;
 
 @end
@@ -57,7 +58,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 7;
+    return 8;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,7 +67,7 @@
 //        [self.navigationController pushViewController:setLocation animated:YES];
 //        
 //    }
-    if (indexPath.row == 6) {
+    if (indexPath.row == 7) {
         if (!self.latitudeLabel.text) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Your location marker was not set" message:@"Please load the map again and drop a pin at the location you would like to store" preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"Got it" style:UIAlertActionStyleDefault handler:nil]];
@@ -96,61 +97,22 @@
     
 }
 
+-(void)userDidSetNewLocation:(CLLocationCoordinate2D)location {
+    self.latitudeLabel.text = [NSString stringWithFormat:@"%f",location.latitude];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"%f",location.longitude];
+//    NSLog(self.locationLongitude);
+    [self.tableView reloadData];
+}
+
 - (void) saveData {
+//    [[LocationController sharedInstance]createLocationWithFamily:self.familyNameTextField title:self.locationTitleTextField infoSnippet:self.locationDescriptionTextField lattitude:self.locationLatitude longitude:self.locationLongitude radius:self.radiusTextField];
     
 }
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    SetNewLocationMapViewController *setLocation = [SetNewLocationMapViewController new];
+    setLocation.delegate = self;
 }
-*/
+
 
 @end

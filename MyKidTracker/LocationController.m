@@ -20,7 +20,7 @@
     return sharedInstance;
 }
 
-- (Location *)createLocationWithFamile: (NSString *)family title:(NSString *)title infoSnippet:(NSString *)snippet lattitude:(NSString *)lattitude longitude:(NSString *)longitude radius:(NSNumber *)radius {
+- (Location *)createLocationWithFamily: (NSString *)family title:(NSString *)title infoSnippet:(NSString *)snippet lattitude:(NSString *)lattitude longitude:(NSString *)longitude radius:(NSNumber *)radius {
     
     Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     location.locationTitle = title;

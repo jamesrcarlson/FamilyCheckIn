@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SetNewLocationMapViewController.h"
 
-@interface NewLocationTableViewController : UITableViewController
+
+@interface NewLocationTableViewController : UITableViewController 
 
 @property (strong, nonatomic) NSString *locationLatitude;
 @property (strong, nonatomic) NSString *locationLongitude;
