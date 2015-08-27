@@ -30,6 +30,8 @@
     toDo.dueDate = date;
     toDo.completed = [NSNumber numberWithBool:completed];
     
+    [self saveToPersistentStorage];
+    
     return toDo;
     
 }

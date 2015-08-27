@@ -35,15 +35,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    if (self.locationLatitude) {
-        self.latitudeLabel.text = self.setLocation.latitudeText;
-        self.longitudeLabel.text = self.setLocation.longitudeText;
-        [self.tableView reloadData];
-    }
-    
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -62,11 +53,19 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.row == 3) {
-//        SetNewLocationMapViewController *setLocation = (SetNewLocationMapViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"SetNewLocationMapView"];
-//        [self.navigationController pushViewController:setLocation animated:YES];
-//        
-//    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 3) {
+        SetNewLocationMapViewController *setNewLocation = (SetNewLocationMapViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"SetNewLocationMapView"];
+        
+        setNewLocation.delegate = self;
+        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                          style:UIBarButtonItemStyleDone
+                                                                         target:nil
+                                                                         action:nil];
+        [[self navigationItem] setBackBarButtonItem:newBackButton];
+        [self.navigationController pushViewController:setNewLocation animated:YES];
+    }
     if (indexPath.row == 7) {
         if (!self.latitudeLabel.text) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Your location marker was not set" message:@"Please load the map again and drop a pin at the location you would like to store" preferredStyle:UIAlertControllerStyleAlert];
@@ -98,20 +97,31 @@
 }
 
 -(void)userDidSetNewLocation:(CLLocationCoordinate2D)location {
+    
     self.latitudeLabel.text = [NSString stringWithFormat:@"%f",location.latitude];
     self.longitudeLabel.text = [NSString stringWithFormat:@"%f",location.longitude];
-//    NSLog(self.locationLongitude);
+    self.locationLatitude = self.latitudeLabel.text;
+    self.locationLongitude = self.longitudeLabel.text;
     [self.tableView reloadData];
 }
 
 - (void) saveData {
-//    [[LocationController sharedInstance]createLocationWithFamily:self.familyNameTextField title:self.locationTitleTextField infoSnippet:self.locationDescriptionTextField lattitude:self.locationLatitude longitude:self.locationLongitude radius:self.radiusTextField];
+    NSNumberFormatter *numberF = [NSNumberFormatter new];
+    numberF.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *myNumber = [numberF numberFromString:self.radiusTextField.text];
+    
+    [[LocationController sharedInstance]createLocationWithFamily:self.familyNameTextField.text title:self.locationTitleTextField.text infoSnippet:self.locationDescriptionTextField.text lattitude:self.locationLatitude longitude:self.locationLongitude radius:myNumber];
     
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     SetNewLocationMapViewController *setLocation = [SetNewLocationMapViewController new];
     setLocation.delegate = self;
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                      style:UIBarButtonItemStyleDone
+                                                                     target:nil
+                                                                     action:nil];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
 }
 
 

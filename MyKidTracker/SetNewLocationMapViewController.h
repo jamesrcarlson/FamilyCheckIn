@@ -20,7 +20,7 @@
     MKMapView *mapView;
 }
 
-@property id <newLocationViewControllerDelegate> delegate;
+@property (nonatomic, weak) id <newLocationViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) NSString *latitudeText;
 @property (strong, nonatomic) NSString *longitudeText;

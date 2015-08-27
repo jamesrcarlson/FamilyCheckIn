@@ -56,7 +56,7 @@
 
 #pragma mark - Delete
 
-- (void)removeEntry:(Location *)location {
+- (void)removeLocation:(Location *)location {
     [location.managedObjectContext deleteObject:location];
 }
 

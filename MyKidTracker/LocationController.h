@@ -17,7 +17,7 @@
 
 - (Location *)createLocationWithFamily: (NSString *)family title:(NSString *)title infoSnippet:(NSString *)snippet lattitude:(NSString *)lattitude longitude:(NSString *)longitude radius:(NSNumber *)radius ;
 
-- (void)removeEntry:(Location *)location;
+- (void)removeLocation:(Location *)location;
 
 //- (void)addCheckInsObject:(NSManagedObject *)value; // these were created by the computer in the modelObject
 //- (void)removeCheckInsObject:(NSManagedObject *)value;

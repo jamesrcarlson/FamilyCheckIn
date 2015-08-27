@@ -1,22 +1,19 @@
 //
-//  ParentOptionsTableViewController.m
+//  CreateToDoListTableViewController.m
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/22/15.
+//  Created by James Carlson on 8/26/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
-#import "ParentOptionsTableViewController.h"
-#import "NewLocationTableViewController.h"
-#import "MasterViewController.h"
 #import "CreateToDoListTableViewController.h"
 #import "LocationsTableViewController.h"
 
-@interface ParentOptionsTableViewController ()
+@interface CreateToDoListTableViewController ()<selectLocationDelegate>
 
 @end
 
-@implementation ParentOptionsTableViewController
+@implementation CreateToDoListTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,34 +30,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+
+-(void)userDidSelectLocation:(NSString *)locationTitle {
+    
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    // Return the number of rows in the section.
-    return 6;
+    return 8;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (indexPath.row == 2) {
+    if (indexPath.row == 3) {
         LocationsTableViewController *locations = (LocationsTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"LocationsTableViewController"];
+        
         [self.navigationController pushViewController:locations animated:YES];
-    }
-    if (indexPath.row == 4) {
-        CreateToDoListTableViewController *createList = (CreateToDoListTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"CreateToDoList"];
-        [self.navigationController pushViewController:createList animated:YES];
-    }
-    if (indexPath.row == 5) {
-        NewLocationTableViewController *newLocation = (NewLocationTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"NewLocation"];
-        [self.navigationController pushViewController:newLocation animated:YES];
+        
     }
 }
 

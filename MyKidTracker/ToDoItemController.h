@@ -11,4 +11,11 @@
 
 @interface ToDoItemController : NSObject
 
+@property (strong, nonatomic) NSArray *user;
+
++ (ToDoItemController *)sharedInstance;
+
+- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description locationName:(NSString *)location familyName:(NSString *)familyName dueDate:(NSDate *)date isComplete:(Boolean *)completed;
+
+
 @end

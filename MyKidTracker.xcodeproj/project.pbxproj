@@ -42,6 +42,8 @@
 		61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */; };
 		61CFB13B1B88EFDD00946AD3 /* SetNewLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB13A1B88EFDD00946AD3 /* SetNewLocationMapViewController.m */; };
 		61CFB1411B88F6C400946AD3 /* NewLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1401B88F6C400946AD3 /* NewLocationTableViewController.m */; };
+		61D0E9011B8EACE500C8B290 /* CreateToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0E9001B8EACE500C8B290 /* CreateToDoListTableViewController.m */; };
+		61D0E9041B8EAE2200C8B290 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0E9031B8EAE2200C8B290 /* LocationsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,10 @@
 		61CFB13A1B88EFDD00946AD3 /* SetNewLocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetNewLocationMapViewController.m; sourceTree = "<group>"; };
 		61CFB13F1B88F6C400946AD3 /* NewLocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewLocationTableViewController.h; sourceTree = "<group>"; };
 		61CFB1401B88F6C400946AD3 /* NewLocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewLocationTableViewController.m; sourceTree = "<group>"; };
+		61D0E8FF1B8EACE500C8B290 /* CreateToDoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateToDoListTableViewController.h; sourceTree = "<group>"; };
+		61D0E9001B8EACE500C8B290 /* CreateToDoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateToDoListTableViewController.m; sourceTree = "<group>"; };
+		61D0E9021B8EAE2200C8B290 /* LocationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsTableViewController.h; sourceTree = "<group>"; };
+		61D0E9031B8EAE2200C8B290 /* LocationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,10 @@
 				61658FDC1B867C5D000CCC7A /* LogInViewController.h */,
 				61658FDD1B867C5D000CCC7A /* LogInViewController.m */,
 				61658FDF1B867C5D000CCC7A /* Main.storyboard */,
+				61D0E9021B8EAE2200C8B290 /* LocationsTableViewController.h */,
+				61D0E9031B8EAE2200C8B290 /* LocationsTableViewController.m */,
+				61D0E8FF1B8EACE500C8B290 /* CreateToDoListTableViewController.h */,
+				61D0E9001B8EACE500C8B290 /* CreateToDoListTableViewController.m */,
 				61CFB13F1B88F6C400946AD3 /* NewLocationTableViewController.h */,
 				61CFB1401B88F6C400946AD3 /* NewLocationTableViewController.m */,
 				61CFB1391B88EFDD00946AD3 /* SetNewLocationMapViewController.h */,
@@ -385,6 +395,7 @@
 				6168F0361B86C02D003F175F /* LocationAnnotation.m in Sources */,
 				61CFB12C1B88D58000946AD3 /* CheckIn.m in Sources */,
 				61CFB1201B88D58000946AD3 /* Family.m in Sources */,
+				61D0E9041B8EAE2200C8B290 /* LocationsTableViewController.m in Sources */,
 				61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */,
 				6165901C1B86901B000CCC7A /* Stack.m in Sources */,
 				6165900A1B867C87000CCC7A /* KidDetailsViewController.m in Sources */,
@@ -399,6 +410,7 @@
 				616590091B867C87000CCC7A /* MasterViewController.m in Sources */,
 				6165900C1B867C87000CCC7A /* ChildTimeSheetViewController.m in Sources */,
 				61658FD81B867C5D000CCC7A /* main.m in Sources */,
+				61D0E9011B8EACE500C8B290 /* CreateToDoListTableViewController.m in Sources */,
 				61CFB1231B88D58000946AD3 /* Child.m in Sources */,
 				616590111B867DC0000CCC7A /* MapViewController.m in Sources */,
 				61CFB1321B88D58000946AD3 /* Parent.m in Sources */,

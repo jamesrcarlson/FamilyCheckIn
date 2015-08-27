@@ -30,6 +30,8 @@
     user.userPhoneNumber = number;
     user.userRole = [NSNumber numberWithBool:role];
     
+    [self saveToPersistentStorage];
+    
     return user;
 }
 
@@ -59,4 +61,5 @@
 - (void)removeEntry:(User *)user {
     [user.managedObjectContext deleteObject:user];
 }
+
 @end

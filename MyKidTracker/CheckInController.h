@@ -13,4 +13,8 @@
 
 @property (strong, nonatomic) NSArray *checkins;
 
++ (CheckInController *)sharedInstance;
+
+- (CheckIn *)createCheckInWithLocationName:(NSString *)locationName checkInDate:(NSDate *)date;
+
 @end

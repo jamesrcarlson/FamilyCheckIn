@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4C0025C1-BD4B-41F6-92B2-D0FB80133526</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>08ADB33BAE11F2AE0BCEDEF2036DAF6CEBAE9A9A</key>
+		<string>https://github.com/jamesrcarlson/MyKidTracker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MyKidTracker.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>08ADB33BAE11F2AE0BCEDEF2036DAF6CEBAE9A9A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jamesrcarlson/MyKidTracker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>08ADB33BAE11F2AE0BCEDEF2036DAF6CEBAE9A9A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>08ADB33BAE11F2AE0BCEDEF2036DAF6CEBAE9A9A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MyKidTracker</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -39,10 +39,7 @@
     
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleLongPressGesture:)];
     [self.mapView addGestureRecognizer:longPressGesture];
-    
-//    [self.navigationItem.backBarButtonItem setTitle:@"Done"];//not working
-    self.navigationController.navigationItem.backBarButtonItem.title = @"Done";//also not working
-    
+    [self.navigationItem.backBarButtonItem setAction:@selector(popNavigationItemAnimated:)];
 
 }
 

@@ -26,8 +26,34 @@
     checkIn.locationName = locationName;
     checkIn.date = date;
     
+    [self saveToPersistentStorage];
+    
     return checkIn;
 }
 
+- (NSArray *)checkins {
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    
+    NSArray *fetchedObjects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    return fetchedObjects;
+}
+
+#pragma mark - Update
+
+- (void)save {
+    [self saveToPersistentStorage];
+}
+
+- (void)saveToPersistentStorage {
+    [[Stack sharedInstance].managedObjectContext save:nil];
+}
+
+#pragma mark - Delete
+
+- (void)removeEntry:(CheckIn *)checkIn {
+    [checkIn.managedObjectContext deleteObject:checkIn];
+}
 
 @end
