@@ -50,6 +50,7 @@
     cell.detailTextLabel.text = toDo.itemDescription;
     
     return cell;
+    
 }
 
 

@@ -8,7 +8,7 @@
 
 #import "LogInViewController.h"
 #import "LocationController.h"
-#import "ChildController.h"
+#import "UserController.h"
 #import "CheckInController.h"
 #import "ToDoItemController.h"
 #import "UserController.h"
@@ -16,7 +16,7 @@
 @interface LogInViewController ()
 
 @property (strong,nonatomic) Location *location;
-@property (strong, nonatomic) Child*child;
+@property (strong, nonatomic) User*user;
 
 @end
 
@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    CheckIn*checkIn = [CheckInController]
 //    self.child = [[ChildController sharedInstance]createChildWithFamilyName:@"boboram" firstname:@"Tony" lastName:@"Stevens" emailAddress:@"tony@gmail.com" phoneNumber:@8013100077];
 //
 //        self.location = [[LocationController sharedInstance] createLocationWithFamily:@"Boboram" title:@"Tod's House" infoSnippet:@"The house where Tod lives" lattitude:@"37.332167" longitude:@"-122.04962" radius:@20];

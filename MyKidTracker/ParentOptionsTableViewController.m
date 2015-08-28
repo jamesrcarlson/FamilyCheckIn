@@ -8,7 +8,7 @@
 
 #import "ParentOptionsTableViewController.h"
 #import "NewLocationTableViewController.h"
-#import "MasterViewController.h"
+#import "ChildrenViewController.h"
 #import "CreateToDoListTableViewController.h"
 #import "LocationsTableViewController.h"
 #import "ToDoListsTableViewController.h"
@@ -52,7 +52,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 0) {
-        MasterViewController *masterView = (MasterViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
+        ChildrenViewController *masterView = (ChildrenViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
         [self.navigationController pushViewController:masterView animated:YES];
         
     }

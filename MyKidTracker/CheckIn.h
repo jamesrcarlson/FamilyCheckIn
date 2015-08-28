@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Child, Location, User;
+@class Location, User;
 
 @interface CheckIn : NSManagedObject
 
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * locationName;
-@property (nonatomic, retain) Child *child;
 @property (nonatomic, retain) Location *location;
 @property (nonatomic, retain) User *primaryUser;
 

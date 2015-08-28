@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
+#import "User+Additions.h"
 
 @interface UserController : NSObject
 
-@property (strong, nonatomic) NSArray *user;
+@property (strong, nonatomic) NSArray *users;
 
 + (UserController *)sharedInstance;
 
-- (User *)createUserWithFamilyName:(NSString *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(NSString *)role;
+- (User *)createUserWithFamilyName:(NSString *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role;
 
 - (void)removeEntry:(User *)user;
 

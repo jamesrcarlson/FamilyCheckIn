@@ -7,6 +7,8 @@
 //
 
 #import "KidDetailsViewController.h"
+#import "ChildController.h"
+#import "CheckInController.h"
 
 @interface KidDetailsViewController () <UISplitViewControllerDelegate>
 
@@ -80,8 +82,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"kidDetailCell" forIndexPath:indexPath];
     
-    //    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = self.objects[indexPath.row];
+    cell.textLabel.text = @"";
     return cell;
 }
 
@@ -96,17 +97,6 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
-
-#pragma mark - Split view
-
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
-        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        return YES;
-    } else {
-        return NO;
     }
 }
 

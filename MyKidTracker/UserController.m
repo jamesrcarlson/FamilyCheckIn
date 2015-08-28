@@ -20,15 +20,15 @@
     return sharedInstance;
 }
 
-- (User *)createUserWithFamilyName:(NSString *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(NSString *)role {
+- (User *)createUserWithFamilyName:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role {
     
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-    user.familyName = family;
+    user.myFamily = family;
     user.userFirstName = firstname;
     user.userLastName = lastName;
     user.userEmail = email;
     user.userPhoneNumber = number;
-    user.userRole = role;
+    user.isParent = role;
     
     [self saveToPersistentStorage];
     
@@ -37,7 +37,7 @@
 
 #pragma mark - Read
 
-- (NSArray *)user {
+- (NSArray *)users {
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
     

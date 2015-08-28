@@ -7,7 +7,6 @@
 //
 
 #import "CheckIn.h"
-#import "Child.h"
 #import "Location.h"
 #import "User.h"
 
@@ -16,7 +15,6 @@
 
 @dynamic date;
 @dynamic locationName;
-@dynamic child;
 @dynamic location;
 @dynamic primaryUser;
 

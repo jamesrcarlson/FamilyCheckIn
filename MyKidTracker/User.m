@@ -8,9 +8,7 @@
 
 #import "User.h"
 #import "CheckIn.h"
-#import "Child.h"
 #import "Family.h"
-#import "Parent.h"
 #import "ToDoItem.h"
 
 
@@ -24,9 +22,7 @@
 @dynamic userPhoto;
 @dynamic userRole;
 @dynamic checkIns;
-@dynamic children;
 @dynamic myFamily;
-@dynamic parents;
 @dynamic toDoList;
 
 @end

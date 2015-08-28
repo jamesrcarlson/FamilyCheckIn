@@ -9,19 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Child, Family, Location, User;
+@class Family, Location, User;
 
 @interface ToDoItem : NSManagedObject
 
-@property (nonatomic, retain) NSString * completed;
+@property (nonatomic, retain) NSNumber * completed;
 @property (nonatomic, retain) NSDate * dueDate;
 @property (nonatomic, retain) NSString * family;
 @property (nonatomic, retain) NSString * itemDescription;
 @property (nonatomic, retain) NSString * itemTitle;
 @property (nonatomic, retain) NSString * locationName;
-@property (nonatomic, retain) Child *child;
+@property (nonatomic, retain) User *user;
 @property (nonatomic, retain) Family *familyName;
 @property (nonatomic, retain) Location *location;
-@property (nonatomic, retain) User *primaryUser;
 
 @end

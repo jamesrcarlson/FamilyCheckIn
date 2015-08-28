@@ -15,7 +15,7 @@
 		61658FE61B867C5D000CCC7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61658FE41B867C5D000CCC7A /* LaunchScreen.xib */; };
 		61658FF21B867C5D000CCC7A /* MyKidTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FF11B867C5D000CCC7A /* MyKidTrackerTests.m */; };
 		616590081B867C87000CCC7A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FFC1B867C87000CCC7A /* RegisterViewController.m */; };
-		616590091B867C87000CCC7A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FFE1B867C87000CCC7A /* MasterViewController.m */; };
+		616590091B867C87000CCC7A /* ChildrenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FFE1B867C87000CCC7A /* ChildrenViewController.m */; };
 		6165900A1B867C87000CCC7A /* KidDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616590001B867C87000CCC7A /* KidDetailsViewController.m */; };
 		6165900B1B867C87000CCC7A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616590021B867C87000CCC7A /* DetailViewController.m */; };
 		6165900C1B867C87000CCC7A /* ChildTimeSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616590041B867C87000CCC7A /* ChildTimeSheetViewController.m */; };
@@ -26,20 +26,19 @@
 		616590151B86823A000CCC7A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616590141B86823A000CCC7A /* CoreLocation.framework */; };
 		616590191B868A7D000CCC7A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 616590171B868A7D000CCC7A /* Model.xcdatamodeld */; };
 		6165901C1B86901B000CCC7A /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165901B1B86901B000CCC7A /* Stack.m */; };
-		6168F0251B86B128003F175F /* ChildController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6168F0241B86B128003F175F /* ChildController.m */; };
 		6168F0281B86B132003F175F /* CheckInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6168F0271B86B132003F175F /* CheckInController.m */; };
 		6168F02B1B86B141003F175F /* ToDoItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6168F02A1B86B141003F175F /* ToDoItemController.m */; };
 		6168F02E1B86B14D003F175F /* UserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6168F02D1B86B14D003F175F /* UserController.m */; };
 		6168F0311B86B157003F175F /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6168F0301B86B157003F175F /* LocationController.m */; };
 		6168F0361B86C02D003F175F /* LocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6168F0351B86C02D003F175F /* LocationAnnotation.m */; };
-		61CD4ED51B8FE19800AC9423 /* Parent.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4ED41B8FE19800AC9423 /* Parent.m */; };
-		61CD4ED81B8FE19800AC9423 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4ED71B8FE19800AC9423 /* Location.m */; };
-		61CD4EDB1B8FE19800AC9423 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EDA1B8FE19800AC9423 /* User.m */; };
-		61CD4EDE1B8FE19800AC9423 /* CheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EDD1B8FE19800AC9423 /* CheckIn.m */; };
-		61CD4EE11B8FE19800AC9423 /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE01B8FE19800AC9423 /* ToDoItem.m */; };
-		61CD4EE41B8FE19900AC9423 /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE31B8FE19900AC9423 /* Child.m */; };
-		61CD4EE71B8FE19900AC9423 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE61B8FE19900AC9423 /* Family.m */; };
 		61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */; };
+		61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */; };
+		61CD4EF01B90014900AC9423 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EEF1B90014900AC9423 /* Location.m */; };
+		61CD4EF31B90014A00AC9423 /* CheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EF21B90014A00AC9423 /* CheckIn.m */; };
+		61CD4EF61B90014A00AC9423 /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EF51B90014A00AC9423 /* ToDoItem.m */; };
+		61CD4EF91B90014A00AC9423 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EF81B90014A00AC9423 /* User.m */; };
+		61CD4EFC1B90014A00AC9423 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EFB1B90014A00AC9423 /* Family.m */; };
+		61CD4F021B90022000AC9423 /* ToDoItem+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4F011B90022000AC9423 /* ToDoItem+Additions.m */; };
 		61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */; };
 		61CFB13B1B88EFDD00946AD3 /* SetNewLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB13A1B88EFDD00946AD3 /* SetNewLocationMapViewController.m */; };
 		61CFB1411B88F6C400946AD3 /* NewLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1401B88F6C400946AD3 /* NewLocationTableViewController.m */; };
@@ -73,8 +72,8 @@
 		61658FF11B867C5D000CCC7A /* MyKidTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyKidTrackerTests.m; sourceTree = "<group>"; };
 		61658FFB1B867C87000CCC7A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		61658FFC1B867C87000CCC7A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		61658FFD1B867C87000CCC7A /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		61658FFE1B867C87000CCC7A /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		61658FFD1B867C87000CCC7A /* ChildrenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildrenViewController.h; sourceTree = "<group>"; };
+		61658FFE1B867C87000CCC7A /* ChildrenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildrenViewController.m; sourceTree = "<group>"; };
 		61658FFF1B867C87000CCC7A /* KidDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KidDetailsViewController.h; sourceTree = "<group>"; };
 		616590001B867C87000CCC7A /* KidDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KidDetailsViewController.m; sourceTree = "<group>"; };
 		616590011B867C87000CCC7A /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -91,8 +90,6 @@
 		616590181B868A7D000CCC7A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		6165901A1B86901B000CCC7A /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		6165901B1B86901B000CCC7A /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
-		6168F0231B86B128003F175F /* ChildController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildController.h; sourceTree = "<group>"; };
-		6168F0241B86B128003F175F /* ChildController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildController.m; sourceTree = "<group>"; };
 		6168F0261B86B132003F175F /* CheckInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInController.h; sourceTree = "<group>"; };
 		6168F0271B86B132003F175F /* CheckInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInController.m; sourceTree = "<group>"; };
 		6168F0291B86B140003F175F /* ToDoItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemController.h; sourceTree = "<group>"; };
@@ -103,22 +100,22 @@
 		6168F0301B86B157003F175F /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 		6168F0341B86C02D003F175F /* LocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAnnotation.h; sourceTree = "<group>"; };
 		6168F0351B86C02D003F175F /* LocationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAnnotation.m; sourceTree = "<group>"; };
-		61CD4ED31B8FE19800AC9423 /* Parent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parent.h; sourceTree = "<group>"; };
-		61CD4ED41B8FE19800AC9423 /* Parent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parent.m; sourceTree = "<group>"; };
-		61CD4ED61B8FE19800AC9423 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		61CD4ED71B8FE19800AC9423 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		61CD4ED91B8FE19800AC9423 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		61CD4EDA1B8FE19800AC9423 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		61CD4EDC1B8FE19800AC9423 /* CheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckIn.h; sourceTree = "<group>"; };
-		61CD4EDD1B8FE19800AC9423 /* CheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckIn.m; sourceTree = "<group>"; };
-		61CD4EDF1B8FE19800AC9423 /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
-		61CD4EE01B8FE19800AC9423 /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
-		61CD4EE21B8FE19800AC9423 /* Child.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Child.h; sourceTree = "<group>"; };
-		61CD4EE31B8FE19900AC9423 /* Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Child.m; sourceTree = "<group>"; };
-		61CD4EE51B8FE19900AC9423 /* Family.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Family.h; sourceTree = "<group>"; };
-		61CD4EE61B8FE19900AC9423 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
 		61CD4EE81B8FF17700AC9423 /* ToDoListsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListsTableViewController.h; sourceTree = "<group>"; };
 		61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListsTableViewController.m; sourceTree = "<group>"; };
+		61CD4EEB1B8FFDC800AC9423 /* User+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Additions.h"; sourceTree = "<group>"; };
+		61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Additions.m"; sourceTree = "<group>"; };
+		61CD4EEE1B90014900AC9423 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		61CD4EEF1B90014900AC9423 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		61CD4EF11B90014A00AC9423 /* CheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckIn.h; sourceTree = "<group>"; };
+		61CD4EF21B90014A00AC9423 /* CheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckIn.m; sourceTree = "<group>"; };
+		61CD4EF41B90014A00AC9423 /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
+		61CD4EF51B90014A00AC9423 /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
+		61CD4EF71B90014A00AC9423 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		61CD4EF81B90014A00AC9423 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		61CD4EFA1B90014A00AC9423 /* Family.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Family.h; sourceTree = "<group>"; };
+		61CD4EFB1B90014A00AC9423 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
+		61CD4F001B90022000AC9423 /* ToDoItem+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDoItem+Additions.h"; sourceTree = "<group>"; };
+		61CD4F011B90022000AC9423 /* ToDoItem+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ToDoItem+Additions.m"; sourceTree = "<group>"; };
 		61CFB1361B88ED2B00946AD3 /* ParentOptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentOptionsTableViewController.h; sourceTree = "<group>"; };
 		61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentOptionsTableViewController.m; sourceTree = "<group>"; };
 		61CFB1391B88EFDD00946AD3 /* SetNewLocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetNewLocationMapViewController.h; sourceTree = "<group>"; };
@@ -191,8 +188,8 @@
 				61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */,
 				61658FFB1B867C87000CCC7A /* RegisterViewController.h */,
 				61658FFC1B867C87000CCC7A /* RegisterViewController.m */,
-				61658FFD1B867C87000CCC7A /* MasterViewController.h */,
-				61658FFE1B867C87000CCC7A /* MasterViewController.m */,
+				61658FFD1B867C87000CCC7A /* ChildrenViewController.h */,
+				61658FFE1B867C87000CCC7A /* ChildrenViewController.m */,
 				61658FFF1B867C87000CCC7A /* KidDetailsViewController.h */,
 				616590001B867C87000CCC7A /* KidDetailsViewController.m */,
 				616590011B867C87000CCC7A /* DetailViewController.h */,
@@ -256,8 +253,6 @@
 		6168F0321B86B171003F175F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6168F0231B86B128003F175F /* ChildController.h */,
-				6168F0241B86B128003F175F /* ChildController.m */,
 				6168F0261B86B132003F175F /* CheckInController.h */,
 				6168F0271B86B132003F175F /* CheckInController.m */,
 				6168F0291B86B140003F175F /* ToDoItemController.h */,
@@ -275,20 +270,20 @@
 		6168F0331B86B184003F175F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				61CD4EE51B8FE19900AC9423 /* Family.h */,
-				61CD4EE61B8FE19900AC9423 /* Family.m */,
-				61CD4EE21B8FE19800AC9423 /* Child.h */,
-				61CD4EE31B8FE19900AC9423 /* Child.m */,
-				61CD4EDF1B8FE19800AC9423 /* ToDoItem.h */,
-				61CD4EE01B8FE19800AC9423 /* ToDoItem.m */,
-				61CD4EDC1B8FE19800AC9423 /* CheckIn.h */,
-				61CD4EDD1B8FE19800AC9423 /* CheckIn.m */,
-				61CD4ED91B8FE19800AC9423 /* User.h */,
-				61CD4EDA1B8FE19800AC9423 /* User.m */,
-				61CD4ED61B8FE19800AC9423 /* Location.h */,
-				61CD4ED71B8FE19800AC9423 /* Location.m */,
-				61CD4ED31B8FE19800AC9423 /* Parent.h */,
-				61CD4ED41B8FE19800AC9423 /* Parent.m */,
+				61CD4EFA1B90014A00AC9423 /* Family.h */,
+				61CD4EFB1B90014A00AC9423 /* Family.m */,
+				61CD4EF71B90014A00AC9423 /* User.h */,
+				61CD4EF81B90014A00AC9423 /* User.m */,
+				61CD4EEB1B8FFDC800AC9423 /* User+Additions.h */,
+				61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */,
+				61CD4EF41B90014A00AC9423 /* ToDoItem.h */,
+				61CD4EF51B90014A00AC9423 /* ToDoItem.m */,
+				61CD4F001B90022000AC9423 /* ToDoItem+Additions.h */,
+				61CD4F011B90022000AC9423 /* ToDoItem+Additions.m */,
+				61CD4EF11B90014A00AC9423 /* CheckIn.h */,
+				61CD4EF21B90014A00AC9423 /* CheckIn.m */,
+				61CD4EEE1B90014900AC9423 /* Location.h */,
+				61CD4EEF1B90014900AC9423 /* Location.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -394,35 +389,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61CD4EDB1B8FE19800AC9423 /* User.m in Sources */,
 				6168F02E1B86B14D003F175F /* UserController.m in Sources */,
-				61CD4EE11B8FE19800AC9423 /* ToDoItem.m in Sources */,
 				6168F0361B86C02D003F175F /* LocationAnnotation.m in Sources */,
+				61CD4EF61B90014A00AC9423 /* ToDoItem.m in Sources */,
 				61D0E9041B8EAE2200C8B290 /* LocationsTableViewController.m in Sources */,
 				61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */,
 				6165901C1B86901B000CCC7A /* Stack.m in Sources */,
-				61CD4EE71B8FE19900AC9423 /* Family.m in Sources */,
-				61CD4ED51B8FE19800AC9423 /* Parent.m in Sources */,
 				6165900A1B867C87000CCC7A /* KidDetailsViewController.m in Sources */,
+				61CD4EFC1B90014A00AC9423 /* Family.m in Sources */,
 				61658FDE1B867C5D000CCC7A /* LogInViewController.m in Sources */,
 				61CFB13B1B88EFDD00946AD3 /* SetNewLocationMapViewController.m in Sources */,
 				6168F02B1B86B141003F175F /* ToDoItemController.m in Sources */,
 				6168F0311B86B157003F175F /* LocationController.m in Sources */,
-				61CD4ED81B8FE19800AC9423 /* Location.m in Sources */,
 				61658FDB1B867C5D000CCC7A /* AppDelegate.m in Sources */,
 				6165900D1B867C87000CCC7A /* ChildDetailViewController.m in Sources */,
 				6168F0281B86B132003F175F /* CheckInController.m in Sources */,
-				61CD4EDE1B8FE19800AC9423 /* CheckIn.m in Sources */,
-				616590091B867C87000CCC7A /* MasterViewController.m in Sources */,
+				61CD4F021B90022000AC9423 /* ToDoItem+Additions.m in Sources */,
+				616590091B867C87000CCC7A /* ChildrenViewController.m in Sources */,
+				61CD4EF01B90014900AC9423 /* Location.m in Sources */,
+				61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */,
+				61CD4EF31B90014A00AC9423 /* CheckIn.m in Sources */,
 				6165900C1B867C87000CCC7A /* ChildTimeSheetViewController.m in Sources */,
 				61658FD81B867C5D000CCC7A /* main.m in Sources */,
 				61D0E9011B8EACE500C8B290 /* CreateToDoListTableViewController.m in Sources */,
 				616590111B867DC0000CCC7A /* MapViewController.m in Sources */,
 				61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */,
 				616590081B867C87000CCC7A /* RegisterViewController.m in Sources */,
-				61CD4EE41B8FE19900AC9423 /* Child.m in Sources */,
+				61CD4EF91B90014A00AC9423 /* User.m in Sources */,
 				616590191B868A7D000CCC7A /* Model.xcdatamodeld in Sources */,
-				6168F0251B86B128003F175F /* ChildController.m in Sources */,
 				61CFB1411B88F6C400946AD3 /* NewLocationTableViewController.m in Sources */,
 				6165900B1B867C87000CCC7A /* DetailViewController.m in Sources */,
 			);

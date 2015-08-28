@@ -7,7 +7,6 @@
 //
 
 #import "ToDoItem.h"
-#import "Child.h"
 #import "Family.h"
 #import "Location.h"
 #import "User.h"
@@ -21,9 +20,8 @@
 @dynamic itemDescription;
 @dynamic itemTitle;
 @dynamic locationName;
-@dynamic child;
+@dynamic user;
 @dynamic familyName;
 @dynamic location;
-@dynamic primaryUser;
 
 @end

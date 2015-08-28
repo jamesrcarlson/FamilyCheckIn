@@ -1,20 +1,15 @@
 //
-//  Family.m
+//  ToDoItem+ToDoItem_Additions.h
 //  MyKidTracker
 //
 //  Created by James Carlson on 8/27/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
-#import "Family.h"
 #import "ToDoItem.h"
-#import "User.h"
 
+@interface ToDoItem (Additions)
 
-@implementation Family
-
-@dynamic familyName;
-@dynamic toDoList;
-@dynamic user;
+@property (nonatomic, assign) BOOL isComplete;
 
 @end
