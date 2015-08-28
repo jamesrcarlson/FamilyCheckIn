@@ -1,19 +1,19 @@
 //
-//  LocationsTableViewController.m
+//  ToDoListsTableViewController.m
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/26/15.
+//  Created by James Carlson on 8/27/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
-#import "LocationsTableViewController.h"
-#import "LocationController.h"
+#import "ToDoListsTableViewController.h"
+#import "ToDoItemController.h"
 
-@interface LocationsTableViewController ()
+@interface ToDoListsTableViewController ()
 
 @end
 
-@implementation LocationsTableViewController
+@implementation ToDoListsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,7 +22,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,31 +33,25 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    NSLog([NSString stringWithFormat:@"%lu",(unsigned long)[LocationController sharedInstance].locations.count]);
-    return [LocationController sharedInstance].locations.count;
+    return [ToDoItemController sharedInstance].toDoLists.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"toDoListCell" forIndexPath:indexPath];
     
-    Location *location = [LocationController sharedInstance].locations[indexPath.row];
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"locationsCell" forIndexPath:indexPath];
-    
-    cell.textLabel.text = location.locationTitle;
-    cell.detailTextLabel.text = location.locationSnippet;
+    ToDoItem *toDo = [ToDoItemController sharedInstance].toDoLists[indexPath.row];
+    cell.textLabel.text = toDo.itemTitle;
+    cell.detailTextLabel.text = toDo.itemDescription;
     
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Location *location = [LocationController sharedInstance].locations[indexPath.row];
-    [self.delegate userDidSelectLocation:location.locationTitle withLocation:location.longitude latitude:location.latitude];
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -67,17 +61,17 @@
 }
 */
 
-
+/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        Location *location = [LocationController sharedInstance].locations[indexPath.row];
-        [[LocationController sharedInstance]removeLocation:location];
+        // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
 }
-
+*/
 
 /*
 // Override to support rearranging the table view.

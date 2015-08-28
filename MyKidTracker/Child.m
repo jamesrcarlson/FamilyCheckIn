@@ -2,15 +2,16 @@
 //  Child.m
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/22/15.
+//  Created by James Carlson on 8/27/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
 #import "Child.h"
 #import "CheckIn.h"
 #import "Family.h"
-#import "User.h"
+#import "Parent.h"
 #import "ToDoItem.h"
+#import "User.h"
 
 
 @implementation Child
@@ -22,9 +23,9 @@
 @dynamic phoneNumber;
 @dynamic profilePhoto;
 @dynamic checkIns;
-@dynamic primaryUser;
-@dynamic toDoList;
 @dynamic family;
 @dynamic parents;
+@dynamic primaryUser;
+@dynamic toDoList;
 
 @end

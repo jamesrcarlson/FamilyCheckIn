@@ -10,7 +10,7 @@
 
 @protocol selectLocationDelegate <NSObject>
 
-- (void) userDidSelectLocation:(NSString *)locationTitle;
+- (void) userDidSelectLocation:(NSString *)locationTitle withLocation:(NSString *)longitude latitude:(NSString *)latitude;
 
 @end
 

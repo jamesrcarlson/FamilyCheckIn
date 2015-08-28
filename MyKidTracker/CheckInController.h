@@ -17,4 +17,6 @@
 
 - (CheckIn *)createCheckInWithLocationName:(NSString *)locationName checkInDate:(NSDate *)date;
 
+- (void)removeCheckinItem:(CheckIn *)checkIn;
+
 @end

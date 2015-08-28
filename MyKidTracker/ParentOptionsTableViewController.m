@@ -11,6 +11,7 @@
 #import "MasterViewController.h"
 #import "CreateToDoListTableViewController.h"
 #import "LocationsTableViewController.h"
+#import "ToDoListsTableViewController.h"
 
 @interface ParentOptionsTableViewController ()
 
@@ -50,9 +51,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if (indexPath.row == 0) {
+        MasterViewController *masterView = (MasterViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
+        [self.navigationController pushViewController:masterView animated:YES];
+        
+    }
     if (indexPath.row == 2) {
         LocationsTableViewController *locations = (LocationsTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"LocationsTableViewController"];
         [self.navigationController pushViewController:locations animated:YES];
+    }
+    if (indexPath.row == 3) {
+        ToDoListsTableViewController *toDo = (ToDoListsTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ToDoListsTableViewController"];
+        [self.navigationController pushViewController:toDo animated:YES];
     }
     if (indexPath.row == 4) {
         CreateToDoListTableViewController *createList = (CreateToDoListTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"CreateToDoList"];

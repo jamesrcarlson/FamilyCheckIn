@@ -33,7 +33,7 @@
 
 - (NSArray *)checkins {
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CheckIn"];
     
     NSArray *fetchedObjects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
@@ -52,8 +52,9 @@
 
 #pragma mark - Delete
 
-- (void)removeEntry:(CheckIn *)checkIn {
+- (void)removeCheckinItem:(CheckIn *)checkIn {
     [checkIn.managedObjectContext deleteObject:checkIn];
+    [self save];
 }
 
 @end

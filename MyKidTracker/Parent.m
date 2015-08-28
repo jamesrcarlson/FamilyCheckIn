@@ -2,7 +2,7 @@
 //  Parent.m
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/22/15.
+//  Created by James Carlson on 8/27/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @implementation Parent
 
+@dynamic emailAddress;
 @dynamic firstName;
 @dynamic lastName;
-@dynamic emailAddress;
 @dynamic phoneNumber;
-@dynamic user;
-@dynamic familyName;
 @dynamic children;
+@dynamic familyName;
+@dynamic user;
 
 @end

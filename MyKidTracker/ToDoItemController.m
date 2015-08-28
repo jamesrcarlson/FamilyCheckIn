@@ -20,7 +20,7 @@
     return sharedInstance;
 }
 
-- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description locationName:(NSString *)location familyName:(NSString *)familyName dueDate:(NSDate *)date isComplete:(Boolean *)completed {
+- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description locationName:(NSString *)location familyName:(NSString *)familyName dueDate:(NSDate *)date isComplete:(NSString *)completed {
     
     ToDoItem *toDo = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     toDo.itemTitle = title;
@@ -28,7 +28,7 @@
     toDo.locationName = location;
     toDo.family = familyName;
     toDo.dueDate = date;
-    toDo.completed = [NSNumber numberWithBool:completed];
+    toDo.completed = completed;
     
     [self saveToPersistentStorage];
     
@@ -36,9 +36,9 @@
     
 }
 
-- (NSArray *)user {
+- (NSArray *)toDoLists {
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"ToDoItem"];
     
     NSArray *fetchedObjects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
@@ -57,8 +57,9 @@
 
 #pragma mark - Delete
 
-- (void)removeEntry:(ToDoItem *)toDo {
+- (void)removeToDoItem:(ToDoItem *)toDo {
     [toDo.managedObjectContext deleteObject:toDo];
+    [self save];
 }
 
 @end

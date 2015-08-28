@@ -20,7 +20,7 @@
     return sharedInstance;
 }
 
-- (Child *)createChildWithFamilyName:(NSString *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(Boolean *)role {
+- (Child *)createChildWithFamilyName:(NSString *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number{
     
     Child *child = [NSEntityDescription insertNewObjectForEntityForName:@"Child" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     child.familyName = family;
@@ -38,7 +38,7 @@
 
 - (NSArray *)children {
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Child"];
     
     NSArray *fetchedObjects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
@@ -57,8 +57,9 @@
 
 #pragma mark - Delete
 
-- (void)removeEntry:(Child *)child {
+- (void)removeChild:(Child *)child {
     [child.managedObjectContext deleteObject:child];
+    [self save];
 }
 
 @end

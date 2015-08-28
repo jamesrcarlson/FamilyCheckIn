@@ -47,7 +47,7 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="parents" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="ToDoItem" representedClassName="ToDoItem" syncable="YES">
-        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="completed" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dueDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="family" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
@@ -65,7 +65,7 @@
         <attribute name="userLastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userPhoneNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="userPhoto" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="userRole" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="userRole" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="checkIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="primaryUser" inverseEntity="CheckIn" syncable="YES"/>
         <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Child" inverseName="primaryUser" inverseEntity="Child" syncable="YES"/>
         <relationship name="myFamily" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="user" inverseEntity="Family" syncable="YES"/>
@@ -75,10 +75,10 @@
     <elements>
         <element name="CheckIn" positionX="153" positionY="24" width="128" height="118"/>
         <element name="Child" positionX="-90" positionY="-234" width="128" height="210"/>
-        <element name="Location" positionX="-90" positionY="3" width="128" height="165"/>
-        <element name="User" positionX="169" positionY="-234" width="128" height="225"/>
-        <element name="ToDoItem" positionX="-290" positionY="-162" width="128" height="195"/>
         <element name="Family" positionX="-90" positionY="-90" width="128" height="120"/>
+        <element name="Location" positionX="-90" positionY="3" width="128" height="165"/>
         <element name="Parent" positionX="-81" positionY="-81" width="128" height="150"/>
+        <element name="ToDoItem" positionX="-290" positionY="-162" width="128" height="195"/>
+        <element name="User" positionX="169" positionY="-234" width="128" height="225"/>
     </elements>
 </model>

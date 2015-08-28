@@ -15,6 +15,8 @@
 
 + (ChildController *)sharedInstance;
 
-- (Child *)createChildWithFamilyName:(NSString *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(Boolean *)role;
+- (Child *)createChildWithFamilyName:(NSString *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number;
+
+- (void)removeChild:(Child *)child;
 
 @end

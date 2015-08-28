@@ -58,6 +58,7 @@
 
 - (void)removeLocation:(Location *)location {
     [location.managedObjectContext deleteObject:location];
+    [self save];
 }
 
 

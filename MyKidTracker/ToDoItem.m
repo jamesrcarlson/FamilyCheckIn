@@ -2,7 +2,7 @@
 //  ToDoItem.m
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/22/15.
+//  Created by James Carlson on 8/27/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -15,15 +15,15 @@
 
 @implementation ToDoItem
 
-@dynamic itemDescription;
-@dynamic itemTitle;
-@dynamic locationName;
 @dynamic completed;
 @dynamic dueDate;
 @dynamic family;
+@dynamic itemDescription;
+@dynamic itemTitle;
+@dynamic locationName;
 @dynamic child;
+@dynamic familyName;
 @dynamic location;
 @dynamic primaryUser;
-@dynamic familyName;
 
 @end

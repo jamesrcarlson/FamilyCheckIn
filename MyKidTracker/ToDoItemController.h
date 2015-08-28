@@ -11,11 +11,12 @@
 
 @interface ToDoItemController : NSObject
 
-@property (strong, nonatomic) NSArray *user;
+@property (strong, nonatomic) NSArray *toDoLists;
 
 + (ToDoItemController *)sharedInstance;
 
-- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description locationName:(NSString *)location familyName:(NSString *)familyName dueDate:(NSDate *)date isComplete:(Boolean *)completed;
+- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description locationName:(NSString *)location familyName:(NSString *)familyName dueDate:(NSDate *)date isComplete:(NSString *)completed;
 
+- (void)removeToDoItem:(ToDoItem *)toDo;
 
 @end

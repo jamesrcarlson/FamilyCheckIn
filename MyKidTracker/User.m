@@ -2,7 +2,7 @@
 //  User.m
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/22/15.
+//  Created by James Carlson on 8/27/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -25,8 +25,8 @@
 @dynamic userRole;
 @dynamic checkIns;
 @dynamic children;
-@dynamic toDoList;
 @dynamic myFamily;
 @dynamic parents;
+@dynamic toDoList;
 
 @end
