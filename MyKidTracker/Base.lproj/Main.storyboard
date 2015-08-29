@@ -147,8 +147,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E9o-uW-79m" id="BGM-ko-ts0">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6d-Pu-S3Q">
-                                                    <rect key="frame" x="8" y="11" width="100" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Family Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6d-Pu-S3Q">
+                                                    <rect key="frame" x="8" y="11" width="105" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="z8P-EF-jAF"/>
                                                     </constraints>
@@ -156,8 +156,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="associated family name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWF-0G-m3A">
-                                                    <rect key="frame" x="116" y="7" width="476" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="associated family name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWF-0G-m3A">
+                                                    <rect key="frame" x="121" y="7" width="471" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>

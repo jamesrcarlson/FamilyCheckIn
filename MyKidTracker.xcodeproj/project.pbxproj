@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6155238B1B9129070001FB75 /* FamilyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6155238A1B9129070001FB75 /* FamilyController.m */; };
 		61658FD81B867C5D000CCC7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FD71B867C5D000CCC7A /* main.m */; };
 		61658FDB1B867C5D000CCC7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FDA1B867C5D000CCC7A /* AppDelegate.m */; };
 		61658FDE1B867C5D000CCC7A /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FDD1B867C5D000CCC7A /* LogInViewController.m */; };
@@ -57,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		615523891B9129070001FB75 /* FamilyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyController.h; sourceTree = "<group>"; };
+		6155238A1B9129070001FB75 /* FamilyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyController.m; sourceTree = "<group>"; };
 		61658FD21B867C5D000CCC7A /* MyKidTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKidTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61658FD61B867C5D000CCC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61658FD71B867C5D000CCC7A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 		6168F0321B86B171003F175F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				615523891B9129070001FB75 /* FamilyController.h */,
+				6155238A1B9129070001FB75 /* FamilyController.m */,
 				6168F0261B86B132003F175F /* CheckInController.h */,
 				6168F0271B86B132003F175F /* CheckInController.m */,
 				6168F0291B86B140003F175F /* ToDoItemController.h */,
@@ -392,6 +397,7 @@
 				6168F02E1B86B14D003F175F /* UserController.m in Sources */,
 				6168F0361B86C02D003F175F /* LocationAnnotation.m in Sources */,
 				61CD4EF61B90014A00AC9423 /* ToDoItem.m in Sources */,
+				6155238B1B9129070001FB75 /* FamilyController.m in Sources */,
 				61D0E9041B8EAE2200C8B290 /* LocationsTableViewController.m in Sources */,
 				61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */,
 				6165901C1B86901B000CCC7A /* Stack.m in Sources */,

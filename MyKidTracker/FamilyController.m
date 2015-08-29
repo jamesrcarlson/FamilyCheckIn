@@ -1,0 +1,57 @@
+//
+//  FamilyController.m
+//  MyKidTracker
+//
+//  Created by James Carlson on 8/28/15.
+//  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
+//
+
+#import "FamilyController.h"
+#import "Stack.h"
+
+@implementation FamilyController
+
++ (FamilyController *)sharedInstance {
+    static FamilyController *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [FamilyController new];
+    });
+    return sharedInstance;
+}
+
+- (Family *)createFamilyWithName:(NSString *)familyName {
+    Family *aFamily = [NSEntityDescription insertNewObjectForEntityForName:@"Family" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    aFamily.familyName = familyName;
+    
+    [self saveToPersistentStorage];
+    return aFamily;
+}
+- (NSArray *)families {
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Family"];
+    
+    NSArray *fetchedObjects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    return fetchedObjects;
+}
+
+#pragma mark - Update
+
+- (void)save {
+    [self saveToPersistentStorage];
+}
+
+- (void)saveToPersistentStorage {
+    [[Stack sharedInstance].managedObjectContext save:nil];
+}
+
+#pragma mark - Delete
+
+- (void)removeCheckinItem:(Family *)theFamily {
+    [theFamily.managedObjectContext deleteObject:theFamily];
+    [self save];
+}
+
+
+@end

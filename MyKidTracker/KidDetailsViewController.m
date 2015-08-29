@@ -7,7 +7,7 @@
 //
 
 #import "KidDetailsViewController.h"
-#import "ChildController.h"
+#import "UserController.h"
 #import "CheckInController.h"
 
 @interface KidDetailsViewController () <UISplitViewControllerDelegate>

@@ -19,9 +19,4 @@
 
 - (void)removeLocation:(Location *)location;
 
-//- (void)addCheckInsObject:(NSManagedObject *)value; // these were created by the computer in the modelObject
-//- (void)removeCheckInsObject:(NSManagedObject *)value;
-//- (void)addCheckIns:(NSSet *)values;
-//- (void)removeCheckIns:(NSSet *)values;
-
 @end

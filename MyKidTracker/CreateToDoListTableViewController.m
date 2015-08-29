@@ -21,6 +21,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *longitudeLabel;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
+@property (strong, nonatomic) Location *location;
+@property (strong, nonatomic) Family *theFamily;
 
 @end
 
@@ -94,7 +96,7 @@
 }
 
 - (void) saveData {
-    [[ToDoItemController sharedInstance]createToDoItemWithTitle:self.itemTitleTextField.text details:self.itemDescriptionTextField.text locationName:self.locationTitleHolder familyName:self.familyNameTextField.text dueDate:self.datePicker.date isComplete:@"no"];
+    [[ToDoItemController sharedInstance]createToDoItemWithTitle:self.itemTitleTextField.text details:self.itemDescriptionTextField.text location:self.location familyName:self.theFamily dueDate:self.datePicker.date isCompleted:NO];
 }
 
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

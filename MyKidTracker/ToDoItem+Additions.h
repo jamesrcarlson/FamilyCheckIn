@@ -10,6 +10,6 @@
 
 @interface ToDoItem (Additions)
 
-@property (nonatomic, assign) BOOL isComplete;
+@property (nonatomic, assign) BOOL isCompleted;
 
 @end

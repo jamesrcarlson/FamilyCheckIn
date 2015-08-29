@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>4C0025C1-BD4B-41F6-92B2-D0FB80133526</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>MyKidTracker</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>08ADB33BAE11F2AE0BCEDEF2036DAF6CEBAE9A9A</key>
 		<string>https://github.com/jamesrcarlson/MyKidTracker.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MyKidTracker.xcodeproj/project.xcworkspace</string>
+	<string>MyKidTracker.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>08ADB33BAE11F2AE0BCEDEF2036DAF6CEBAE9A9A</key>

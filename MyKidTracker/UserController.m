@@ -20,7 +20,7 @@
     return sharedInstance;
 }
 
-- (User *)createUserWithFamilyName:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role {
+- (User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role {
     
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     user.myFamily = family;

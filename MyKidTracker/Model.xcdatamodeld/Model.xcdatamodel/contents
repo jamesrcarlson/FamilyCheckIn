@@ -45,7 +45,7 @@
         <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="user" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CheckIn" positionX="153" positionY="24" width="128" height="103"/>
+        <element name="CheckIn" positionX="153" positionY="24" width="128" height="105"/>
         <element name="Family" positionX="232" positionY="-552" width="128" height="88"/>
         <element name="Location" positionX="-90" positionY="3" width="128" height="165"/>
         <element name="ToDoItem" positionX="-351" positionY="-132" width="128" height="178"/>

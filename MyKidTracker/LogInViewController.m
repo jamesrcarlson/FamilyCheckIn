@@ -7,16 +7,14 @@
 //
 
 #import "LogInViewController.h"
-#import "LocationController.h"
 #import "UserController.h"
-#import "CheckInController.h"
-#import "ToDoItemController.h"
-#import "UserController.h"
+#import "FamilyController.h"
+
 
 @interface LogInViewController ()
 
-@property (strong,nonatomic) Location *location;
-@property (strong, nonatomic) User*user;
+@property (strong, nonatomic) User *user;
+@property (strong, nonatomic) Family *family;
 
 @end
 
@@ -25,13 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    CheckIn*checkIn = [CheckInController]
-//    self.child = [[ChildController sharedInstance]createChildWithFamilyName:@"boboram" firstname:@"Tony" lastName:@"Stevens" emailAddress:@"tony@gmail.com" phoneNumber:@8013100077];
+    self.family = [[FamilyController sharedInstance]createFamilyWithName:@"boboram"];
+    
+    self.user = [[UserController sharedInstance]createUserWithFamily:self.family firstname:@"Tony" lastName:@"Stevens" emailAddress:@"tony@gmail.com" phoneNumber:@8013100077 userRole:YES];
 //
 //        self.location = [[LocationController sharedInstance] createLocationWithFamily:@"Boboram" title:@"Tod's House" infoSnippet:@"The house where Tod lives" lattitude:@"37.332167" longitude:@"-122.04962" radius:@20];
 //    self.location = [[LocationController sharedInstance] createLocationWithFamily:@"Boboram" title:@"Joe's House" infoSnippet:@"This is where Joe lives" lattitude:@"37.322146" longitude:@"-122.03962" radius:@15];
 //    self.location = [[LocationController sharedInstance] createLocationWithFamily:@"Boboram" title:@"testing" infoSnippet:@"This is one last test" lattitude:@"37.316035" longitude:@"-122.22962" radius:@25];
     
+
 }
 
 - (void)didReceiveMemoryWarning {

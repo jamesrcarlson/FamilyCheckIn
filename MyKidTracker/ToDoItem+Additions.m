@@ -10,10 +10,12 @@
 
 @implementation ToDoItem (Additions)
 
-- (BOOL)isComplete {
+
+- (BOOL)isCompleted {
     return self.completed.boolValue;
 }
--(void)setIsComplete:(BOOL)isComplete {
-    self.completed = @(isComplete);
+
+-(void)setIsCompleted:(BOOL)isCompleted {
+    self.completed = @(isCompleted);
 }
 @end
