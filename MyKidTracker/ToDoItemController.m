@@ -28,7 +28,7 @@
     toDo.location = location;
     toDo.familyName = familyName;
     toDo.dueDate = date;
-    toDo.isCompleted = isDone;
+    toDo.itemIsCompleted = isDone;
     
     [self saveToPersistentStorage];
     

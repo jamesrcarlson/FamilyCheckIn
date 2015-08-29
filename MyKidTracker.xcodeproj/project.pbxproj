@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6155238B1B9129070001FB75 /* FamilyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6155238A1B9129070001FB75 /* FamilyController.m */; };
+		61646CD11B92059000C67A7D /* ToDoItem+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61646CD01B92059000C67A7D /* ToDoItem+Additions.m */; };
 		61658FD81B867C5D000CCC7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FD71B867C5D000CCC7A /* main.m */; };
 		61658FDB1B867C5D000CCC7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FDA1B867C5D000CCC7A /* AppDelegate.m */; };
 		61658FDE1B867C5D000CCC7A /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FDD1B867C5D000CCC7A /* LogInViewController.m */; };
@@ -39,7 +40,6 @@
 		61CD4EF61B90014A00AC9423 /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EF51B90014A00AC9423 /* ToDoItem.m */; };
 		61CD4EF91B90014A00AC9423 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EF81B90014A00AC9423 /* User.m */; };
 		61CD4EFC1B90014A00AC9423 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EFB1B90014A00AC9423 /* Family.m */; };
-		61CD4F021B90022000AC9423 /* ToDoItem+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4F011B90022000AC9423 /* ToDoItem+Additions.m */; };
 		61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */; };
 		61CFB13B1B88EFDD00946AD3 /* SetNewLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB13A1B88EFDD00946AD3 /* SetNewLocationMapViewController.m */; };
 		61CFB1411B88F6C400946AD3 /* NewLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1401B88F6C400946AD3 /* NewLocationTableViewController.m */; };
@@ -60,6 +60,8 @@
 /* Begin PBXFileReference section */
 		615523891B9129070001FB75 /* FamilyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyController.h; sourceTree = "<group>"; };
 		6155238A1B9129070001FB75 /* FamilyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyController.m; sourceTree = "<group>"; };
+		61646CCF1B92059000C67A7D /* ToDoItem+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDoItem+Additions.h"; sourceTree = "<group>"; };
+		61646CD01B92059000C67A7D /* ToDoItem+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ToDoItem+Additions.m"; sourceTree = "<group>"; };
 		61658FD21B867C5D000CCC7A /* MyKidTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKidTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61658FD61B867C5D000CCC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61658FD71B867C5D000CCC7A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -117,8 +119,6 @@
 		61CD4EF81B90014A00AC9423 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		61CD4EFA1B90014A00AC9423 /* Family.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Family.h; sourceTree = "<group>"; };
 		61CD4EFB1B90014A00AC9423 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
-		61CD4F001B90022000AC9423 /* ToDoItem+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDoItem+Additions.h"; sourceTree = "<group>"; };
-		61CD4F011B90022000AC9423 /* ToDoItem+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ToDoItem+Additions.m"; sourceTree = "<group>"; };
 		61CFB1361B88ED2B00946AD3 /* ParentOptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentOptionsTableViewController.h; sourceTree = "<group>"; };
 		61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentOptionsTableViewController.m; sourceTree = "<group>"; };
 		61CFB1391B88EFDD00946AD3 /* SetNewLocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetNewLocationMapViewController.h; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 				61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */,
 				61CD4EF41B90014A00AC9423 /* ToDoItem.h */,
 				61CD4EF51B90014A00AC9423 /* ToDoItem.m */,
-				61CD4F001B90022000AC9423 /* ToDoItem+Additions.h */,
-				61CD4F011B90022000AC9423 /* ToDoItem+Additions.m */,
+				61646CCF1B92059000C67A7D /* ToDoItem+Additions.h */,
+				61646CD01B92059000C67A7D /* ToDoItem+Additions.m */,
 				61CD4EF11B90014A00AC9423 /* CheckIn.h */,
 				61CD4EF21B90014A00AC9423 /* CheckIn.m */,
 				61CD4EEE1B90014900AC9423 /* Location.h */,
@@ -410,9 +410,9 @@
 				61658FDB1B867C5D000CCC7A /* AppDelegate.m in Sources */,
 				6165900D1B867C87000CCC7A /* ChildDetailViewController.m in Sources */,
 				6168F0281B86B132003F175F /* CheckInController.m in Sources */,
-				61CD4F021B90022000AC9423 /* ToDoItem+Additions.m in Sources */,
 				616590091B867C87000CCC7A /* ChildrenViewController.m in Sources */,
 				61CD4EF01B90014900AC9423 /* Location.m in Sources */,
+				61646CD11B92059000C67A7D /* ToDoItem+Additions.m in Sources */,
 				61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */,
 				61CD4EF31B90014A00AC9423 /* CheckIn.m in Sources */,
 				6165900C1B867C87000CCC7A /* ChildTimeSheetViewController.m in Sources */,

@@ -1,8 +1,8 @@
 //
-//  ToDoItem+ToDoItem_Additions.h
+//  ToDoItem+Additions.h
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/27/15.
+//  Created by James Carlson on 8/29/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -10,6 +10,6 @@
 
 @interface ToDoItem (Additions)
 
-@property (nonatomic, assign) BOOL isCompleted;
+@property (nonatomic, assign) BOOL itemIsCompleted;
 
 @end

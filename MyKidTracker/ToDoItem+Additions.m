@@ -1,8 +1,8 @@
 //
-//  ToDoItem+ToDoItem_Additions.m
+//  ToDoItem+Additions.m
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/27/15.
+//  Created by James Carlson on 8/29/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -10,12 +10,17 @@
 
 @implementation ToDoItem (Additions)
 
-
-- (BOOL)isCompleted {
+-(BOOL)itemIsCompleted {
+    
     return self.completed.boolValue;
+    
 }
 
--(void)setIsCompleted:(BOOL)isCompleted {
-    self.completed = @(isCompleted);
+
+
+-(void)setItemIsCompleted:(BOOL)itemIsCompleted {
+    
+    self.completed = @(itemIsCompleted);
+    
 }
 @end
