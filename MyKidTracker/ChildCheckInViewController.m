@@ -6,17 +6,18 @@
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
-#import "KidDetailsViewController.h"
+#import "ChildCheckInViewController.h"
 #import "UserController.h"
 #import "CheckInController.h"
+#import "DetailsTableViewController.h"
 
-@interface KidDetailsViewController () <UISplitViewControllerDelegate>
+@interface ChildCheckInViewController () <UISplitViewControllerDelegate>
 
 @property NSMutableArray *objects;
 
 @end
 
-@implementation KidDetailsViewController
+@implementation ChildCheckInViewController
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -55,19 +56,7 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-#pragma mark - Segues
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //        NSDate *object = self.objects[indexPath.row];
-        NSString *pulled = self.objects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
-        [controller setDetailItem:pulled];
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
-    }
-}
 
 #pragma mark - Table View
 
@@ -76,13 +65,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return [CheckInController sharedInstance].checkins.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"kidDetailCell" forIndexPath:indexPath];
-    
-    cell.textLabel.text = @"";
+    CheckIn *checkin = [CheckInController sharedInstance].checkins[indexPath.row];
+    cell.textLabel.text = checkin.locationName;
     return cell;
 }
 
@@ -93,10 +82,21 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+//        
+//        Location *location = [LocationController sharedInstance].locations[indexPath.row];
+//        [[LocationController sharedInstance]removeLocation:location];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        DetailsTableViewController *details = segue.destinationViewController;
+        details.theCheckIn = [CheckInController sharedInstance].checkins[0];
+        
     }
 }
 

@@ -15,7 +15,7 @@
 
 + (CheckInController *)sharedInstance;
 
-- (CheckIn *)createCheckInWithLocation:(Location *)location locationName:(NSString *)locationName checkInDate:(NSDate *)date;
+- (CheckIn *)createCheckInWithLocation:(Location *)location user:(User *)userName locationName:(NSString *)locationName checkInDate:(NSDate *)date;
 
 - (void)removeCheckinItem:(CheckIn *)checkIn;
 

@@ -9,6 +9,7 @@
 #import "ToDoItemController.h"
 #import "Stack.h"
 
+
 @implementation ToDoItemController
 
 + (ToDoItemController *)sharedInstance {
@@ -20,7 +21,7 @@
     return sharedInstance;
 }
 
-- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description location:(Location *)location familyName:(Family *)familyName dueDate:(NSDate *)date isCompleted:(BOOL)isDone {
+- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description location:(Location *)location familyName:(Family *)familyName dueDate:(NSDate *)date isCompleted:(BOOL)done {
     
     ToDoItem *toDo = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     toDo.itemTitle = title;
@@ -28,7 +29,7 @@
     toDo.location = location;
     toDo.familyName = familyName;
     toDo.dueDate = date;
-    toDo.itemIsCompleted = isDone;
+    toDo.itemIsCompleted = done;
     
     [self saveToPersistentStorage];
     

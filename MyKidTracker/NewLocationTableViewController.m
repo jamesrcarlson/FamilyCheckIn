@@ -8,17 +8,20 @@
 
 #import "NewLocationTableViewController.h"
 #import "LocationController.h"
+#import "FamiliesTableViewController.h"
 
-@interface NewLocationTableViewController () <newLocationViewControllerDelegate>
+@interface NewLocationTableViewController () <newLocationViewControllerDelegate, selectedAFamilyDelegate>
 
-@property (strong, nonatomic) SetNewLocationMapViewController *setLocation;
+//@property (strong, nonatomic) SetNewLocationMapViewController *setLocation;
 
 @property (strong, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *longitudeLabel;
 @property (strong, nonatomic) IBOutlet UITextField *locationTitleTextField;
 @property (strong, nonatomic) IBOutlet UITextField *locationDescriptionTextField;
-@property (strong, nonatomic) IBOutlet UITextField *familyNameTextField;
+@property (strong, nonatomic) IBOutlet UILabel *familyNameLabel;
 @property (strong, nonatomic) IBOutlet UITextField *radiusTextField;
+
+@property (strong, nonatomic) Family *theSelectedFamily;
 
 @end
 
@@ -27,12 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.setLocation = [SetNewLocationMapViewController new];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.setLocation = [SetNewLocationMapViewController new];
+    self.clearsSelectionOnViewWillAppear = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +39,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+-(void)userDidSelectFamily:(Family *)familyName {
+    self.theSelectedFamily = familyName;
+    self.familyNameLabel.text = familyName.familyName;
+    [self.tableView reloadData];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
@@ -66,6 +69,12 @@
         [[self navigationItem] setBackBarButtonItem:newBackButton];
         [self.navigationController pushViewController:setNewLocation animated:YES];
     }
+    if (indexPath.row == 5) {
+        FamiliesTableViewController *familyList = (FamiliesTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"FamiliesTableViewController"];
+        familyList.delegate = self;
+        [self.navigationController pushViewController:familyList animated:YES];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
     if (indexPath.row == 7) {
         if (!self.latitudeLabel.text) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Your location marker was not set" message:@"Please load the map again and drop a pin at the location you would like to store" preferredStyle:UIAlertControllerStyleAlert];
@@ -89,11 +98,8 @@
             }]];
             
             [self presentViewController:alertController animated:YES completion:nil];
-            
         }
-        
     }
-    
 }
 
 -(void)userDidSetNewLocation:(CLLocationCoordinate2D)location {
@@ -110,7 +116,7 @@
     numberF.numberStyle = NSNumberFormatterDecimalStyle;
     NSNumber *myNumber = [numberF numberFromString:self.radiusTextField.text];
     
-    [[LocationController sharedInstance]createLocationWithFamily:self.familyNameTextField.text title:self.locationTitleTextField.text infoSnippet:self.locationDescriptionTextField.text lattitude:self.locationLatitude longitude:self.locationLongitude radius:myNumber];
+    [[LocationController sharedInstance]createLocationWithFamily:self.theSelectedFamily title:self.locationTitleTextField.text infoSnippet:self.locationDescriptionTextField.text lattitude:self.locationLatitude longitude:self.locationLongitude radius:myNumber];
     
 }
 

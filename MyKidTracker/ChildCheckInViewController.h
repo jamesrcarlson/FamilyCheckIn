@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DetailViewController.h"
 
-@interface KidDetailsViewController : UITableViewController
+@interface ChildCheckInViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 

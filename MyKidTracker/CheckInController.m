@@ -20,10 +20,11 @@
     return sharedInstance;
 }
 
-- (CheckIn *)createCheckInWithLocation:(Location *)location locationName:(NSString *)locationName checkInDate:(NSDate *)date {
+- (CheckIn *)createCheckInWithLocation:(Location *)location user:(User *)userName locationName:(NSString *)locationName checkInDate:(NSDate *)date {
     
     CheckIn *checkIn = [NSEntityDescription insertNewObjectForEntityForName:@"CheckIn" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     checkIn.location = location;
+    checkIn.primaryUser = userName;
     checkIn.locationName = locationName;
     checkIn.date = date;
     

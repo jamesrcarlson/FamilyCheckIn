@@ -9,6 +9,7 @@
 #import "SetNewLocationMapViewController.h"
 #import "LocationAnnotation.h"
 #import "NewLocationTableViewController.h"
+#import "FamiliesTableViewController.h"
 
 @interface SetNewLocationMapViewController () 
 

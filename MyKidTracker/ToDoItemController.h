@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ToDoItem+Additions.m"
+#import "ToDoItem+Additions.h"
 
 @interface ToDoItemController : NSObject
 
@@ -15,7 +15,7 @@
 
 + (ToDoItemController *)sharedInstance;
 
-- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description location:(Location *)location familyName:(Family *)familyName dueDate:(NSDate *)date isCompleted:(BOOL)isDone;
+- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description location:(Location *)location familyName:(Family *)familyName dueDate:(NSDate *)date isCompleted:(BOOL)done;
 
 - (void)removeToDoItem:(ToDoItem *)toDo;
 

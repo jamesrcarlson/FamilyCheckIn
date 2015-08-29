@@ -9,13 +9,17 @@
 #import "CreateToDoListTableViewController.h"
 #import "LocationsTableViewController.h"
 #import "ToDoItemController.h"
+#import "FamiliesTableViewController.h"
+#import "UserListTableViewController.h"
 
-@interface CreateToDoListTableViewController () <selectLocationDelegate>
+
+@interface CreateToDoListTableViewController () <selectLocationDelegate, selectedAFamilyDelegate, selectedUserDelegate>
 
 @property (strong, nonatomic) NSString *locationTitleHolder;
 @property (strong, nonatomic) IBOutlet UITextField *itemTitleTextField;
 @property (strong, nonatomic) IBOutlet UITextField *itemDescriptionTextField;
-@property (strong, nonatomic) IBOutlet UITextField *familyNameTextField;
+@property (strong, nonatomic) IBOutlet UILabel *familyNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *assignedUserLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *longitudeLabel;
@@ -23,6 +27,7 @@
 
 @property (strong, nonatomic) Location *location;
 @property (strong, nonatomic) Family *theFamily;
+@property (strong, nonatomic) User *userSelected;
 
 @end
 
@@ -31,17 +36,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.clearsSelectionOnViewWillAppear = YES;
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)userDidSelectFamily:(Family *)familyName {
+    self.theFamily = familyName;
+    self.familyNameLabel.text = familyName.familyName;
+    [self.tableView reloadData];
+}
+
+-(void)userDidSelectUser:(User *)userSelected {
+    self.userSelected = userSelected;
+    self.assignedUserLabel.text = [NSString stringWithFormat:@"%@ %@",userSelected.userFirstName, userSelected.userLastName];
+    [self.tableView reloadData];
+}
+
 - (IBAction)pickedDate:(id)sender {
     
 }
@@ -59,7 +74,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 11;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -68,7 +83,19 @@
         locations.delegate = self;
         [self.navigationController pushViewController:locations animated:YES];
     }
-    if (indexPath.row == 9) {
+    if (indexPath.row == 6) {
+        FamiliesTableViewController *familyList = (FamiliesTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"FamiliesTableViewController"];
+        familyList.delegate = self;
+        [self.navigationController pushViewController:familyList animated:YES];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    if (indexPath.row == 7) {
+        UserListTableViewController *userList = (UserListTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"UserListTableViewController"];
+        userList.delegate = self;
+        [self.navigationController pushViewController:userList animated:YES];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    if (indexPath.row == 10) {
         if (!self.itemTitleTextField.text) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Your to-do item does not have a title" message:@"Please enter in a title before you save the item" preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"Got it" style:UIAlertActionStyleDefault handler:nil]];
@@ -98,15 +125,5 @@
 - (void) saveData {
     [[ToDoItemController sharedInstance]createToDoItemWithTitle:self.itemTitleTextField.text details:self.itemDescriptionTextField.text location:self.location familyName:self.theFamily dueDate:self.datePicker.date isCompleted:NO];
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    LocationsTableViewController *getLocation = [LocationsTableViewController new];
-//    getLocation.delegate = self;
-//    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-//                                                                      style:UIBarButtonItemStyleDone
-//                                                                     target:nil
-//                                                                     action:nil];
-//    [[self navigationItem] setBackBarButtonItem:newBackButton];
-//}
 
 @end
