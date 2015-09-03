@@ -10,10 +10,10 @@
 #import "LocationAnnotation.h"
 #import "LocationController.h"
 #import "UserController.h"
-@import MapKit;
+#import "CheckOutController.h"
 
 
-@interface DetailsTableViewController ()<MKMapViewDelegate>
+@interface DetailsTableViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *CheckInUserName;
 @property (strong, nonatomic) IBOutlet UILabel *checkInLocation;
@@ -25,19 +25,28 @@
 
 @implementation DetailsTableViewController
 
+@synthesize checkInMapView;
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    self.checkInMapView.delegate = self;
+    checkInMapView.delegate = self;
     [self setPoints];
     [self setLabels];
+    self.checkinLocationManager.delegate = self;
+    
+}
+
+-(UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller traitCollection:(UITraitCollection *)traitCollection {
+    return UIModalPresentationNone;
 }
 
 - (void)setLabels {
     CheckIn *checkin = self.theCheckIn;
-    User *user = self.theCheckIn.primaryUser;
+    User *user = self.userDetail;
+    CheckOut *checkout = checkin.checkout;
     self.CheckInUserName.text = [NSString stringWithFormat:@"%@ %@",user.userFirstName, user.userLastName];
-    self.checkInTime.text = [NSString stringWithFormat:@"%@",checkin.date];
+    self.checkInTime.text = [NSString stringWithFormat:@"Check-in Time: \n%@ \nCheck-out time\n%@",checkin.date, checkout.checkoutTime];
 }
 
 - (void) setPoints {
@@ -60,21 +69,21 @@
     mapRegion.span.latitudeDelta = 0.2;
     mapRegion.span.longitudeDelta = 0.2;
     
-    [self.checkInMapView setRegion:mapRegion animated:YES];
-    [self.checkInMapView addAnnotation:myAnnotation];
+    [checkInMapView setRegion:mapRegion animated:YES];
+    [checkInMapView addAnnotation:myAnnotation];
     
 }
 - (IBAction)changeMapStyle:(id)sender {
     
     switch (((UISegmentedControl *)sender).selectedSegmentIndex) {
         case 0:
-            self.checkInMapView.mapType = MKMapTypeStandard;
+            checkInMapView.mapType = MKMapTypeStandard;
             break;
         case 1:
-            self.checkInMapView.mapType = MKMapTypeSatellite;
+            checkInMapView.mapType = MKMapTypeSatellite;
             break;
         case 2:
-            self.checkInMapView.mapType = MKMapTypeHybrid;
+            checkInMapView.mapType = MKMapTypeHybrid;
             break;
             
         default:

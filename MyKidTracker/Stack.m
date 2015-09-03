@@ -1,8 +1,8 @@
 //
 //  Stack.m
 //
-//  Created by Joshua Howland on 6/12/14.
-//  Copyright (c) 2014 DevMountain. All rights reserved.
+//  Created by James Carlson on 8/30/15.
+//  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
 #import "Stack.h"

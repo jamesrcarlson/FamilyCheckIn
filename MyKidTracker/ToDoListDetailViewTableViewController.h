@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserController.h"
+#import "FamilyController.h"
+#import "ToDoItemController.h"
 
 @interface ToDoListDetailViewTableViewController : UITableViewController
+
+@property (strong, nonatomic) User *toDoUser;
+@property (strong, nonatomic) Family *toDoFamily;
+@property (strong, nonatomic) ToDoItem *toDoItemDetail;
 
 @end

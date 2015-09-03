@@ -18,4 +18,12 @@
     self.userRole = @(isParent);
 }
 
+- (BOOL)isCheckedIn {
+    return self.currentlyCheckedIn.boolValue;
+}
+
+- (void)setIsCheckedIn:(BOOL)isCheckedIn {
+    self.currentlyCheckedIn = @(isCheckedIn);
+}
+
 @end

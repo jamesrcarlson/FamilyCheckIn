@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CheckInController.h"
+#import "UserController.h"
+@import MapKit;
 
-@interface DetailsTableViewController : UITableViewController
+@interface DetailsTableViewController : UITableViewController {
+    MKMapView *checkInMapView;
+}
 
 @property (strong, nonatomic) CheckIn *theCheckIn;
+@property (strong, nonatomic) User *userDetail;
+
 
 @end

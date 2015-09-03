@@ -9,15 +9,35 @@
 #import "AppDelegate.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "NotificationsController.h"
 
 @interface AppDelegate () <MKMapViewDelegate, CLLocationManagerDelegate>
+
+@property (strong, nonatomic) NotificationsController *notificationController;
 
 @end
 
 @implementation AppDelegate
 
+// https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/RegionMonitoring/RegionMonitoring.html#//apple_ref/doc/uid/TP40009497-CH9-SW1
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.notificationController = [NotificationsController new];
+    switch ([CLLocationManager authorizationStatus]) {
+        case kCLAuthorizationStatusNotDetermined:
+            break;
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [self.notificationController registerNotifications];
+            break;
+        case kCLAuthorizationStatusAuthorizedAlways:
+            [self.notificationController setUpLocations];
+            break;
+        case kCLAuthorizationStatusDenied:
+        case kCLAuthorizationStatusRestricted:
+            [self.notificationController alertUserToStatus];
+            break;
+    }
     
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
@@ -33,9 +53,13 @@
     [locationManager setDelegate:self];
     [locationManager requestAlwaysAuthorization];
     [myMapView setShowsUserLocation:YES];
+//    UIBackgroundTaskIdentifier
+    
+//    - (UIBackgroundTaskIdentifier)beginBackgroundTaskWithExpirationHandler:(void (^)(void))handler
     
     return YES;
 }
+
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     

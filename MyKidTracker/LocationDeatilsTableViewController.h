@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FamilyController.h"
+#import "LocationController.h"
 
 @interface LocationDeatilsTableViewController : UITableViewController
+
+@property (strong, nonatomic) Location *locationDetail;
 
 @end

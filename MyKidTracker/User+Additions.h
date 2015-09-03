@@ -11,5 +11,6 @@
 @interface User (Additions)
 
 @property (nonatomic, assign) BOOL isParent;
+@property (nonatomic, assign) BOOL isCheckedIn;
 
 @end

@@ -11,33 +11,36 @@
 #import "CheckInController.h"
 #import "DetailsTableViewController.h"
 
+typedef NS_ENUM(NSUInteger, TableViewsection){
+    TableViewsectionCheckIn,
+    TableViewsectionCheckOut
+};
+
 @interface ChildCheckInViewController () <UISplitViewControllerDelegate>
 
-@property NSMutableArray *objects;
+@property NSMutableArray *theCheckins;
+@property NSMutableArray *theCheckOuts;
 
 @end
 
 @implementation ChildCheckInViewController
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    self.splitViewController.delegate = self;
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.clearsSelectionOnViewWillAppear = NO;
-        self.preferredContentSize = CGSizeMake(320.0, 600.0);
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    User *currentUser = self.anotherUser;
+    self.theCheckins =[NSMutableArray new];
+    for (CheckIn *chekin in currentUser.checkIns) {
+        [self.theCheckins addObject:chekin];
+    }
+    self.theCheckOuts =[NSMutableArray new];
+    for (CheckOut *chekout in currentUser.checkIns) {
+        [self.theCheckOuts addObject:chekout];
+    }
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,32 +49,58 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    //    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSString * myString = [NSString stringWithFormat:@"My New Data that was broght in:"];
-    [self.objects insertObject:myString  atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    if (!self.objects) {
+//        self.objects = [[NSMutableArray alloc] init];
+//    }
+//    //    [self.objects insertObject:[NSDate date] atIndex:0];
+//    NSString * myString = [NSString stringWithFormat:@"My New Data that was broght in:"];
+//    [self.objects insertObject:myString  atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-
-
-#pragma mark - Table View
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [CheckInController sharedInstance].checkins.count;
+    TableViewsection tableViewsection = section;
+
+    switch (tableViewsection) {
+        case TableViewsectionCheckIn:
+            return self.theCheckins.count;
+            
+        case TableViewsectionCheckOut:
+            return self.theCheckOuts.count;
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    TableViewsection tableViewsection = section;
+    switch (tableViewsection) {
+        case TableViewsectionCheckIn:
+            return @"The Check-ins";
+            break;
+        case TableViewsectionCheckOut:
+            return @"Check-outs";
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"kidDetailCell" forIndexPath:indexPath];
-    CheckIn *checkin = [CheckInController sharedInstance].checkins[indexPath.row];
-    cell.textLabel.text = checkin.locationName;
+    
+    if (indexPath.section == TableViewsectionCheckIn) {
+        cell.textLabel.text = [self.theCheckins[indexPath.row]locationName];
+    }
+    if (indexPath.section == TableViewsectionCheckOut) {
+        cell.textLabel.text = [self.theCheckOuts[indexPath.row]locationName];
+    }
     return cell;
 }
 
@@ -95,7 +124,9 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         DetailsTableViewController *details = segue.destinationViewController;
-        details.theCheckIn = [CheckInController sharedInstance].checkins[0];
+        User *user = self.anotherUser;
+        details.userDetail = user;
+        details.theCheckIn = [CheckInController sharedInstance].checkins[indexPath.row];
         
     }
 }

@@ -7,7 +7,7 @@
 //
 
 #import "ChildrenViewController.h"
-#import "DetailViewController.h"
+#import "ChildCheckInViewController.h"
 #import "UserController.h"
 
 @interface ChildrenViewController ()<UISplitViewControllerDelegate>
@@ -48,6 +48,14 @@
     User *user = [UserController sharedInstance].users[indexPath.row];
     cell.textLabel.text = user.userFirstName;
     
+    if (user.isCheckedIn == YES) {
+        cell.detailTextLabel.text = @"Checked in";
+        cell.backgroundColor = [UIColor greenColor];
+    } else if (user.isCheckedIn == NO) {
+        cell.detailTextLabel.text = @"Not currently checked in";
+        cell.backgroundColor = [UIColor redColor];
+    }
+    
     return cell;
 }
 
@@ -67,17 +75,13 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    
+    if ([segue.identifier isEqualToString:@"childrenCheckins"]) {
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        User *user = [UserController sharedInstance].users[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:user];
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                                          style:UIBarButtonItemStyleDone
-                                                                         target:nil
-                                                                         action:nil];
-        [[self navigationItem] setBackBarButtonItem:newBackButton];
+        ChildCheckInViewController *controller = segue.destinationViewController;
+        controller.anotherUser = [UserController sharedInstance].users[indexPath.row];
     }
+    
 }
 @end

@@ -8,6 +8,7 @@
 
 #import "CheckInController.h"
 #import "Stack.h"
+#import "UserController.h"
 
 @implementation CheckInController
 
@@ -25,6 +26,7 @@
     CheckIn *checkIn = [NSEntityDescription insertNewObjectForEntityForName:@"CheckIn" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     checkIn.location = location;
     checkIn.primaryUser = userName;
+    checkIn.primaryUser.isCheckedIn = YES;
     checkIn.locationName = locationName;
     checkIn.date = date;
     

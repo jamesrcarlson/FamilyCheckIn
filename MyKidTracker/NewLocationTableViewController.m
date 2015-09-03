@@ -10,7 +10,7 @@
 #import "LocationController.h"
 #import "FamiliesTableViewController.h"
 
-@interface NewLocationTableViewController () <newLocationViewControllerDelegate, selectedAFamilyDelegate>
+@interface NewLocationTableViewController () <newLocationViewControllerDelegate, selectedAFamilyDelegate, UITextFieldDelegate>
 
 //@property (strong, nonatomic) SetNewLocationMapViewController *setLocation;
 
@@ -118,6 +118,15 @@
     
     [[LocationController sharedInstance]createLocationWithFamily:self.theSelectedFamily title:self.locationTitleTextField.text infoSnippet:self.locationDescriptionTextField.text lattitude:self.locationLatitude longitude:self.locationLongitude radius:myNumber];
     
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

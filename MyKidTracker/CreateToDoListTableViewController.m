@@ -13,7 +13,7 @@
 #import "UserListTableViewController.h"
 
 
-@interface CreateToDoListTableViewController () <selectLocationDelegate, selectedAFamilyDelegate, selectedUserDelegate>
+@interface CreateToDoListTableViewController () <selectLocationDelegate, selectedAFamilyDelegate, selectedUserDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) NSString *locationTitleHolder;
 @property (strong, nonatomic) IBOutlet UITextField *itemTitleTextField;
@@ -124,6 +124,15 @@
 
 - (void) saveData {
     [[ToDoItemController sharedInstance]createToDoItemWithTitle:self.itemTitleTextField.text details:self.itemDescriptionTextField.text location:self.location familyName:self.theFamily dueDate:self.datePicker.date isCompleted:NO];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 @end

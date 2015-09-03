@@ -10,4 +10,10 @@
 
 @interface NotificationsController : NSObject
 
+- (void) registerNotifications;
+
+- (void) setUpLocations;
+
+- (void) alertUserToStatus;
+
 @end

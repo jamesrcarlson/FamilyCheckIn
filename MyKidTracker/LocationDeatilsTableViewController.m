@@ -7,8 +7,19 @@
 //
 
 #import "LocationDeatilsTableViewController.h"
+#import "LocationAnnotation.h"
+@import MapKit;
 
-@interface LocationDeatilsTableViewController ()
+@interface LocationDeatilsTableViewController ()<MKMapViewDelegate>
+@property (strong, nonatomic) IBOutlet UILabel *locationName;
+@property (strong, nonatomic) IBOutlet UILabel *locationSnippet;
+@property (strong, nonatomic) IBOutlet UILabel *locLat;
+@property (strong, nonatomic) IBOutlet UILabel *locLong;
+@property (strong, nonatomic) IBOutlet UILabel *famiyName;
+@property (strong, nonatomic) IBOutlet UILabel *locationRadius;
+@property (strong, nonatomic) IBOutlet MKMapView *locationMapView;
+
+@property (strong, nonatomic) NSString *string;
 
 @end
 
@@ -17,11 +28,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.locationMapView.delegate = self;
+    self.string = @"";
+    for (Family *family in self.locationDetail.family) {
+        self.string = [self.string stringByAppendingString:[NSString stringWithFormat:@"%@\n",family.familyName]];
+    }
+    [self setLabels];
+    [self setPoints];
+}
+
+-(void)setLabels{
+    self.locationName.text = self.locationDetail.locationTitle;
+    self.locationSnippet.text = self.locationDetail.locationSnippet;
+    self.locLat.text = [NSString stringWithFormat:@"Lat: %@",self.locationDetail.latitude];
+    self.locLong.text = [NSString stringWithFormat:@"Long: %@",self.locationDetail.longitude];
+    self.locationRadius.text = [NSString stringWithFormat:@"%@",self.locationDetail.radius];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.famiyName.text = self.string;
+}
+
+-(void)setPoints {
+    Location *location = self.locationDetail;
+    
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(location.latitude.doubleValue, location.longitude.doubleValue);
+    coordinate.latitude = location.latitude.doubleValue; // same thing as above
+    coordinate.longitude = location.longitude.doubleValue;
+    
+    LocationAnnotation *myAnnotation = [[LocationAnnotation alloc] init];
+    myAnnotation.coordinate = coordinate;
+    myAnnotation.title = location.locationTitle;
+    myAnnotation.subtitle = location.locationSnippet;
+    
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = coordinate;
+    mapRegion.span.latitudeDelta = 0.1;
+    mapRegion.span.longitudeDelta = 0.1;
+    
+    [self.locationMapView setRegion:mapRegion animated:YES];
+    [self.locationMapView addAnnotation:myAnnotation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,72 +73,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 3) {
+        UIFont *cellFont = [UIFont fontWithName:@"Arial-BoldItalicMT" size:22.0];
+        
+        NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:self.string
+                                                                             attributes:@{NSFontAttributeName: cellFont}];
+        
+        CGRect rect = [attributedText boundingRectWithSize:CGSizeMake(tableView.bounds.size.width, CGFLOAT_MAX)
+                                                   options:NSStringDrawingUsesLineFragmentOrigin
+                                                   context:nil];
+        return rect.size.height + 20;
+    }
+    if (indexPath.row == 5) {
+        return 300;
+    }else{
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+        return 50;
+    }
+}
+- (IBAction)changeMapView:(id)sender {
     
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+    switch (((UISegmentedControl *)sender).selectedSegmentIndex) {
+        case 0:
+            self.locationMapView.mapType = MKMapTypeStandard;
+            break;
+        case 1:
+            self.locationMapView.mapType = MKMapTypeSatellite;
+            break;
+        case 2:
+            self.locationMapView.mapType = MKMapTypeHybrid;
+            break;
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    };
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

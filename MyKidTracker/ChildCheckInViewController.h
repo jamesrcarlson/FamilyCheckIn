@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DetailViewController.h"
+#import "UserController.h"
 
 @interface ChildCheckInViewController : UITableViewController
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@property (strong, nonatomic) User *anotherUser;
 
 
 @end

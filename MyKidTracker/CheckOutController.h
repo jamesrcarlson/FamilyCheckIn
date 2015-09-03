@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CheckOut.h"
 
 @interface CheckOutController : NSObject
+
+@property (strong, nonatomic) NSArray *checkouts;
+
++ (CheckOutController *)sharedInstance;
+
+- (CheckOut *)createCheckOutWithLocation:(Location *)location user:(User *)userName checkIn:(CheckIn *)theCheckin locationName:(NSString *)locationName checkOutDate:(NSDate *)date;
+
+- (void)removeCheckinItem:(CheckOut *)checkOut;
 
 @end
