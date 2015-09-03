@@ -2,14 +2,14 @@
 //  User.h
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/27/15.
+//  Created by James Carlson on 8/30/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class CheckIn, Family, ToDoItem;
+@class CheckIn, CheckOut, Family, ToDoItem;
 
 @interface User : NSManagedObject
 
@@ -20,9 +20,11 @@
 @property (nonatomic, retain) NSNumber * userPhoneNumber;
 @property (nonatomic, retain) NSData * userPhoto;
 @property (nonatomic, retain) NSNumber * userRole;
+@property (nonatomic, retain) NSNumber * currentlyCheckedIn;
 @property (nonatomic, retain) NSSet *checkIns;
 @property (nonatomic, retain) Family *myFamily;
 @property (nonatomic, retain) NSSet *toDoList;
+@property (nonatomic, retain) NSSet *checkouts;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -36,5 +38,10 @@
 - (void)removeToDoListObject:(ToDoItem *)value;
 - (void)addToDoList:(NSSet *)values;
 - (void)removeToDoList:(NSSet *)values;
+
+- (void)addCheckoutsObject:(CheckOut *)value;
+- (void)removeCheckoutsObject:(CheckOut *)value;
+- (void)addCheckouts:(NSSet *)values;
+- (void)removeCheckouts:(NSSet *)values;
 
 @end

@@ -2,14 +2,14 @@
 //  Location.h
 //  MyKidTracker
 //
-//  Created by James Carlson on 8/27/15.
+//  Created by James Carlson on 9/2/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class CheckIn, ToDoItem;
+@class CheckIn, CheckOut, Family, ToDoItem;
 
 @interface Location : NSManagedObject
 
@@ -20,7 +20,9 @@
 @property (nonatomic, retain) NSString * longitude;
 @property (nonatomic, retain) NSNumber * radius;
 @property (nonatomic, retain) NSSet *checkIns;
+@property (nonatomic, retain) CheckOut *checkouts;
 @property (nonatomic, retain) ToDoItem *toDoLists;
+@property (nonatomic, retain) NSSet *family;
 @end
 
 @interface Location (CoreDataGeneratedAccessors)
@@ -29,5 +31,10 @@
 - (void)removeCheckInsObject:(CheckIn *)value;
 - (void)addCheckIns:(NSSet *)values;
 - (void)removeCheckIns:(NSSet *)values;
+
+- (void)addFamilyObject:(Family *)value;
+- (void)removeFamilyObject:(Family *)value;
+- (void)addFamily:(NSSet *)values;
+- (void)removeFamily:(NSSet *)values;
 
 @end
