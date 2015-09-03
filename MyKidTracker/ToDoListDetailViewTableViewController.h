@@ -10,11 +10,14 @@
 #import "UserController.h"
 #import "FamilyController.h"
 #import "ToDoItemController.h"
+#import "LocationAnnotation.h"
+#import "LocationController.h"
 
 @interface ToDoListDetailViewTableViewController : UITableViewController
 
 @property (strong, nonatomic) User *toDoUser;
 @property (strong, nonatomic) Family *toDoFamily;
 @property (strong, nonatomic) ToDoItem *toDoItemDetail;
+@property (strong, nonatomic) Location *toDoItemLocation;
 
 @end

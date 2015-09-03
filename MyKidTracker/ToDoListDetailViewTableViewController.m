@@ -27,7 +27,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.toDoItemLocation = self.toDoItemDetail.location;
     self.toDoMapView.delegate = self;
+
+    [self setPoints];
+    
+    [self setLabels];
+    
+}
+
+-(void)setLabels{
+    self.itemTitle.text = self.toDoItemDetail.itemTitle;
+    self.itemDescription.text = self.toDoItemDetail.itemDescription;
+    self.locLat.text = [NSString stringWithFormat:@"Lat: %@",self.toDoItemDetail.location.latitude];
+    self.locLong.text = [NSString stringWithFormat:@"Long: %@",self.toDoItemDetail.location.longitude];
+//    self.locationRadius.text = [NSString stringWithFormat:@"%@",self.toDoItemDetail.location.radius];
+    self.personAssigned.text = self.toDoItemDetail.user.userFirstName;
+    self.familyAssigned.text = self.toDoItemDetail.familyName.familyName;
+}
+
+-(void)setPoints {
+    Location *location = self.toDoItemLocation;
+    
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(location.latitude.doubleValue, location.longitude.doubleValue);
+    coordinate.latitude = location.latitude.doubleValue; // same thing as above
+    coordinate.longitude = location.longitude.doubleValue;
+    
+    LocationAnnotation *myAnnotation = [[LocationAnnotation alloc] init];
+    myAnnotation.coordinate = coordinate;
+    myAnnotation.title = location.locationTitle;
+    myAnnotation.subtitle = location.locationSnippet;
+    
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = coordinate;
+    mapRegion.span.latitudeDelta = 0.05;
+    mapRegion.span.longitudeDelta = 0.05;
+    
+    [self.toDoMapView setRegion:mapRegion animated:YES];
+    [self.toDoMapView addAnnotation:myAnnotation];
 }
 
 - (void)didReceiveMemoryWarning {
