@@ -9,7 +9,7 @@
 #import "ChildCheckInViewController.h"
 #import "UserController.h"
 #import "CheckInController.h"
-#import "DetailsTableViewController.h"
+#import "CheckinDetailsTableViewController.h"
 
 typedef NS_ENUM(NSUInteger, TableViewsection){
     TableViewsectionCheckIn,
@@ -76,9 +76,9 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
     }
 }
 
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
-    return 30;
-}
+//-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
+//    return 30;
+//}
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     TableViewsection tableViewsection = section;
@@ -97,9 +97,19 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
     
     if (indexPath.section == TableViewsectionCheckIn) {
         cell.textLabel.text = [self.theCheckins[indexPath.row]locationName];
+        if (self.anotherUser.isCheckedIn == YES) {
+            cell.detailTextLabel.text = @"still checked in";
+        } else {
+            cell.detailTextLabel.text = @"has already checked out";
+        }
     }
     if (indexPath.section == TableViewsectionCheckOut) {
         cell.textLabel.text = [self.theCheckOuts[indexPath.row]locationName];
+        if (self.anotherUser.isCheckedIn == YES) {
+            cell.detailTextLabel.text = @"still checked in";
+        } else {
+            cell.detailTextLabel.text = @"has already checked out";
+        }
     }
     return cell;
 }
@@ -111,10 +121,9 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        
-//        Location *location = [LocationController sharedInstance].locations[indexPath.row];
-//        [[LocationController sharedInstance]removeLocation:location];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        CheckIn *checkin = [CheckInController sharedInstance].checkins[indexPath.row];
+        [[CheckInController sharedInstance]removeCheckinItem:checkin];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -123,7 +132,7 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DetailsTableViewController *details = segue.destinationViewController;
+        CheckinDetailsTableViewController *details = segue.destinationViewController;
         User *user = self.anotherUser;
         details.userDetail = user;
         details.theCheckIn = [CheckInController sharedInstance].checkins[indexPath.row];

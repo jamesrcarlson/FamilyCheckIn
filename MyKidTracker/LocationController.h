@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Location.h"
 #import "FamilyController.h"
+#import <UIKit/UIKit.h>
+@import MapKit;
 
 @interface LocationController : NSObject
 

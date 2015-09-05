@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyKidTracker/ToDoListDetailViewTableViewController.m"
-            timestampString = "462942289.521753"
+            filePath = "MyKidTracker/LogInController.m"
+            timestampString = "463116858.194088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "-viewDidLoad"
+            landmarkName = "-userLogon"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

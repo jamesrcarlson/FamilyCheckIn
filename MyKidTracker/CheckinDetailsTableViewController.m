@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
-#import "DetailsTableViewController.h"
+#import "CheckinDetailsTableViewController.h"
 #import "LocationAnnotation.h"
 #import "LocationController.h"
 #import "UserController.h"
 #import "CheckOutController.h"
 
 
-@interface DetailsTableViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
+@interface CheckinDetailsTableViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *CheckInUserName;
 @property (strong, nonatomic) IBOutlet UILabel *checkInLocation;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation DetailsTableViewController
+@implementation CheckinDetailsTableViewController
 
 @synthesize checkInMapView;
 
@@ -66,8 +66,8 @@
     
     MKCoordinateRegion mapRegion;
     mapRegion.center = coordinate;
-    mapRegion.span.latitudeDelta = 0.2;
-    mapRegion.span.longitudeDelta = 0.2;
+    mapRegion.span.latitudeDelta = 0.01;
+    mapRegion.span.longitudeDelta = 0.01;
     
     [checkInMapView setRegion:mapRegion animated:YES];
     [checkInMapView addAnnotation:myAnnotation];

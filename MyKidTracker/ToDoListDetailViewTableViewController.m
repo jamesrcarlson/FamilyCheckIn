@@ -42,6 +42,7 @@
     self.locLat.text = [NSString stringWithFormat:@"Lat: %@",self.toDoItemDetail.location.latitude];
     self.locLong.text = [NSString stringWithFormat:@"Long: %@",self.toDoItemDetail.location.longitude];
 //    self.locationRadius.text = [NSString stringWithFormat:@"%@",self.toDoItemDetail.location.radius];
+    
     self.personAssigned.text = self.toDoItemDetail.user.userFirstName;
     self.familyAssigned.text = self.toDoItemDetail.familyName.familyName;
 }
@@ -60,8 +61,8 @@
     
     MKCoordinateRegion mapRegion;
     mapRegion.center = coordinate;
-    mapRegion.span.latitudeDelta = 0.05;
-    mapRegion.span.longitudeDelta = 0.05;
+    mapRegion.span.latitudeDelta = 0.01;
+    mapRegion.span.longitudeDelta = 0.01;
     
     [self.toDoMapView setRegion:mapRegion animated:YES];
     [self.toDoMapView addAnnotation:myAnnotation];

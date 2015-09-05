@@ -61,7 +61,8 @@
     
 }
 
--(void)userDidSelectLocation:(NSString *)locationTitle withLocation:(NSString *)longitude latitude:(NSString *)latitude{
+-(void)userDidSelectLocation:(Location *)location locationTitle:(NSString *)locationTitle withLocation:(NSString *)longitude latitude:(NSString *)latitude{
+    self.location = location;
     self.locationTitleHolder = locationTitle;
     self.locationNameLabel.text = locationTitle;
     self.longitudeLabel.text = longitude;
@@ -123,7 +124,7 @@
 }
 
 - (void) saveData {
-    [[ToDoItemController sharedInstance]createToDoItemWithTitle:self.itemTitleTextField.text details:self.itemDescriptionTextField.text location:self.location familyName:self.theFamily dueDate:self.datePicker.date isCompleted:NO];
+    [[ToDoItemController sharedInstance]createToDoItemWithTitle:self.itemTitleTextField.text details:self.itemDescriptionTextField.text location:self.location familyName:self.theFamily assignedUser:self.userSelected dueDate:self.datePicker.date isCompleted:NO];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {

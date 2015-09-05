@@ -17,4 +17,6 @@
 
 - (Family *)createFamilyWithName:(NSString *)familyName;
 
+- (void)removeFamily:(Family *)theFamily;
+
 @end

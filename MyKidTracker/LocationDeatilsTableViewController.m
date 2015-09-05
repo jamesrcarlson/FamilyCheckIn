@@ -61,8 +61,8 @@
     
     MKCoordinateRegion mapRegion;
     mapRegion.center = coordinate;
-    mapRegion.span.latitudeDelta = 0.1;
-    mapRegion.span.longitudeDelta = 0.1;
+    mapRegion.span.latitudeDelta = 0.01;
+    mapRegion.span.longitudeDelta = 0.01;
     
     [self.locationMapView setRegion:mapRegion animated:YES];
     [self.locationMapView addAnnotation:myAnnotation];

@@ -42,6 +42,11 @@
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
     if (localNotification) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"You were notified" message:@"here it is" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+        UINavigationController *navCont = (UINavigationController *)self.window.rootViewController;
+        [navCont.topViewController presentViewController:alertController animated:YES completion:nil];
         application.applicationIconBadgeNumber = 0;
     }
     
@@ -53,9 +58,6 @@
     [locationManager setDelegate:self];
     [locationManager requestAlwaysAuthorization];
     [myMapView setShowsUserLocation:YES];
-//    UIBackgroundTaskIdentifier
-    
-//    - (UIBackgroundTaskIdentifier)beginBackgroundTaskWithExpirationHandler:(void (^)(void))handler
     
     return YES;
 }
@@ -70,15 +72,14 @@
                                            categories:nil]];
     
         [application registerForRemoteNotifications];
-
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"You were notified" message:notification.alertBody preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
-    
-    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+    UINavigationController *navCont = (UINavigationController *)self.window.rootViewController;
+    [navCont.topViewController presentViewController:alertController animated:YES completion:nil];
     
     application.applicationIconBadgeNumber = 0;
 }

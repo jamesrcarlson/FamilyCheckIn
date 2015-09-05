@@ -11,7 +11,7 @@
 #import "UserController.h"
 @import MapKit;
 
-@interface DetailsTableViewController : UITableViewController {
+@interface CheckinDetailsTableViewController : UITableViewController {
     MKMapView *checkInMapView;
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "LocationsTableViewController.h"
-#import "LocationController.h"
 #import "LocationDeatilsTableViewController.h"
 
 @interface LocationsTableViewController ()
@@ -57,7 +56,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Location *location = [LocationController sharedInstance].locations[indexPath.row];
-    [self.delegate userDidSelectLocation:location.locationTitle withLocation:location.longitude latitude:location.latitude];
+    [self.delegate userDidSelectLocation:location locationTitle:location.locationTitle withLocation:location.longitude latitude:location.latitude];
 }
 
 /*

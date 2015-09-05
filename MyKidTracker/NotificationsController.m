@@ -42,18 +42,12 @@
     }
     
     // Create the geographic region to be monitored.
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(42.280597,
-                                                               -83.751891);
-    CLRegion *bridge = [[CLCircularRegion alloc]initWithCenter:center
-                                                        radius:100.0
-                                                    identifier:@"Bridge"];
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(42.280597,-83.751891);
+    CLRegion *bridge = [[CLCircularRegion alloc]initWithCenter:center radius:100.0 identifier:@"Bridge"];
     [self.locationManager startMonitoringForRegion:bridge];
 
     
-    CLCircularRegion *geoRegion = [[CLCircularRegion alloc]
-                                   initWithCenter:overlay.coordinate
-                                   radius:radius
-                                   identifier:identifier];
+    CLCircularRegion *geoRegion = [[CLCircularRegion alloc] initWithCenter:overlay.coordinate radius:radius identifier:identifier];
     
     [self.locationManager startMonitoringForRegion:geoRegion];
 }

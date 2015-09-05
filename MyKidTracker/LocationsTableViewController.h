@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LocationController.h"
 
 @protocol selectLocationDelegate <NSObject>
 
-- (void) userDidSelectLocation:(NSString *)locationTitle withLocation:(NSString *)longitude latitude:(NSString *)latitude;
+- (void) userDidSelectLocation:(Location *)location locationTitle:(NSString *)locationTitle withLocation:(NSString *)longitude latitude:(NSString *)latitude;
 
 @end
 

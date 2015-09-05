@@ -32,6 +32,20 @@
     
     [self saveToPersistentStorage];
     
+    UILocalNotification *locNotification = [[UILocalNotification alloc] init];
+    locNotification.alertBody = @"You have arrived!";
+    locNotification.regionTriggersOnce = YES;
+    
+    CLLocationDistance theRadius = radius.doubleValue;
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(lattitude.doubleValue, longitude.doubleValue);
+    locNotification.region = [[CLCircularRegion alloc]
+                              initWithCenter:coordinate
+                              radius:theRadius
+                              identifier:title];
+    locNotification.regionTriggersOnce = NO;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:locNotification];
+    
     return location;
 }
 

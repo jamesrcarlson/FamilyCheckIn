@@ -48,7 +48,7 @@
 
 #pragma mark - Delete
 
-- (void)removeCheckinItem:(Family *)theFamily {
+- (void)removeFamily:(Family *)theFamily {
     [theFamily.managedObjectContext deleteObject:theFamily];
     [self save];
 }
