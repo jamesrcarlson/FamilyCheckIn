@@ -31,7 +31,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 3) {
-        [self.logInController userLogon];
+//        [self.logInController userLogon];
     }
     
 }

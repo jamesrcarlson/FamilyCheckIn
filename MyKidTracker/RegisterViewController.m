@@ -16,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (strong, nonatomic) IBOutlet UITextField *familyName;
 @property (strong, nonatomic) IBOutlet UITextField *password;
-@property (strong, nonatomic) IBOutlet UIImageView *profileImage;
+@property (assign, nonatomic) BOOL parent;
 
 @end
 
@@ -26,8 +26,12 @@
     [super viewDidLoad];
     
 }
+
 - (IBAction)parentSelected:(id)sender {
     NSLog(@"The switch was flipped");
+//    if (self) {
+//        <#statements#>
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
