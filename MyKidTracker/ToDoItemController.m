@@ -26,11 +26,11 @@
     ToDoItem *toDo = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     toDo.itemTitle = title;
     toDo.itemDescription = description;
-    toDo.location = location;
-    toDo.familyName = familyName;
+    toDo.itemLocation = location;
+    toDo.familyForItem = familyName;
     toDo.dueDate = date;
     toDo.itemIsCompleted = done;
-    toDo.user = user;
+    toDo.userForItem = user;
     
     [self saveToPersistentStorage];
     

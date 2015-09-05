@@ -11,6 +11,9 @@
 
 @interface LogInController : NSObject
 
+@property (strong, nonatomic) NSString *userN;
+@property (strong, nonatomic) NSString *passW;
+
 -(void)userLogon;
 
 @end

@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * locationName;
-@property (nonatomic, retain) Location *location;
+@property (nonatomic, retain) Location *checkInLocation;
 @property (nonatomic, retain) User *primaryUser;
 @property (nonatomic, retain) CheckOut *checkout;
 

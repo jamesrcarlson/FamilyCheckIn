@@ -12,6 +12,8 @@
 @interface LogInTableViewController ()
 
 @property (strong, nonatomic) LogInController *logInController;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UITextField *userNameField;
 
 @end
 
@@ -31,7 +33,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 3) {
-//        [self.logInController userLogon];
+        self.logInController.userN = self.userNameField.text;
+        self.logInController.passW = self.passwordField.text;
+        [self.logInController userLogon];
     }
     
 }

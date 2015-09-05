@@ -16,12 +16,12 @@
 
 @dynamic completed;
 @dynamic dueDate;
-@dynamic family;
+@dynamic assignedFamily;
 @dynamic itemDescription;
 @dynamic itemTitle;
 @dynamic locationName;
-@dynamic user;
-@dynamic familyName;
-@dynamic location;
+@dynamic userForItem;
+@dynamic familyForItem;
+@dynamic itemLocation;
 
 @end

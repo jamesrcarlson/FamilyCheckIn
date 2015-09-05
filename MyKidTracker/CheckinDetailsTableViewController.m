@@ -52,7 +52,7 @@
 - (void) setPoints {
     
 //    CheckIn *checkin = self.theCheckIn;
-    Location *location = self.theCheckIn.location;
+    Location *location = self.theCheckIn.checkInLocation;
     self.checkInLocation.text = location.locationTitle;
     
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(location.latitude.doubleValue, location.longitude.doubleValue);

@@ -24,6 +24,6 @@
 @dynamic checkIns;
 @dynamic checkouts;
 @dynamic toDoLists;
-@dynamic family;
+@dynamic familysForLocation;
 
 @end

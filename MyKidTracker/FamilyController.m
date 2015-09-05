@@ -22,7 +22,7 @@
 
 - (Family *)createFamilyWithName:(NSString *)familyName {
     Family *aFamily = [NSEntityDescription insertNewObjectForEntityForName:@"Family" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-    aFamily.familyName = familyName;
+    aFamily.familysName = familyName;
     
     [self saveToPersistentStorage];
     return aFamily;

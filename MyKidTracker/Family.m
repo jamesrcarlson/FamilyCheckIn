@@ -14,9 +14,9 @@
 
 @implementation Family
 
-@dynamic familyName;
+@dynamic familysName;
 @dynamic toDoList;
-@dynamic user;
-@dynamic locations;
+@dynamic familyUsers;
+@dynamic familyLocations;
 
 @end

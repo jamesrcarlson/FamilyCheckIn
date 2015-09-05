@@ -24,7 +24,7 @@
     
     Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     
-    [location addFamilyObject:family];
+    [location addFamilysForLocationObject:family];
     location.locationTitle = title;
     location.locationSnippet = snippet;
     location.latitude = lattitude;

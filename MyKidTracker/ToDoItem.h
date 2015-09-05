@@ -15,12 +15,12 @@
 
 @property (nonatomic, retain) NSNumber * completed;
 @property (nonatomic, retain) NSDate * dueDate;
-@property (nonatomic, retain) NSString * family;
+@property (nonatomic, retain) NSString * assignedFamily;
 @property (nonatomic, retain) NSString * itemDescription;
 @property (nonatomic, retain) NSString * itemTitle;
 @property (nonatomic, retain) NSString * locationName;
-@property (nonatomic, retain) User *user;
-@property (nonatomic, retain) Family *familyName;
-@property (nonatomic, retain) Location *location;
+@property (nonatomic, retain) User *userForItem;
+@property (nonatomic, retain) Family *familyForItem;
+@property (nonatomic, retain) Location *itemLocation;
 
 @end

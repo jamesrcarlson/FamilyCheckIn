@@ -39,7 +39,7 @@
     
     Family *theFamily = [FamilyController sharedInstance].families[indexPath.row];
     
-    cell.textLabel.text = theFamily.familyName;
+    cell.textLabel.text = theFamily.familysName;
     
     return cell;
 }

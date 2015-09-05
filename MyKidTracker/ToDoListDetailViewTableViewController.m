@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.toDoItemLocation = self.toDoItemDetail.location;
+    self.toDoItemLocation = self.toDoItemDetail.itemLocation;
     self.toDoMapView.delegate = self;
 
     [self setPoints];
@@ -39,12 +39,12 @@
 -(void)setLabels{
     self.itemTitle.text = self.toDoItemDetail.itemTitle;
     self.itemDescription.text = self.toDoItemDetail.itemDescription;
-    self.locLat.text = [NSString stringWithFormat:@"Lat: %@",self.toDoItemDetail.location.latitude];
-    self.locLong.text = [NSString stringWithFormat:@"Long: %@",self.toDoItemDetail.location.longitude];
+    self.locLat.text = [NSString stringWithFormat:@"Lat: %@",self.toDoItemDetail.itemLocation.latitude];
+    self.locLong.text = [NSString stringWithFormat:@"Long: %@",self.toDoItemDetail.itemLocation.longitude];
 //    self.locationRadius.text = [NSString stringWithFormat:@"%@",self.toDoItemDetail.location.radius];
     
-    self.personAssigned.text = self.toDoItemDetail.user.userFirstName;
-    self.familyAssigned.text = self.toDoItemDetail.familyName.familyName;
+    self.personAssigned.text = self.toDoItemDetail.userForItem.userFirstName;
+    self.familyAssigned.text = self.toDoItemDetail.familyForItem.familysName;
 }
 
 -(void)setPoints {

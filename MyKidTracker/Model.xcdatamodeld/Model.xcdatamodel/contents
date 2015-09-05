@@ -3,8 +3,8 @@
     <entity name="CheckIn" representedClassName="CheckIn" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="checkInLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="checkIns" inverseEntity="Location" syncable="YES"/>
         <relationship name="checkout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CheckOut" inverseName="checkIn" inverseEntity="CheckOut" syncable="YES"/>
-        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="checkIns" inverseEntity="Location" syncable="YES"/>
         <relationship name="primaryUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="checkIns" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="CheckOut" representedClassName="CheckOut" syncable="YES">
@@ -15,10 +15,10 @@
         <relationship name="userCheckout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="checkouts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Family" representedClassName="Family" syncable="YES">
-        <attribute name="familyName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="family" inverseEntity="Location" syncable="YES"/>
-        <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="familyName" inverseEntity="ToDoItem" syncable="YES"/>
-        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="myFamily" inverseEntity="User" syncable="YES"/>
+        <attribute name="familysName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="familyLocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="familysForLocation" inverseEntity="Location" syncable="YES"/>
+        <relationship name="familyUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="myFamily" inverseEntity="User" syncable="YES"/>
+        <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="familyForItem" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -27,21 +27,21 @@
         <attribute name="locationTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="radius" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="checkIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="location" inverseEntity="CheckIn" syncable="YES"/>
+        <relationship name="checkIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="checkInLocation" inverseEntity="CheckIn" syncable="YES"/>
         <relationship name="checkouts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CheckOut" inverseName="checkoutLocation" inverseEntity="CheckOut" syncable="YES"/>
-        <relationship name="family" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Family" inverseName="locations" inverseEntity="Family" syncable="YES"/>
-        <relationship name="toDoLists" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="location" inverseEntity="ToDoItem" syncable="YES"/>
+        <relationship name="familysForLocation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Family" inverseName="familyLocations" inverseEntity="Family" syncable="YES"/>
+        <relationship name="toDoLists" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="itemLocation" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <entity name="ToDoItem" representedClassName="ToDoItem" syncable="YES">
+        <attribute name="assignedFamily" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="dueDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="family" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="familyName" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="toDoList" inverseEntity="Family" syncable="YES"/>
-        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="toDoLists" inverseEntity="Location" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="toDoList" inverseEntity="User" syncable="YES"/>
+        <relationship name="familyForItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="toDoList" inverseEntity="Family" syncable="YES"/>
+        <relationship name="itemLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="toDoLists" inverseEntity="Location" syncable="YES"/>
+        <relationship name="userForItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="toDoList" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="currentlyCheckedIn" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -54,15 +54,15 @@
         <attribute name="userRole" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="checkIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="primaryUser" inverseEntity="CheckIn" syncable="YES"/>
         <relationship name="checkouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CheckOut" inverseName="userCheckout" inverseEntity="CheckOut" syncable="YES"/>
-        <relationship name="myFamily" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="user" inverseEntity="Family" syncable="YES"/>
-        <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="user" inverseEntity="ToDoItem" syncable="YES"/>
+        <relationship name="myFamily" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="familyUsers" inverseEntity="Family" syncable="YES"/>
+        <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="userForItem" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CheckIn" positionX="153" positionY="24" width="128" height="120"/>
-        <element name="CheckOut" positionX="-153" positionY="-405" width="128" height="120"/>
-        <element name="Family" positionX="232" positionY="-552" width="128" height="105"/>
-        <element name="Location" positionX="-90" positionY="3" width="128" height="195"/>
-        <element name="ToDoItem" positionX="-351" positionY="-132" width="128" height="178"/>
-        <element name="User" positionX="412" positionY="-351" width="128" height="225"/>
+        <element name="CheckIn" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CheckOut" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Family" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ToDoItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

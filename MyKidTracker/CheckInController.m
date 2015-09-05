@@ -24,7 +24,7 @@
 - (CheckIn *)createCheckInWithLocation:(Location *)location user:(User *)userName locationName:(NSString *)locationName checkInDate:(NSDate *)date {
     
     CheckIn *checkIn = [NSEntityDescription insertNewObjectForEntityForName:@"CheckIn" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-    checkIn.location = location;
+    checkIn.checkInLocation = location;
     checkIn.primaryUser = userName;
     checkIn.primaryUser.isCheckedIn = YES;
     checkIn.locationName = locationName;

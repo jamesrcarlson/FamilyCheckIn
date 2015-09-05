@@ -16,7 +16,7 @@
 
 @dynamic date;
 @dynamic locationName;
-@dynamic location;
+@dynamic checkInLocation;
 @dynamic primaryUser;
 @dynamic checkout;
 

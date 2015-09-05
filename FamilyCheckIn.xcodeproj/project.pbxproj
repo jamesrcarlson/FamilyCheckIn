@@ -52,6 +52,8 @@
 		61D085281B9A95D10033B5E6 /* LogInTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D085271B9A95D10033B5E6 /* LogInTableViewController.m */; };
 		61D0E9011B8EACE500C8B290 /* CreateToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0E9001B8EACE500C8B290 /* CreateToDoListTableViewController.m */; };
 		61D0E9041B8EAE2200C8B290 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0E9031B8EAE2200C8B290 /* LocationsTableViewController.m */; };
+		61FB5F201B9AD43D009AD1DE /* TheUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FB5F1F1B9AD43D009AD1DE /* TheUser.m */; };
+		61FB5F2F1B9AF2C7009AD1DE /* TheUser+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FB5F2E1B9AF2C7009AD1DE /* TheUser+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,10 @@
 		61D0E9001B8EACE500C8B290 /* CreateToDoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateToDoListTableViewController.m; sourceTree = "<group>"; };
 		61D0E9021B8EAE2200C8B290 /* LocationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsTableViewController.h; sourceTree = "<group>"; };
 		61D0E9031B8EAE2200C8B290 /* LocationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsTableViewController.m; sourceTree = "<group>"; };
+		61FB5F1E1B9AD43D009AD1DE /* TheUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheUser.h; sourceTree = "<group>"; };
+		61FB5F1F1B9AD43D009AD1DE /* TheUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUser.m; sourceTree = "<group>"; };
+		61FB5F2D1B9AF2C7009AD1DE /* TheUser+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheUser+Additions.h"; sourceTree = "<group>"; };
+		61FB5F2E1B9AF2C7009AD1DE /* TheUser+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TheUser+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +305,10 @@
 		6168F0331B86B184003F175F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				61FB5F1E1B9AD43D009AD1DE /* TheUser.h */,
+				61FB5F1F1B9AD43D009AD1DE /* TheUser.m */,
+				61FB5F2D1B9AF2C7009AD1DE /* TheUser+Additions.h */,
+				61FB5F2E1B9AF2C7009AD1DE /* TheUser+Additions.m */,
 				6173F2B41B97DBB000B32067 /* Family.h */,
 				6173F2B51B97DBB000B32067 /* Family.m */,
 				6173F2B11B97DBAF00B32067 /* Location.h */,
@@ -463,6 +473,7 @@
 				6165900A1B867C87000CCC7A /* ChildCheckInViewController.m in Sources */,
 				6163E9271B920A5D00D529E5 /* FamiliesTableViewController.m in Sources */,
 				61658FDE1B867C5D000CCC7A /* InitialViewController.m in Sources */,
+				61FB5F201B9AD43D009AD1DE /* TheUser.m in Sources */,
 				61CFB13B1B88EFDD00946AD3 /* SetNewLocationMapViewController.m in Sources */,
 				6173F2AD1B97CC7400B32067 /* LocationDeatilsTableViewController.m in Sources */,
 				616D68811B99283500798E05 /* LogInController.m in Sources */,
@@ -471,6 +482,7 @@
 				6176CE591B93FF5900EC4B22 /* User.m in Sources */,
 				61658FDB1B867C5D000CCC7A /* AppDelegate.m in Sources */,
 				6176CE5F1B940BEF00EC4B22 /* CheckOut.m in Sources */,
+				61FB5F2F1B9AF2C7009AD1DE /* TheUser+Additions.m in Sources */,
 				6168F0281B86B132003F175F /* CheckInController.m in Sources */,
 				616590091B867C87000CCC7A /* ChildrenViewController.m in Sources */,
 				61646CD11B92059000C67A7D /* ToDoItem+Additions.m in Sources */,

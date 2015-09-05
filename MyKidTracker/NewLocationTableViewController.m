@@ -41,7 +41,7 @@
 
 -(void)userDidSelectFamily:(Family *)familyName {
     self.theSelectedFamily = familyName;
-    self.familyNameLabel.text = familyName.familyName;
+    self.familyNameLabel.text = familyName.familysName;
     [self.tableView reloadData];
 }
 

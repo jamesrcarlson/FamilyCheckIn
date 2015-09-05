@@ -30,8 +30,8 @@
     
     self.locationMapView.delegate = self;
     self.string = @"";
-    for (Family *family in self.locationDetail.family) {
-        self.string = [self.string stringByAppendingString:[NSString stringWithFormat:@"%@\n",family.familyName]];
+    for (Family *family in self.locationDetail.familysForLocation) {
+        self.string = [self.string stringByAppendingString:[NSString stringWithFormat:@"%@\n",family.familysName]];
     }
     [self setLabels];
     [self setPoints];

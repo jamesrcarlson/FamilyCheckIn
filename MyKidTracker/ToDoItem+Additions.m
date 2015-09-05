@@ -16,8 +16,6 @@
     
 }
 
-
-
 -(void)setItemIsCompleted:(BOOL)itemIsCompleted {
     
     self.completed = @(itemIsCompleted);

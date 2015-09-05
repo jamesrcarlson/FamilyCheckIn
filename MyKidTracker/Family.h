@@ -13,10 +13,10 @@
 
 @interface Family : NSManagedObject
 
-@property (nonatomic, retain) NSString * familyName;
+@property (nonatomic, retain) NSString * familysName;
 @property (nonatomic, retain) NSSet *toDoList;
-@property (nonatomic, retain) NSSet *user;
-@property (nonatomic, retain) NSSet *locations;
+@property (nonatomic, retain) NSSet *familyUsers;
+@property (nonatomic, retain) NSSet *familyLocations;
 @end
 
 @interface Family (CoreDataGeneratedAccessors)
@@ -26,14 +26,14 @@
 - (void)addToDoList:(NSSet *)values;
 - (void)removeToDoList:(NSSet *)values;
 
-- (void)addUserObject:(User *)value;
-- (void)removeUserObject:(User *)value;
-- (void)addUser:(NSSet *)values;
-- (void)removeUser:(NSSet *)values;
+- (void)addFamilyUsersObject:(User *)value;
+- (void)removeFamilyUsersObject:(User *)value;
+- (void)addFamilyUsers:(NSSet *)values;
+- (void)removeFamilyUsers:(NSSet *)values;
 
-- (void)addLocationsObject:(Location *)value;
-- (void)removeLocationsObject:(Location *)value;
-- (void)addLocations:(NSSet *)values;
-- (void)removeLocations:(NSSet *)values;
+- (void)addFamilyLocationsObject:(Location *)value;
+- (void)removeFamilyLocationsObject:(Location *)value;
+- (void)addFamilyLocations:(NSSet *)values;
+- (void)removeFamilyLocations:(NSSet *)values;
 
 @end
