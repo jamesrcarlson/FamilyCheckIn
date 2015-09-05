@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
             endingLineNumber = "85"
-            landmarkName = "-locationManager:didEnterRegion:"
+            landmarkName = "-locationManager:didExitRegion:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
