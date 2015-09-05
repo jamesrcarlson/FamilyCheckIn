@@ -29,11 +29,10 @@
     location.locationSnippet = snippet;
     location.latitude = lattitude;
     location.longitude = longitude;
-    
-    [self saveToPersistentStorage];
+    location.radius = radius;
     
     UILocalNotification *locNotification = [[UILocalNotification alloc] init];
-    locNotification.alertBody = @"You have arrived!";
+    locNotification.alertBody = @"You have crossed a boundary!";
     locNotification.regionTriggersOnce = YES;
     
     CLLocationDistance theRadius = radius.doubleValue;
@@ -42,9 +41,12 @@
                               initWithCenter:coordinate
                               radius:theRadius
                               identifier:title];
+    
     locNotification.regionTriggersOnce = NO;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:locNotification];
+
+    [self saveToPersistentStorage];
     
     return location;
 }
@@ -76,13 +78,13 @@
     [location.managedObjectContext deleteObject:location];
     [self save];
 }
-
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    
-}
-
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    
-}
+//
+//- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+//    
+//}
+//
+//- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+//    
+//}
 
 @end

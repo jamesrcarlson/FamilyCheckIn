@@ -10,6 +10,7 @@
 #import "UserController.h"
 #import "CheckInController.h"
 #import "CheckinDetailsTableViewController.h"
+#import "CheckOutController.h"
 
 typedef NS_ENUM(NSUInteger, TableViewsection){
     TableViewsectionCheckIn,
@@ -38,8 +39,8 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
         [self.theCheckOuts addObject:chekout];
     }
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
 
 }
 
@@ -114,18 +115,37 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
     return cell;
 }
 
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//    // Return NO if you do not want the specified item to be editable.
-//    return YES;
-//}
-//
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        CheckIn *checkin = [CheckInController sharedInstance].checkins[indexPath.row];
-//        [[CheckInController sharedInstance]removeCheckinItem:checkin];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    }
-//}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == TableViewsectionCheckIn) {
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            CheckIn *checkin = [CheckInController sharedInstance].checkins[indexPath.row];
+            [[CheckInController sharedInstance]removeCheckinItem:checkin];
+            if ([self.theCheckins[indexPath.row]checkout]) {
+                [self.theCheckOuts removeObjectAtIndex:indexPath.row];
+            }
+            [self.theCheckins removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        [tableView reloadData];
+    }
+    if (indexPath.section == TableViewsectionCheckOut) {
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            CheckOut *checkOut = [CheckOutController sharedInstance].checkouts[indexPath.row];
+            [[CheckOutController sharedInstance]removeCheckOutItem:checkOut];
+            [self.theCheckOuts removeObjectAtIndex:indexPath.row];
+            [self.theCheckins removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+        }
+        [tableView reloadData];
+    }
+    
+}
 
 #pragma mark - Segues
 

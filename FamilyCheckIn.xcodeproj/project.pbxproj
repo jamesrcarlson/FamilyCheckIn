@@ -175,6 +175,8 @@
 		6163E92B1B921B3000D529E5 /* ListViews */ = {
 			isa = PBXGroup;
 			children = (
+				61658FFF1B867C87000CCC7A /* ChildCheckInViewController.h */,
+				616590001B867C87000CCC7A /* ChildCheckInViewController.m */,
 				6163E92C1B92297600D529E5 /* CheckinDetailsTableViewController.h */,
 				6163E92D1B92297600D529E5 /* CheckinDetailsTableViewController.m */,
 				6173F2AB1B97CC7400B32067 /* LocationDeatilsTableViewController.h */,
@@ -338,8 +340,6 @@
 				61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */,
 				61658FFD1B867C87000CCC7A /* ChildrenViewController.h */,
 				61658FFE1B867C87000CCC7A /* ChildrenViewController.m */,
-				61658FFF1B867C87000CCC7A /* ChildCheckInViewController.h */,
-				616590001B867C87000CCC7A /* ChildCheckInViewController.m */,
 				6165900F1B867DC0000CCC7A /* MapViewController.h */,
 				616590101B867DC0000CCC7A /* MapViewController.m */,
 			);

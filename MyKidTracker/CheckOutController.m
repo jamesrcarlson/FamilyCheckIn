@@ -31,7 +31,9 @@
     checkOut.checkIn = theCheckin;
     checkOut.locationName = locationName;
     checkOut.checkoutTime = date;
-    
+    theCheckin.checkout = checkOut;
+    [[CheckInController sharedInstance]save];
+
     [self saveToPersistentStorage];
     
     return checkOut;
@@ -60,7 +62,7 @@
 
 #pragma mark - Delete
 
-- (void)removeCheckinItem:(CheckOut *)checkOut {
+- (void)removeCheckOutItem:(CheckOut *)checkOut {
     [checkOut.managedObjectContext deleteObject:checkOut];
     [self save];
 }

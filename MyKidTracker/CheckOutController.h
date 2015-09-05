@@ -17,6 +17,6 @@
 
 - (CheckOut *)createCheckOutWithLocation:(Location *)location user:(User *)userName checkIn:(CheckIn *)theCheckin locationName:(NSString *)locationName checkOutDate:(NSDate *)date;
 
-- (void)removeCheckinItem:(CheckOut *)checkOut;
+- (void)removeCheckOutItem:(CheckOut *)checkOut;
 
 @end

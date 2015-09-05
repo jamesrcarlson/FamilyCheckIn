@@ -76,15 +76,15 @@
         [application registerForRemoteNotifications];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    
-    NSLog(@"Enter %@",region);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    
-    NSLog(@"Exit %@",region);
-}
+//- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+//    
+//    NSLog(@"Enter %@",region);
+//}
+//
+//- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+//    
+//    NSLog(@"Exit %@",region);
+//}
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"You have crossed a boundary" message:notification.alertBody preferredStyle:UIAlertControllerStyleAlert];
