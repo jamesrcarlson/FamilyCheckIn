@@ -1,8 +1,8 @@
 //
 //  User.m
-//  MyKidTracker
+//  FamilyCheckIn
 //
-//  Created by James Carlson on 8/30/15.
+//  Created by James Carlson on 9/5/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @implementation User
 
+@dynamic currentlyCheckedIn;
 @dynamic familyName;
 @dynamic userEmail;
 @dynamic userFirstName;
@@ -22,10 +23,10 @@
 @dynamic userPhoneNumber;
 @dynamic userPhoto;
 @dynamic userRole;
-@dynamic currentlyCheckedIn;
+@dynamic activeUser;
 @dynamic checkIns;
+@dynamic checkouts;
 @dynamic myFamily;
 @dynamic toDoList;
-@dynamic checkouts;
 
 @end

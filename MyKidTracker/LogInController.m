@@ -7,7 +7,7 @@
 //
 
 #import "LogInController.h"
-#import "TheUser+Additions.h"
+#import "UserController.h"
 #import "FamilyController.h"
 
 static NSString * const AllUsersKey = @"allUsers";
@@ -15,19 +15,10 @@ static NSString * const AllUsersKey = @"allUsers";
 @interface LogInController ()
 
 @property (strong, nonatomic) Family *usersFamily;
-@property (strong, nonatomic) NSArray *theUsers;
 
 @end
-@implementation LogInController
 
-+ (LogInController *)sharedInstance {
-    static LogInController *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [LogInController new];
-    });
-    return sharedInstance;
-}
+@implementation LogInController
 
 -(void)userLogon {
     
@@ -86,69 +77,8 @@ static NSString * const AllUsersKey = @"allUsers";
 }
 
 -(void)saveTheUserData {
-    
+    //get the user info and save it as the current user
 }
 
-- (TheUser *)createUserWithFamily:(NSString *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role {
-    
-    self.usersFamily = [[FamilyController sharedInstance]createFamilyWithName:family];
-    TheUser *user = [TheUser new];
-    user.theUserFamilyName = family;
-    user.theUserFirstName = firstname;
-    user.theUserLastName = lastName;
-    user.theUserEmail = email;
-    user.theUserPhoneNumber = number;
-    user.theUserIsParent = role;
-    
-    [self saveToPersistentStorage];
-    
-    return user;
-}
 
--(void)addScoreToArray:(TheUser *)theUser {
-    
-    if (!theUser) {
-        return;
-    }
-    NSMutableArray *mutableScores = self.theUsers.mutableCopy;
-    [mutableScores addObject:theUser];
-    
-    self.theUsers = mutableScores;
-    [self saveToPersistentStorage];
-}
-
--(void)save {
-    [self saveToPersistentStorage];
-}
-
--(void)removeScore: (TheUser *)theUser {
-    if (!theUser) {
-        return;
-    }
-    NSMutableArray *mutableEntries = self.theUsers.mutableCopy;
-    [mutableEntries removeObject:theUser];
-    
-    self.theUsers = mutableEntries;
-    [self saveToPersistentStorage];
-}
-
--(void)saveToPersistentStorage {
-    NSMutableArray *usersDictionary = [NSMutableArray new];
-    
-    for (TheUser *theUser in self.theUsers) {
-        [usersDictionary addObject:[theUser userDictionary]];
-    }
-    [[NSUserDefaults standardUserDefaults] setObject:usersDictionary forKey:AllUsersKey];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-}
-
--(void)loadFromStorage {
-    NSArray *usersDictionaries = [[NSUserDefaults standardUserDefaults]objectForKey:AllUsersKey];
-    
-    NSMutableArray *users = [NSMutableArray new];
-    for (NSDictionary *user in usersDictionaries) {
-        [users addObject:[[TheUser alloc]initWithDictionary:user]];
-    }
-    self.theUsers = users;
-}
 @end

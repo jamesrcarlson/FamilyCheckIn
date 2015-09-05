@@ -37,6 +37,8 @@
     return checkOut;
 }
 
+
+
 - (NSArray *)checkouts {
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CheckOut"];

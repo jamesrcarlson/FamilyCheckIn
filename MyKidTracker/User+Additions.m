@@ -26,4 +26,12 @@
     self.currentlyCheckedIn = @(isCheckedIn);
 }
 
+- (BOOL)isTheActiveUser {
+    return self.activeUser.boolValue;
+}
+
+- (void)setIsTheActiveUser:(BOOL)isTheActiveUser {
+    self.activeUser = @(isTheActiveUser);
+}
+
 @end

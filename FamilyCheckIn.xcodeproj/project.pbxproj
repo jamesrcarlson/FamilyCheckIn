@@ -39,7 +39,6 @@
 		6173F2B31B97DBAF00B32067 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 6173F2B21B97DBAF00B32067 /* Location.m */; };
 		6173F2B61B97DBB000B32067 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 6173F2B51B97DBB000B32067 /* Family.m */; };
 		6176CE561B93FB2500EC4B22 /* CheckOutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176CE551B93FB2500EC4B22 /* CheckOutController.m */; };
-		6176CE591B93FF5900EC4B22 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176CE581B93FF5900EC4B22 /* User.m */; };
 		6176CE5C1B940BEF00EC4B22 /* CheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176CE5B1B940BEF00EC4B22 /* CheckIn.m */; };
 		6176CE5F1B940BEF00EC4B22 /* CheckOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176CE5E1B940BEF00EC4B22 /* CheckOut.m */; };
 		618560C91B9673280087A92D /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618560C81B9673280087A92D /* NotificationsController.m */; };
@@ -52,8 +51,7 @@
 		61D085281B9A95D10033B5E6 /* LogInTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D085271B9A95D10033B5E6 /* LogInTableViewController.m */; };
 		61D0E9011B8EACE500C8B290 /* CreateToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0E9001B8EACE500C8B290 /* CreateToDoListTableViewController.m */; };
 		61D0E9041B8EAE2200C8B290 /* LocationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0E9031B8EAE2200C8B290 /* LocationsTableViewController.m */; };
-		61FB5F201B9AD43D009AD1DE /* TheUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FB5F1F1B9AD43D009AD1DE /* TheUser.m */; };
-		61FB5F2F1B9AF2C7009AD1DE /* TheUser+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FB5F2E1B9AF2C7009AD1DE /* TheUser+Additions.m */; };
+		61FB5F321B9B5119009AD1DE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FB5F311B9B5119009AD1DE /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,8 +124,6 @@
 		6173F2B51B97DBB000B32067 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
 		6176CE541B93FB2500EC4B22 /* CheckOutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckOutController.h; sourceTree = "<group>"; };
 		6176CE551B93FB2500EC4B22 /* CheckOutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckOutController.m; sourceTree = "<group>"; };
-		6176CE571B93FF5900EC4B22 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		6176CE581B93FF5900EC4B22 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6176CE5A1B940BEF00EC4B22 /* CheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckIn.h; sourceTree = "<group>"; };
 		6176CE5B1B940BEF00EC4B22 /* CheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckIn.m; sourceTree = "<group>"; };
 		6176CE5D1B940BEF00EC4B22 /* CheckOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckOut.h; sourceTree = "<group>"; };
@@ -152,10 +148,8 @@
 		61D0E9001B8EACE500C8B290 /* CreateToDoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateToDoListTableViewController.m; sourceTree = "<group>"; };
 		61D0E9021B8EAE2200C8B290 /* LocationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsTableViewController.h; sourceTree = "<group>"; };
 		61D0E9031B8EAE2200C8B290 /* LocationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsTableViewController.m; sourceTree = "<group>"; };
-		61FB5F1E1B9AD43D009AD1DE /* TheUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheUser.h; sourceTree = "<group>"; };
-		61FB5F1F1B9AD43D009AD1DE /* TheUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUser.m; sourceTree = "<group>"; };
-		61FB5F2D1B9AF2C7009AD1DE /* TheUser+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheUser+Additions.h"; sourceTree = "<group>"; };
-		61FB5F2E1B9AF2C7009AD1DE /* TheUser+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TheUser+Additions.m"; sourceTree = "<group>"; };
+		61FB5F301B9B5119009AD1DE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		61FB5F311B9B5119009AD1DE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,10 +299,6 @@
 		6168F0331B86B184003F175F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				61FB5F1E1B9AD43D009AD1DE /* TheUser.h */,
-				61FB5F1F1B9AD43D009AD1DE /* TheUser.m */,
-				61FB5F2D1B9AF2C7009AD1DE /* TheUser+Additions.h */,
-				61FB5F2E1B9AF2C7009AD1DE /* TheUser+Additions.m */,
 				6173F2B41B97DBB000B32067 /* Family.h */,
 				6173F2B51B97DBB000B32067 /* Family.m */,
 				6173F2B11B97DBAF00B32067 /* Location.h */,
@@ -317,8 +307,8 @@
 				6176CE5E1B940BEF00EC4B22 /* CheckOut.m */,
 				6176CE5A1B940BEF00EC4B22 /* CheckIn.h */,
 				6176CE5B1B940BEF00EC4B22 /* CheckIn.m */,
-				6176CE571B93FF5900EC4B22 /* User.h */,
-				6176CE581B93FF5900EC4B22 /* User.m */,
+				61FB5F301B9B5119009AD1DE /* User.h */,
+				61FB5F311B9B5119009AD1DE /* User.m */,
 				61CD4EEB1B8FFDC800AC9423 /* User+Additions.h */,
 				61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */,
 				61CD4EF41B90014A00AC9423 /* ToDoItem.h */,
@@ -473,19 +463,17 @@
 				6165900A1B867C87000CCC7A /* ChildCheckInViewController.m in Sources */,
 				6163E9271B920A5D00D529E5 /* FamiliesTableViewController.m in Sources */,
 				61658FDE1B867C5D000CCC7A /* InitialViewController.m in Sources */,
-				61FB5F201B9AD43D009AD1DE /* TheUser.m in Sources */,
 				61CFB13B1B88EFDD00946AD3 /* SetNewLocationMapViewController.m in Sources */,
 				6173F2AD1B97CC7400B32067 /* LocationDeatilsTableViewController.m in Sources */,
 				616D68811B99283500798E05 /* LogInController.m in Sources */,
 				6168F02B1B86B141003F175F /* ToDoItemController.m in Sources */,
 				6168F0311B86B157003F175F /* LocationController.m in Sources */,
-				6176CE591B93FF5900EC4B22 /* User.m in Sources */,
 				61658FDB1B867C5D000CCC7A /* AppDelegate.m in Sources */,
 				6176CE5F1B940BEF00EC4B22 /* CheckOut.m in Sources */,
-				61FB5F2F1B9AF2C7009AD1DE /* TheUser+Additions.m in Sources */,
 				6168F0281B86B132003F175F /* CheckInController.m in Sources */,
 				616590091B867C87000CCC7A /* ChildrenViewController.m in Sources */,
 				61646CD11B92059000C67A7D /* ToDoItem+Additions.m in Sources */,
+				61FB5F321B9B5119009AD1DE /* User.m in Sources */,
 				61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */,
 				61D085281B9A95D10033B5E6 /* LogInTableViewController.m in Sources */,
 				6163E92A1B9216AF00D529E5 /* UserListTableViewController.m in Sources */,

@@ -10,6 +10,11 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "NotificationsController.h"
+#import "LocationController.h"
+#import "LogInController.h"
+#import "UserController.h"
+#import "CheckInController.h"
+#import "CheckOutController.h"
 
 @interface AppDelegate () <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -42,12 +47,9 @@
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
     if (localNotification) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"You were notified" message:@"here it is" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
-        UINavigationController *navCont = (UINavigationController *)self.window.rootViewController;
-        [navCont.topViewController presentViewController:alertController animated:YES completion:nil];
+        [self application:application didReceiveLocalNotification:localNotification];
         application.applicationIconBadgeNumber = 0;
+        
     }
     
     
@@ -74,10 +76,50 @@
         [application registerForRemoteNotifications];
 }
 
--(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"You were notified" message:notification.alertBody preferredStyle:UIAlertControllerStyleAlert];
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+    NSLog(@"Enter %@",region);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    
+    NSLog(@"Exit %@",region);
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"You have crossed a boundary" message:notification.alertBody preferredStyle:UIAlertControllerStyleAlert];
+
+    Location *tmpLocation;
+    for (Location *location in [LocationController sharedInstance].locations) {
+        if ([notification.region.identifier isEqualToString:location.locationTitle]) {
+            tmpLocation = location;
+        }
+    }
+    User *addUser;
+    for (User *user in [UserController sharedInstance].users) {
+        if (user.isTheActiveUser == YES) {
+            addUser = user;
+        }
+    }
+
+    if (addUser.isCheckedIn == NO) {
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Check In" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
+            NSLog(@"Checked in");
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ignore It" style:UIAlertActionStyleCancel handler:nil]];
+    } else if (addUser.isCheckedIn == YES) {
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Check Out" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
+            NSLog(@"Checked out");
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ignore It" style:UIAlertActionStyleCancel handler:nil]];
+    }
+    
+    
+    
     UINavigationController *navCont = (UINavigationController *)self.window.rootViewController;
     [navCont.topViewController presentViewController:alertController animated:YES completion:nil];
     

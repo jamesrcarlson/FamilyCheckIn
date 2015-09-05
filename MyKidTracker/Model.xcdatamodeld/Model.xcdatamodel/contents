@@ -44,6 +44,7 @@
         <relationship name="userForItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="toDoList" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="activeUser" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="currentlyCheckedIn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="familyName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
@@ -58,11 +59,11 @@
         <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="userForItem" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CheckIn" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CheckOut" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Family" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ToDoItem" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CheckIn" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="CheckOut" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="Family" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Location" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="ToDoItem" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="User" positionX="0" positionY="0" width="128" height="240"/>
     </elements>
 </model>
