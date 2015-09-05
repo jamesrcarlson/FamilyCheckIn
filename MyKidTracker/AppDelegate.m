@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "NotificationsController.h"
 #import "LocationController.h"
 #import "LogInController.h"
@@ -27,6 +29,8 @@
 // https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/RegionMonitoring/RegionMonitoring.html#//apple_ref/doc/uid/TP40009497-CH9-SW1
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
     
     self.notificationController = [NotificationsController new];
     switch ([CLLocationManager authorizationStatus]) {
@@ -61,19 +65,21 @@
     [locationManager requestAlwaysAuthorization];
     [myMapView setShowsUserLocation:YES];
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
-        [application registerUserNotificationSettings:
-         [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge |
-                                                       UIUserNotificationTypeSound |
-                                                       UIUserNotificationTypeAlert)
-                                           categories:nil]];
+    [FBSDKAppEvents activateApp];
+    [application registerUserNotificationSettings:
+     [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge |
+                                                   UIUserNotificationTypeSound |
+                                                   UIUserNotificationTypeAlert)
+                                       categories:nil]];
     
-        [application registerForRemoteNotifications];
+    [application registerForRemoteNotifications];
 }
 
 //- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
@@ -204,5 +210,14 @@
     
 }
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
+}
 
 @end

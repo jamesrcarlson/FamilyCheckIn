@@ -8,6 +8,8 @@
 
 #import "LogInTableViewController.h"
 #import "LogInController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface LogInTableViewController ()
 
@@ -22,6 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.logInController = [LogInController new];
+    
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.center = self.view.center;
+    [self.view addSubview:loginButton];
     
 }
 
