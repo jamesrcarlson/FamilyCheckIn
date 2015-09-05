@@ -37,7 +37,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 9) {
+    if (indexPath.row == 8) {
         //send the registration information
         NSLog(@"The registration was sent");
     }
@@ -47,11 +47,6 @@
 
     // Return the number of sections.
     return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 10;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {

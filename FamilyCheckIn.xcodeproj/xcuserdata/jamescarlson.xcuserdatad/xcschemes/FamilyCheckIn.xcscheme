@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61658FD11B867C5D000CCC7A"
-               BuildableName = "MyKidTracker.app"
-               BlueprintName = "MyKidTracker"
-               ReferencedContainer = "container:MyKidTracker.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61658FEA1B867C5D000CCC7A"
-               BuildableName = "MyKidTrackerTests.xctest"
-               BlueprintName = "MyKidTrackerTests"
-               ReferencedContainer = "container:MyKidTracker.xcodeproj">
+               BuildableName = "FamilyCheckIn.app"
+               BlueprintName = "FamilyCheckIn"
+               ReferencedContainer = "container:FamilyCheckIn.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61658FEA1B867C5D000CCC7A"
-               BuildableName = "MyKidTrackerTests.xctest"
-               BlueprintName = "MyKidTrackerTests"
-               ReferencedContainer = "container:MyKidTracker.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61658FD11B867C5D000CCC7A"
-            BuildableName = "MyKidTracker.app"
-            BlueprintName = "MyKidTracker"
-            ReferencedContainer = "container:MyKidTracker.xcodeproj">
+            BuildableName = "FamilyCheckIn.app"
+            BlueprintName = "FamilyCheckIn"
+            ReferencedContainer = "container:FamilyCheckIn.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61658FD11B867C5D000CCC7A"
-            BuildableName = "MyKidTracker.app"
-            BlueprintName = "MyKidTracker"
-            ReferencedContainer = "container:MyKidTracker.xcodeproj">
+            BuildableName = "FamilyCheckIn.app"
+            BlueprintName = "FamilyCheckIn"
+            ReferencedContainer = "container:FamilyCheckIn.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61658FD11B867C5D000CCC7A"
-            BuildableName = "MyKidTracker.app"
-            BlueprintName = "MyKidTracker"
-            ReferencedContainer = "container:MyKidTracker.xcodeproj">
+            BuildableName = "FamilyCheckIn.app"
+            BlueprintName = "FamilyCheckIn"
+            ReferencedContainer = "container:FamilyCheckIn.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
