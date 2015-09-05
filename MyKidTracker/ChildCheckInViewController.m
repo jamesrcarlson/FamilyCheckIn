@@ -137,8 +137,8 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
         if (editingStyle == UITableViewCellEditingStyleDelete) {
             CheckOut *checkOut = [CheckOutController sharedInstance].checkouts[indexPath.row];
             [[CheckOutController sharedInstance]removeCheckOutItem:checkOut];
-            [self.theCheckOuts removeObjectAtIndex:indexPath.row];
             [self.theCheckins removeObjectAtIndex:indexPath.row];
+            [self.theCheckOuts removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
         }
