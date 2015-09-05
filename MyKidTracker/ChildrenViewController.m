@@ -47,6 +47,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     User *user = [UserController sharedInstance].users[indexPath.row];
     cell.textLabel.text = user.userFirstName;
+    cell.detailTextLabel.text = user.userLastName;
     
     if (user.isCheckedIn == YES) {
         cell.detailTextLabel.text = @"Checked in";

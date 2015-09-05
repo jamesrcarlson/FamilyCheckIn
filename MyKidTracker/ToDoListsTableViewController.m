@@ -26,6 +26,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -49,6 +54,12 @@
     ToDoItem *toDo = [ToDoItemController sharedInstance].toDoLists[indexPath.row];
     cell.textLabel.text = toDo.itemTitle;
     cell.detailTextLabel.text = toDo.itemDescription;
+    if (toDo.itemIsCompleted == YES) {
+        cell.backgroundColor = [UIColor greenColor];
+    }
+    if (toDo.itemIsCompleted == NO) {
+        cell.backgroundColor = [UIColor redColor];
+    }
     
     return cell;
     

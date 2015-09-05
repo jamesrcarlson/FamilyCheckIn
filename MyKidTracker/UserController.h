@@ -15,7 +15,7 @@
 
 + (UserController *)sharedInstance;
 
-- (User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role;
+- (User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role isActiveUser:(BOOL)isActive;
 
 - (void)removeEntry:(User *)user;
 

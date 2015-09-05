@@ -30,9 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.family = [[FamilyController sharedInstance]createFamilyWithName:@"Stevens"];
+//    self.family = [[FamilyController sharedInstance]createFamilyWithName:@"Stewart"];
 //
-//    self.user = [[UserController sharedInstance]createUserWithFamily:self.family firstname:@"Jake" lastName:@"Todd" emailAddress:@"joe@gmail.com" phoneNumber:@8013100077 userRole:NO];
+//    self.user = [[UserController sharedInstance]createUserWithFamily:self.family firstname:@"Joe" lastName:@"Todd" emailAddress:@"joe@gmail.com" phoneNumber:@8013100077 userRole:NO isActiveUser:YES];
 //
 //    self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"The one place" infoSnippet:@"This is another place" lattitude:@"37.316935" longitude:@"-122.21962" radius:@(25)];
     

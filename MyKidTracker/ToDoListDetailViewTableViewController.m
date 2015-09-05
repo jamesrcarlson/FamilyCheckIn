@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *locLat;
 @property (strong, nonatomic) IBOutlet UILabel *locLong;
 @property (strong, nonatomic) IBOutlet MKMapView *toDoMapView;
+@property (strong, nonatomic) IBOutlet UILabel *assignedPersonLabel;
 
 @end
 
@@ -29,6 +30,8 @@
     
     self.toDoItemLocation = self.toDoItemDetail.itemLocation;
     self.toDoMapView.delegate = self;
+    self.toDoUser = self.toDoItemDetail.userForItem;
+    self.toDoFamily = self.toDoItemDetail.familyForItem;
 
     [self setPoints];
     
@@ -41,10 +44,16 @@
     self.itemDescription.text = self.toDoItemDetail.itemDescription;
     self.locLat.text = [NSString stringWithFormat:@"Lat: %@",self.toDoItemDetail.itemLocation.latitude];
     self.locLong.text = [NSString stringWithFormat:@"Long: %@",self.toDoItemDetail.itemLocation.longitude];
-//    self.locationRadius.text = [NSString stringWithFormat:@"%@",self.toDoItemDetail.location.radius];
+    self.locationName.text = self.toDoItemLocation.locationTitle;
+    if (self.toDoUser) {
+        self.personAssigned.text = self.toDoUser.userFirstName;
+    }
+    if (!self.toDoUser){
+        self.assignedPersonLabel.text = @"";
+        self.personAssigned.text = @"";
+    }
     
-    self.personAssigned.text = self.toDoItemDetail.userForItem.userFirstName;
-    self.familyAssigned.text = self.toDoItemDetail.familyForItem.familysName;
+    self.familyAssigned.text = self.toDoFamily.familysName;
 }
 
 -(void)setPoints {
@@ -68,6 +77,13 @@
     [self.toDoMapView addAnnotation:myAnnotation];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 7) {
+        self.toDoItemDetail.itemIsCompleted = YES;
+        [[ToDoItemController sharedInstance]save];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -75,6 +91,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return UITableViewAutomaticDimension;
 }
 
 - (IBAction)changeMapView:(id)sender {

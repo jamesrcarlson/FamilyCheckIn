@@ -112,7 +112,13 @@
     } else if (addUser.isCheckedIn == YES) {
         [alertController addAction:[UIAlertAction actionWithTitle:@"Check Out" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
-            [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
+            CheckIn *lastCheckin;
+            for (CheckIn *checkin in [CheckInController sharedInstance].checkins) {
+                if (!checkin.checkout) {
+                    lastCheckin = checkin;
+                }
+            }
+            [[CheckOutController sharedInstance]createCheckOutWithLocation:tmpLocation user:addUser checkIn:lastCheckin locationName:tmpLocation.locationTitle checkOutDate:[NSDate date]];
             NSLog(@"Checked out");
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Ignore It" style:UIAlertActionStyleCancel handler:nil]];

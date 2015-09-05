@@ -78,25 +78,31 @@
     return 1;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 3) {
-        UIFont *cellFont = [UIFont fontWithName:@"Arial-BoldItalicMT" size:22.0];
-        
-        NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:self.string
-                                                                             attributes:@{NSFontAttributeName: cellFont}];
-        
-        CGRect rect = [attributedText boundingRectWithSize:CGSizeMake(tableView.bounds.size.width, CGFLOAT_MAX)
-                                                   options:NSStringDrawingUsesLineFragmentOrigin
-                                                   context:nil];
-        return rect.size.height + 20;
-    }
-    if (indexPath.row == 5) {
-        return 300;
-    }else{
-
-        return 50;
-    }
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return UITableViewAutomaticDimension;
 }
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row == 3) {
+//        UIFont *cellFont = [UIFont fontWithName:@"Arial-BoldItalicMT" size:22.0];
+//        
+//        NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:self.string
+//                                                                             attributes:@{NSFontAttributeName: cellFont}];
+//        
+//        CGRect rect = [attributedText boundingRectWithSize:CGSizeMake(tableView.bounds.size.width, CGFLOAT_MAX)
+//                                                   options:NSStringDrawingUsesLineFragmentOrigin
+//                                                   context:nil];
+//        return rect.size.height + 20;
+//    }
+//    if (indexPath.row == 5) {
+//        return 300;
+//    }else{
+//
+//        return 50;
+//    }
+//}
+
 - (IBAction)changeMapView:(id)sender {
     
     switch (((UISegmentedControl *)sender).selectedSegmentIndex) {

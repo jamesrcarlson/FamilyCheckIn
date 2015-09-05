@@ -20,7 +20,7 @@
     return sharedInstance;
 }
 
-- (User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role {
+- (User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role isActiveUser:(BOOL)isActive {
     
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     user.myFamily = family;
@@ -29,6 +29,7 @@
     user.userEmail = email;
     user.userPhoneNumber = number;
     user.isParent = role;
+    user.isTheActiveUser = isActive;
     
     [self saveToPersistentStorage];
     
