@@ -9,6 +9,7 @@
 #import "LogInController.h"
 #import "UserController.h"
 #import "FamilyController.h"
+#import "NetworkController.h"
 
 static NSString * const AllUsersKey = @"allUsers";
 
@@ -21,59 +22,22 @@ static NSString * const AllUsersKey = @"allUsers";
 @implementation LogInController
 
 -(void)userLogon {
+    NSString *pw = @"steve";
+    NSString *uN = @"Steve";
+//    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
     
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    NSDictionary *userInfo = @{@"username": @[uN],
+                               @"password": @[pw],
+                               @"info":@{
+                                       @"user":@"",
+                                       @"phone_number": @[@810310],
+                                       @"profile_pic": @[@"" ]}};
     
-    NSString *urlString = [NSString stringWithFormat:@"http://api.jc2dev.com/user/"];
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:50];
-    [request addValue:@"application/json" forHTTPHeaderField:@"user"];
-    [request setHTTPMethod:@"POST"];
-//    
-//    NSString *pw = @"JJCjon40";
-//    NSString *uN = @"admin";
-//    NSDictionary *userInfo = @{@"username": uN,
-//                               @"password": pw};
-//    NSData *postData = [NSJSONSerialization dataWithJSONObject:userInfo options:0 error:nil];// can also use NSJSONWritingPrettyPrinted
-//    
-//    [request setHTTPBody:postData];
-    
-    //    NSDictionary *dict2 = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingAllowFragments error:nil];
-    //    NSLog(@"%@",dict2);
-//    [session uploadTaskWithRequest:request fromData:postData];
-//    [session downloadTaskWithRequest:request];
-    
-    
-    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        //do something else
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"%@",dict);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            //do the logon stuff
-            
-        });
+    [[NetworkController api]POST:@"user/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+        NSLog(@"success");
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+        NSLog(@"fail");
     }];
-    
-    [postDataTask resume];
-    
-//    NSURLSessionDataTask *recieve = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        
-//        
-//        
-//        
-//    }];
-//    
-//    [recieve resume];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        // this is only getting it to the main thread to process asyncronously. It should just go outside of this, and some other block of code such as to reload the tableview data - should go in there.
-    });
 }
 
 -(void)saveTheUserData {

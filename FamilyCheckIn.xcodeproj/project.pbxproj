@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610B675B1B9FC05800E3DFC6 /* FacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610B675A1B9FC05800E3DFC6 /* FacebookController.m */; };
+		610B675E1B9FC82000E3DFC6 /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610B675D1B9FC82000E3DFC6 /* NetworkController.m */; };
 		6155238B1B9129070001FB75 /* FamilyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6155238A1B9129070001FB75 /* FamilyController.m */; };
 		6163E9271B920A5D00D529E5 /* FamiliesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6163E9261B920A5D00D529E5 /* FamiliesTableViewController.m */; };
 		6163E92A1B9216AF00D529E5 /* UserListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6163E9291B9216AF00D529E5 /* UserListTableViewController.m */; };
@@ -68,6 +70,10 @@
 
 /* Begin PBXFileReference section */
 		4A723C48E6650FA5C5EB70A8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		610B67591B9FC05800E3DFC6 /* FacebookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookController.h; sourceTree = "<group>"; };
+		610B675A1B9FC05800E3DFC6 /* FacebookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookController.m; sourceTree = "<group>"; };
+		610B675C1B9FC82000E3DFC6 /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkController.h; sourceTree = "<group>"; };
+		610B675D1B9FC82000E3DFC6 /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
 		615523891B9129070001FB75 /* FamilyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyController.h; sourceTree = "<group>"; };
 		6155238A1B9129070001FB75 /* FamilyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyController.m; sourceTree = "<group>"; };
 		6163E9251B920A5D00D529E5 /* FamiliesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamiliesTableViewController.h; sourceTree = "<group>"; };
@@ -133,7 +139,7 @@
 		6176CE5E1B940BEF00EC4B22 /* CheckOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckOut.m; sourceTree = "<group>"; };
 		618560C71B9673280087A92D /* NotificationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsController.h; sourceTree = "<group>"; };
 		618560C81B9673280087A92D /* NotificationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsController.m; sourceTree = "<group>"; };
-		6189508D1B9B8BA100F80873 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6189508D1B9B8BA100F80873 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		61CD4EE81B8FF17700AC9423 /* ToDoListsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListsTableViewController.h; sourceTree = "<group>"; };
 		61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListsTableViewController.m; sourceTree = "<group>"; };
 		61CD4EEB1B8FFDC800AC9423 /* User+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Additions.h"; sourceTree = "<group>"; };
@@ -294,6 +300,10 @@
 		6168F0321B86B171003F175F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				610B675C1B9FC82000E3DFC6 /* NetworkController.h */,
+				610B675D1B9FC82000E3DFC6 /* NetworkController.m */,
+				610B67591B9FC05800E3DFC6 /* FacebookController.h */,
+				610B675A1B9FC05800E3DFC6 /* FacebookController.m */,
 				616D687F1B99283500798E05 /* LogInController.h */,
 				616D68801B99283500798E05 /* LogInController.m */,
 				618560C71B9673280087A92D /* NotificationsController.h */,
@@ -515,6 +525,7 @@
 				6173F2B61B97DBB000B32067 /* Family.m in Sources */,
 				6173F2B31B97DBAF00B32067 /* Location.m in Sources */,
 				6176CE561B93FB2500EC4B22 /* CheckOutController.m in Sources */,
+				610B675E1B9FC82000E3DFC6 /* NetworkController.m in Sources */,
 				6168F0361B86C02D003F175F /* LocationAnnotation.m in Sources */,
 				61CD4EF61B90014A00AC9423 /* ToDoItem.m in Sources */,
 				6155238B1B9129070001FB75 /* FamilyController.m in Sources */,
@@ -543,6 +554,7 @@
 				61658FD81B867C5D000CCC7A /* main.m in Sources */,
 				618560C91B9673280087A92D /* NotificationsController.m in Sources */,
 				6176CE5C1B940BEF00EC4B22 /* CheckIn.m in Sources */,
+				610B675B1B9FC05800E3DFC6 /* FacebookController.m in Sources */,
 				61D0E9011B8EACE500C8B290 /* CreateToDoListTableViewController.m in Sources */,
 				616590111B867DC0000CCC7A /* MapViewController.m in Sources */,
 				61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */,
