@@ -33,6 +33,8 @@
 	<string>1635114786768583</string>
 	<key>FacebookDisplayName</key>
 	<string>FamilyCheckIn</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<string>fbauth2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>

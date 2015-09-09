@@ -1,3 +1,4 @@
 
-pod "FBSDKCoreKit";
-pod "FBSDKLoginKit";
+pod 'FBSDKCoreKit';
+pod 'FBSDKLoginKit';
+pod 'FBSDKShareKit';
