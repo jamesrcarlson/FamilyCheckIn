@@ -11,6 +11,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKAccessToken.h>
+#import "ParentOptionsTableViewController.h"
+#import "RegisterViewController.h"
 
 #import "FamilyController.h"
 #import "CheckInController.h"
@@ -46,6 +48,18 @@
     loginButton.readPermissions = @[@"public_profile", @"email"];
     [self.view addSubview:loginButton];
     
+    if ([loginButton.titleLabel.text isEqualToString:@"Log out"]) {
+        if ([FamilyController sharedInstance].families.count < 1) {
+            RegisterViewController *registerView = (RegisterViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+            [self.navigationController pushViewController:registerView animated:YES];
+        }
+        ParentOptionsTableViewController *parentOptions = (ParentOptionsTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ParentOptionsTableViewController"];
+        [self.navigationController pushViewController:parentOptions animated:YES];
+        
+        UIBarButtonItem *forward = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(pushTheNextView)];
+        
+        self.navigationItem.rightBarButtonItem = forward;
+    }
     
     if ([FamilyController sharedInstance].families.count < 1) {
         self.family = [[FamilyController sharedInstance]createFamilyWithName:@"Stewart"];
@@ -56,6 +70,11 @@
         self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"Home" infoSnippet:@"This is one last test" lattitude:@"37.311146" longitude:@"-122.10962" radius:@(15)];
         
     }
+}
+
+-(void)pushTheNextView {
+    ParentOptionsTableViewController *parentOptions = (ParentOptionsTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ParentOptionsTableViewController"];
+    [self.navigationController pushViewController:parentOptions animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
