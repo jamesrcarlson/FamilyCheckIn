@@ -15,7 +15,7 @@
 
 + (ToDoItemController *)sharedInstance;
 
-- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description location:(Location *)location familyName:(Family *)familyName assignedUser:(User *)user dueDate:(NSDate *)date isCompleted:(BOOL)done;
+- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description location:(Location *)itemLocation familyName:(Family *)familyName assignedUser:(User *)user dueDate:(NSDate *)date isCompleted:(BOOL)done;
 - (void)save;
 - (void)removeToDoItem:(ToDoItem *)toDo;
 

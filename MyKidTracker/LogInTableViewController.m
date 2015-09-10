@@ -12,11 +12,25 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKAccessToken.h>
 
+#import "FamilyController.h"
+#import "CheckInController.h"
+#import "LocationController.h"
+#import "CheckOutController.h"
+#import "UserController.h"
+
+
 @interface LogInTableViewController () <FBSDKLoginButtonDelegate>
 
 @property (strong, nonatomic) LogInController *logInController;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *userNameField;
+
+@property (strong, nonatomic) User *user;
+@property (strong, nonatomic) Family *family;
+@property (strong, nonatomic) CheckIn *checkin;
+@property (strong, nonatomic) CheckOut *checkout;
+@property (strong, nonatomic) Location *location;
+
 
 @end
 
@@ -32,6 +46,16 @@
     loginButton.readPermissions = @[@"public_profile", @"email"];
     [self.view addSubview:loginButton];
     
+    
+    if ([FamilyController sharedInstance].families.count < 1) {
+        self.family = [[FamilyController sharedInstance]createFamilyWithName:@"Stewart"];
+        
+        self.user = [[UserController sharedInstance]createUserWithFamily:self.family firstname:@"Joe" lastName:@"Todd" emailAddress:@"joe@gmail.com" phoneNumber:@8013100077 userRole:NO isActiveUser:YES];
+        
+        self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"The one place" infoSnippet:@"This is another place" lattitude:@"37.316935" longitude:@"-122.21962" radius:@(25)];
+        self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"Home" infoSnippet:@"This is one last test" lattitude:@"37.311146" longitude:@"-122.10962" radius:@(15)];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

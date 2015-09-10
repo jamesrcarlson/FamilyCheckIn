@@ -98,7 +98,7 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
     
     if (indexPath.section == TableViewsectionCheckIn) {
         cell.textLabel.text = [self.theCheckins[indexPath.row]locationName];
-        if (self.anotherUser.isCheckedIn == YES) {
+        if (![self.theCheckins[indexPath.row]checkout]) {
             cell.detailTextLabel.text = @"still checked in";
         } else {
             cell.detailTextLabel.text = @"has already checked out";
@@ -106,7 +106,7 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
     }
     if (indexPath.section == TableViewsectionCheckOut) {
         cell.textLabel.text = [self.theCheckOuts[indexPath.row]locationName];
-        if (self.anotherUser.isCheckedIn == YES) {
+        if (![self.theCheckOuts[indexPath.row]checkout]) {
             cell.detailTextLabel.text = @"still checked in";
         } else {
             cell.detailTextLabel.text = @"has already checked out";

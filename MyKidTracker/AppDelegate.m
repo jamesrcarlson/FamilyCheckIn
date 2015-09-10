@@ -17,6 +17,8 @@
 #import "UserController.h"
 #import "CheckInController.h"
 #import "CheckOutController.h"
+#import "ToDoItem+Additions.h"
+#import "ToDoListDetailViewTableViewController.h"
 
 @interface AppDelegate () <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -114,6 +116,30 @@
     for (User *user in [UserController sharedInstance].users) {
         if (user.isTheActiveUser == YES) {
             addUser = user;
+        }
+    }
+    ToDoItem *toDo = tmpLocation.toDoLists;
+    if (toDo.itemIsCompleted == NO) {
+        if (toDo.userForItem == addUser) {
+            [alertController addAction:[UIAlertAction actionWithTitle:@"You have something that needs to be done here\nCheck in and see the item" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+                [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
+//                NotificationsController *controller = [NotificationsController new];
+//                [controller presentDetailTableViewWithToDoItem:toDo];
+                
+                NSLog(@"Checked in and loaded the To-Do-Item");
+//                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main.storyboard" bundle: nil];
+                
+                ToDoListDetailViewTableViewController *detailView = (ToDoListDetailViewTableViewController *)[[[[self window] rootViewController] storyboard]instantiateViewControllerWithIdentifier:@"ToDoListDetailViewTableViewController"];
+                
+                detailView.toDoItemDetail = toDo;
+                
+                UINavigationController *navCont = (UINavigationController *)self.window.rootViewController;
+//                navCont.navigationBar.backItem = [[UINavigationItem alloc]initWithTitle:@"back"];
+                [navCont pushViewController:detailView animated:YES];
+//                [navCont.topViewController presentViewController:detailView animated:YES completion:nil];
+            }]];
+            
         }
     }
 

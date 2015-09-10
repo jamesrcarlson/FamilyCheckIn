@@ -85,8 +85,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toDoDetail"]) {
+        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ToDoListDetailViewTableViewController *details = segue.destinationViewController;
+        
         ToDoItem *toDo = [ToDoItemController sharedInstance].toDoLists[indexPath.row];
         details.toDoItemDetail = toDo;
     }

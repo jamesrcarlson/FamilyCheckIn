@@ -21,12 +21,12 @@
     return sharedInstance;
 }
 
-- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description location:(Location *)location familyName:(Family *)familyName assignedUser:(User *)user dueDate:(NSDate *)date isCompleted:(BOOL)done {
+- (ToDoItem *)createToDoItemWithTitle:(NSString *)title details:(NSString *)description location:(Location *)itemLocation familyName:(Family *)familyName assignedUser:(User *)user dueDate:(NSDate *)date isCompleted:(BOOL)done {
     
     ToDoItem *toDo = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     toDo.itemTitle = title;
     toDo.itemDescription = description;
-    toDo.itemLocation = location;
+    toDo.itemLocation = itemLocation;
     toDo.familyForItem = familyName;
     toDo.dueDate = date;
     toDo.itemIsCompleted = done;

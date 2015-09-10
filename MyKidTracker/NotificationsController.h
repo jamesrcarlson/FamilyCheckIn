@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ToDoItemController.h"
 
 @interface NotificationsController : NSObject
+
+-(void)presentDetailTableViewWithToDoItem:(ToDoItem *)passedItem;
 
 - (void) registerNotifications;
 

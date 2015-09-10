@@ -9,6 +9,7 @@
 #import "NotificationsController.h"
 @import MapKit;
 @import CoreLocation;
+#import "ToDoListDetailViewTableViewController.h"
 
 @interface NotificationsController ()
 
@@ -19,6 +20,19 @@
 
 @implementation NotificationsController
 
+-(void)presentDetailTableViewWithToDoItem:(ToDoItem *)passedItem {
+    
+//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
+//                                                             bundle: nil];
+//    
+//    ToDoListDetailViewTableViewController *detailView = (ToDoListDetailViewTableViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"ToDoListDetailViewTableViewController"];
+//
+//    detailView.toDoItemDetail = passedItem;
+//    
+//    UINavigationController *navCont = (UINavigationController *)self.window.rootViewController;
+//    [navCont.topViewController presentViewController:alertController animated:YES completion:nil];
+//    
+}
 
 - (void) registerNotifications {
     

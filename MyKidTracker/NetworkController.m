@@ -8,6 +8,7 @@
 
 #import "NetworkController.h"
 #import <FBSDKAccessToken.h>
+#import <AFOAuth2Manager.h>
 
 
 @implementation NetworkController
@@ -28,8 +29,11 @@
 -(void)addFcebookToken {
     FBSDKAccessToken *token =[FBSDKAccessToken currentAccessToken];
     if ([token isEqualToAccessToken:token]) {
-        
+
     };
 }
+
+
+
 // put this into the code to add the token to the session [self.apiSession.requestSerializer setValue:account.currentAuthToken forHTTPHeaderField:@"X-Auth-Token”];`
 @end

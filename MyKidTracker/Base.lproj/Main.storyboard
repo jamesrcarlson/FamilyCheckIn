@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yNu-Ry-ftb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6dp-mM-6ve">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -286,51 +286,6 @@
             </objects>
             <point key="canvasLocation" x="2239" y="163"/>
         </scene>
-        <!--Initial View Controller-->
-        <scene sceneID="ntG-kh-uOe">
-            <objects>
-                <viewController id="ea8-pa-v3Z" customClass="InitialViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Quq-8w-1EF"/>
-                        <viewControllerLayoutGuide type="bottom" id="qUa-tP-LrI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FgO-WF-ggN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99k-gS-bua">
-                                <rect key="frame" x="272" y="295" width="57" height="30"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="l6z-3t-juB" kind="show" id="nuR-4x-uoH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaH-dv-NEg">
-                                <rect key="frame" x="275" y="234" width="51" height="30"/>
-                                <state key="normal" title="Log On">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="6dp-mM-6ve" kind="show" id="bMd-dr-mrF"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="99k-gS-bua" firstAttribute="top" secondItem="HaH-dv-NEg" secondAttribute="bottom" constant="31" id="Qjo-uC-Wnd"/>
-                            <constraint firstItem="99k-gS-bua" firstAttribute="centerX" secondItem="HaH-dv-NEg" secondAttribute="centerX" id="T78-v4-CsM"/>
-                            <constraint firstItem="HaH-dv-NEg" firstAttribute="centerX" secondItem="FgO-WF-ggN" secondAttribute="centerX" id="tkr-Jb-hdL"/>
-                            <constraint firstItem="HaH-dv-NEg" firstAttribute="top" secondItem="Quq-8w-1EF" secondAttribute="bottom" constant="170" id="vnU-ut-kZj"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="lRb-Tp-Dij"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Mj-vH-4OK" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="30" y="-562"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="Hn3-lr-vhX">
             <objects>
@@ -346,7 +301,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bjr-b8-gGR">
                                 <rect key="frame" x="-3" y="0.0" width="605" height="600"/>
                             </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yBy-jA-iKG">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yBy-jA-iKG">
                                 <rect key="frame" x="16" y="72" width="568" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -1865,7 +1820,7 @@
         <!--Item Details-->
         <scene sceneID="sua-7Z-R79">
             <objects>
-                <tableViewController title="Item Details" id="UGW-ZJ-klI" customClass="ToDoListDetailViewTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ToDoListDetailViewTableViewController" title="Item Details" id="UGW-ZJ-klI" customClass="ToDoListDetailViewTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="23D-8Y-1Wf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2059,7 +2014,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zoP-ej-qQU" id="BrW-K5-Jw6">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Item has been completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gq5-Be-QWh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark the Item as being Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gq5-Be-QWh">
                                                     <rect key="frame" x="8" y="11" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2072,6 +2027,7 @@
                                                 <constraint firstItem="Gq5-Be-QWh" firstAttribute="trailing" secondItem="BrW-K5-Jw6" secondAttribute="trailingMargin" id="hUl-UA-FaO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2107,16 +2063,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ea8-pa-v3Z" kind="relationship" relationship="rootViewController" id="Yae-x6-u62"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wo2-8r-ViJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-782" y="-562"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="nev-Sk-MYU"/>
-    </inferredMetricsTieBreakers>
 </document>
