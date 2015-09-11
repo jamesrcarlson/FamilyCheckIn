@@ -729,18 +729,16 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="I2C-g6-usI" id="zkY-YH-GuX">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zww-iX-toG">
-                                                    <rect key="frame" x="8" y="0.0" width="584" height="98"/>
-                                                    <connections>
-                                                        <segue destination="g82-uH-Ali" kind="embed" id="Bj7-um-grb"/>
-                                                    </connections>
-                                                </containerView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7K1-Jl-sex" customClass="FBSDKLoginButton">
+                                                    <rect key="frame" x="277" y="34" width="46" height="30"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zww-iX-toG" firstAttribute="leading" secondItem="zkY-YH-GuX" secondAttribute="leadingMargin" id="N4C-ld-Hjc"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="zww-iX-toG" secondAttribute="bottom" constant="-8" id="RnW-M3-tAU"/>
-                                                <constraint firstItem="zww-iX-toG" firstAttribute="top" secondItem="zkY-YH-GuX" secondAttribute="topMargin" constant="-8" id="aNp-4M-7Gj"/>
-                                                <constraint firstItem="zww-iX-toG" firstAttribute="trailing" secondItem="zkY-YH-GuX" secondAttribute="trailingMargin" id="wd0-zi-hOb"/>
+                                                <constraint firstAttribute="centerY" secondItem="7K1-Jl-sex" secondAttribute="centerY" id="6An-7Y-K4L"/>
+                                                <constraint firstAttribute="centerX" secondItem="7K1-Jl-sex" secondAttribute="centerX" id="FzL-CG-Gzw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -754,7 +752,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="2ZB-yx-KQI"/>
                     <connections>
-                        <outlet property="cellView" destination="zww-iX-toG" id="SQc-x9-6cs"/>
+                        <outlet property="loginButton" destination="7K1-Jl-sex" id="Ybj-gg-IjH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Z2-ol-48i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1831,7 +1829,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UiF-Z7-SNa"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZjD-GH-E6L">
-                        <rect key="frame" x="0.0" y="0.0" width="584" height="98"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

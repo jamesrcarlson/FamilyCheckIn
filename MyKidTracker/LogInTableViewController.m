@@ -25,7 +25,7 @@
 
 @property (strong, nonatomic) LogInController *logInController;
 
-@property (strong, nonatomic) IBOutlet UIView *cellView;
+
 
 
 
@@ -34,6 +34,8 @@
 @property (strong, nonatomic) CheckIn *checkin;
 @property (strong, nonatomic) CheckOut *checkout;
 @property (strong, nonatomic) Location *location;
+@property (strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+
 
 
 @end
@@ -44,13 +46,11 @@
     [super viewDidLoad];
     self.logInController = [LogInController new];
     
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.delegate = self;
-    loginButton.center = self.cellView.center;
-    loginButton.readPermissions = @[@"public_profile", @"email"];
-    [self.cellView addSubview:loginButton];
+    self.loginButton = [[FBSDKLoginButton alloc] init];
+    self.loginButton.delegate = self;
+    self.loginButton.readPermissions = @[@"public_profile", @"email"];
     
-    if ([loginButton.titleLabel.text isEqualToString:@"Log out"]) {
+    if ([self.loginButton.titleLabel.text isEqualToString:@"Log out"]) {
         if ([FamilyController sharedInstance].families.count < 1) {
             RegisterViewController *registerView = (RegisterViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
             [self.navigationController pushViewController:registerView animated:YES];
@@ -75,8 +75,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     LogInController *login = [LogInController new];
-    [login userLogon];
-    [login aFOAuthAttemptRegister];
+//    [login userLogon];
+//    [login aFOAuthAttemptRegister];
 }
 
 -(void)pushTheNextView {
