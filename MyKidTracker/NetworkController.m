@@ -23,15 +23,11 @@
         api.requestSerializer = [AFJSONRequestSerializer serializer];
         
     });
+    
     return api;
 }
 
--(void)addFcebookToken {
-    FBSDKAccessToken *token =[FBSDKAccessToken currentAccessToken];
-    if ([token isEqualToAccessToken:token]) {
 
-    };
-}
 
 
 

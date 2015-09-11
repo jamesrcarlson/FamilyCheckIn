@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString *passW;
 
 -(void)userLogon;
+-(void)aFOAuthAttemptRegister;
 
 @end

@@ -24,8 +24,10 @@
 @interface LogInTableViewController () <FBSDKLoginButtonDelegate>
 
 @property (strong, nonatomic) LogInController *logInController;
-@property (strong, nonatomic) IBOutlet UITextField *passwordField;
-@property (strong, nonatomic) IBOutlet UITextField *userNameField;
+
+@property (strong, nonatomic) IBOutlet UIView *cellView;
+
+
 
 @property (strong, nonatomic) User *user;
 @property (strong, nonatomic) Family *family;
@@ -44,9 +46,9 @@
     
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.delegate = self;
-    loginButton.center = self.view.center;
+    loginButton.center = self.cellView.center;
     loginButton.readPermissions = @[@"public_profile", @"email"];
-    [self.view addSubview:loginButton];
+    [self.cellView addSubview:loginButton];
     
     if ([loginButton.titleLabel.text isEqualToString:@"Log out"]) {
         if ([FamilyController sharedInstance].families.count < 1) {
@@ -55,11 +57,10 @@
         }
         ParentOptionsTableViewController *parentOptions = (ParentOptionsTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ParentOptionsTableViewController"];
         [self.navigationController pushViewController:parentOptions animated:YES];
-        
-        UIBarButtonItem *forward = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(pushTheNextView)];
-        
-        self.navigationItem.rightBarButtonItem = forward;
     }
+    UIBarButtonItem *forward = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(pushTheNextView)];
+    
+    self.navigationItem.rightBarButtonItem = forward;
     
     if ([FamilyController sharedInstance].families.count < 1) {
         self.family = [[FamilyController sharedInstance]createFamilyWithName:@"Stewart"];
@@ -72,6 +73,12 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    LogInController *login = [LogInController new];
+    [login userLogon];
+    [login aFOAuthAttemptRegister];
+}
+
 -(void)pushTheNextView {
     ParentOptionsTableViewController *parentOptions = (ParentOptionsTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ParentOptionsTableViewController"];
     [self.navigationController pushViewController:parentOptions animated:YES];
@@ -82,19 +89,19 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row == 3) {
-        self.logInController.userN = self.userNameField.text;
-        self.logInController.passW = self.passwordField.text;
-        [self.logInController userLogon];
-    }
-    
-}
-
 - (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
     NSLog(@"%@",[FBSDKAccessToken currentAccessToken].tokenString);
     NSLog(@"%@",result);
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", result);
+             }
+         }];
+    }
+
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
