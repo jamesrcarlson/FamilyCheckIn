@@ -35,45 +35,45 @@ static NSString * const AllUsersKey = @"allUsers";
 
 @implementation LogInController
 
--(void)userLogon {
-    NSString *pw = @"steve";
-    NSString *uN = @"steve";
-//    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
-    NSDictionary *userInfo = @{@"username": uN,
-                               @"password": pw,
-                               };
-    
-    [[NetworkController api]POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-       self.networkC.token  = responseObject[@"token"];
-        self.theToken  = responseObject[@"token"];
-        NSLog(@"success: %@", responseObject);
-        [self getSomeInfo];
-//        [self getUserInfo];
-    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
-        NSLog(@"fail: %@", error);
-    }];
-    
+//-(void)userLogon {
+//    NSString *pw = @"steve";
+//    NSString *uN = @"steve";
+////    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
+//    NSDictionary *userInfo = @{@"username": uN,
+//                               @"password": pw,
+//                               };
+//    
+//    [[NetworkController api]POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+//       self.networkC.token  = responseObject[@"token"];
+//        self.theToken  = responseObject[@"token"];
+//        NSLog(@"success: %@", responseObject);
+//        [self getSomeInfo];
+////        [self getUserInfo];
+//    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+//        NSLog(@"fail: %@", error);
+//    }];
+//    
+//
+//    
+//}
 
-    
-}
-
--(void)getSomeInfo {
-    
-    NSString *pw = @"steve";
-    NSString *uN = @"steve";
-    //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
-    NSDictionary *userInfo = @{@"username": uN,
-                               @"password": pw,
-                               };
-        [[NetworkController api]GET:@"get-user-info/" parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-            self.networkC.token  = responseObject[@"token"];
-            self.theToken  = responseObject[@"token"];
-            NSLog(@"success: %@", responseObject);
-//            [self getUserInfo];
-        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
-            NSLog(@"fail: %@", error);
-        }];
-}
+//-(void)getSomeInfo {
+//    
+//    NSString *pw = @"steve";
+//    NSString *uN = @"steve";
+//    //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
+//    NSDictionary *userInfo = @{@"username": uN,
+//                               @"password": pw,
+//                               };
+//        [[NetworkController api]GET:@"get-user-info/" parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+//            self.networkC.token  = responseObject[@"token"];
+//            self.theToken  = responseObject[@"token"];
+//            NSLog(@"success: %@", responseObject);
+////            [self getUserInfo];
+//        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+//            NSLog(@"fail: %@", error);
+//        }];
+//}
 
 -(void)getUserInfo {
 //    __block NSInteger successInt = 0;//need the block statement so that it can be modified in the block below
@@ -97,20 +97,15 @@ static NSString * const AllUsersKey = @"allUsers";
             NSLog(@"fail: %@", error);
         }];
     });
-    
-    
-    
-    
 }
 -(void)getMoreUserInfo {
     NSURL *baseURL = [NSURL URLWithString:@"http://api.jc2dev.com/"];
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setValue:self.theToken forHTTPHeaderField:@"Authorization"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"token %@", self.theToken] forHTTPHeaderField:@"Authorization"];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     [manager GET:@"get-user-info/"
       parameters:nil
