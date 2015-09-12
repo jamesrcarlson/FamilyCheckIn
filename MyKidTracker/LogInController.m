@@ -23,6 +23,7 @@ static NSString * const AllUsersKey = @"allUsers";
 
 @interface LogInController ()
 
+@property (strong, nonatomic) NetworkController *networkC;
 @property (strong, nonatomic) Family *usersFamily;
 @property (strong, nonatomic) NSString *profileUserID;
 @property (strong, nonatomic) NSString *profileUserFirstN;
@@ -36,17 +37,90 @@ static NSString * const AllUsersKey = @"allUsers";
 
 -(void)userLogon {
     NSString *pw = @"steve";
-    NSString *uN = @"Steve";
+    NSString *uN = @"steve";
 //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
     NSDictionary *userInfo = @{@"username": uN,
                                @"password": pw,
                                };
     
-    [[NetworkController api]POST:@"register-user/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-        NSLog(@"success");
+    [[NetworkController api]POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+       self.networkC.token  = responseObject[@"token"];
+        self.theToken  = responseObject[@"token"];
+        NSLog(@"success: %@", responseObject);
+        [self getSomeInfo];
+//        [self getUserInfo];
     } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         NSLog(@"fail: %@", error);
     }];
+    
+
+    
+}
+
+-(void)getSomeInfo {
+    
+    NSString *pw = @"steve";
+    NSString *uN = @"steve";
+    //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
+    NSDictionary *userInfo = @{@"username": uN,
+                               @"password": pw,
+                               };
+        [[NetworkController api]GET:@"get-user-info/" parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+            self.networkC.token  = responseObject[@"token"];
+            self.theToken  = responseObject[@"token"];
+            NSLog(@"success: %@", responseObject);
+//            [self getUserInfo];
+        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+            NSLog(@"fail: %@", error);
+        }];
+}
+
+-(void)getUserInfo {
+//    __block NSInteger successInt = 0;//need the block statement so that it can be modified in the block below
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AFHTTPSessionManager *api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.jc2dev.com/"]];
+        api.responseSerializer = [AFJSONResponseSerializer serializer];
+        api.requestSerializer = [AFJSONRequestSerializer serializer];
+        NSString *pw = @"steve";
+        NSString *uN = @"steve";
+        //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
+        NSDictionary *userInfo = @{@"username": uN,
+                                   @"password": pw,
+                                   };
+        [api POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+            self.networkC.token  = responseObject[@"token"];
+            self.theToken  = responseObject[@"token"];
+            NSLog(@"success: %@", responseObject);
+            [self getMoreUserInfo];
+        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+            NSLog(@"fail: %@", error);
+        }];
+    });
+    
+    
+    
+    
+}
+-(void)getMoreUserInfo {
+    NSURL *baseURL = [NSURL URLWithString:@"http://api.jc2dev.com/"];
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:self.theToken forHTTPHeaderField:@"Authorization"];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    [manager GET:@"get-user-info/"
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"Success: %@", responseObject);
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Failure: %@", error);
+         }];
+    
 }
 
 -(void)aFOAuthAttemptRegister {
@@ -57,42 +131,44 @@ static NSString * const AllUsersKey = @"allUsers";
     oAuth2Manager.responseSerializer = [AFJSONResponseSerializer serializer];
     oAuth2Manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
-    FBSDKAccessToken *token =[FBSDKAccessToken currentAccessToken];
-    [oAuth2Manager authenticateUsingOAuthWithURLString:@"api-token-auth/"
-                                              username:@"Steve"
-                                              password:@"steve"
-                                                 scope:@"email"
-                                               success:^(AFOAuthCredential *credential) {
-                                                   NSLog(@"Token: %@", credential.accessToken);
-                                               }
-                                               failure:^(NSError *error) {
-                                                   NSLog(@"Error: %@", error);
-                                               }];
+//    FBSDKAccessToken *token =[FBSDKAccessToken currentAccessToken];
+//    [oAuth2Manager authenticateUsingOAuthWithURLString:@"api-token-auth/"
+//                                              username:@"Steve"
+//                                              password:@"steve"
+//                                                 scope:@"email"
+//                                               success:^(AFOAuthCredential *credential) {
+//                                                   NSLog(@"Token: %@", credential.accessToken);
+//                                               }
+//                                               failure:^(NSError *error) {
+//                                                   NSLog(@"Error: %@", error);
+//                                               }];
+//    [oAuth2Manager authenticateUsingOAuthWithURLString:@"api-token-auth/" parameters:userInfo success:^(AFOAuthCredential *credential) {
+//         NSLog(@"Token: %@", credential.accessToken);
+//    } failure:^(NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
     
-    AFHTTPRequestOperationManager *manager =
-    [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
-    
-    NSString *pw = @"steve";
-    NSString *uN = @"Steve";
-    
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:uN password:pw];
-    
-    [manager GET:@"register-user/"
-      parameters:nil
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"Success: %@", responseObject);
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"Failure: %@", error);
-         }];
-    
-    //Storing Credentials
-    NSString *tokenString = [[FBSDKAccessToken currentAccessToken] tokenString];
-    NSString *tokenType = [[FBSDKAccessToken currentAccessToken]appID];
-    
-    AFOAuthCredential *credential = [AFOAuthCredential credentialWithOAuthToken:tokenString tokenType:tokenType];
-    
-    [AFOAuthCredential storeCredential:credential withIdentifier:@"FamilyCheckInID"];
+//    AFHTTPRequestOperationManager *manager =
+//    [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+//    
+//    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:uN password:pw];
+//    
+//    [manager GET:@"register-user/"
+//      parameters:nil
+//         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//             NSLog(@"Success: %@", responseObject);
+//         }
+//         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//             NSLog(@"Failure: %@", error);
+//         }];
+//    
+//    //Storing Credentials
+//    NSString *tokenString = [[FBSDKAccessToken currentAccessToken] tokenString];
+//    NSString *tokenType = [[FBSDKAccessToken currentAccessToken]appID];
+//    
+//    AFOAuthCredential *credential = [AFOAuthCredential credentialWithOAuthToken:tokenString tokenType:tokenType];
+//    
+//    [AFOAuthCredential storeCredential:credential withIdentifier:@"FamilyCheckInID"];
     
 }
 

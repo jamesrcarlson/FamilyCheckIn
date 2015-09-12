@@ -23,10 +23,26 @@
         api.requestSerializer = [AFJSONRequestSerializer serializer];
         
     });
-    
     return api;
 }
 
+-(void)getUserInfo {
+    NSURL *baseURL = [NSURL URLWithString:@"http://api.jc2dev.com/"];
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.requestSerializer setValue:self.token forHTTPHeaderField:@"Authorization: Token "];
+    [manager GET:@"get-user-info/"
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"Success: %@", responseObject);
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Failure: %@", error);
+         }];
+    
+}
 
 
 

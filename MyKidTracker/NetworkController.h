@@ -13,6 +13,6 @@
 @interface NetworkController : NSObject
 
 + (AFHTTPSessionManager *)api;
-
-
+@property NSString *token;
+-(void)getUserInfo;
 @end

@@ -24,11 +24,6 @@
 @interface LogInTableViewController () <FBSDKLoginButtonDelegate>
 
 @property (strong, nonatomic) LogInController *logInController;
-
-
-
-
-
 @property (strong, nonatomic) User *user;
 @property (strong, nonatomic) Family *family;
 @property (strong, nonatomic) CheckIn *checkin;
@@ -71,12 +66,16 @@
         self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"Home" infoSnippet:@"This is one last test" lattitude:@"37.311146" longitude:@"-122.10962" radius:@(15)];
         
     }
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    LogInController *login = [LogInController new];
-//    [login userLogon];
-//    [login aFOAuthAttemptRegister];
+    [super viewWillAppear:YES];
+//    self.logInController = [LogInController new];
+    
+//    [self.logInController userLogon];
+    [self.logInController getUserInfo];
+
 }
 
 -(void)pushTheNextView {

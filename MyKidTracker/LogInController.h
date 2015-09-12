@@ -13,8 +13,11 @@
 
 @property (strong, nonatomic) NSString *userN;
 @property (strong, nonatomic) NSString *passW;
+@property (strong, nonatomic) NSString *theToken;
 
 -(void)userLogon;
+-(void)getSomeInfo;
 -(void)aFOAuthAttemptRegister;
+-(void)getUserInfo;
 
 @end
