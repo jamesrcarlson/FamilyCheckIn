@@ -8,7 +8,6 @@
 
 #import "NetworkController.h"
 #import <FBSDKAccessToken.h>
-#import <AFOAuth2Manager.h>
 
 
 @implementation NetworkController

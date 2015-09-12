@@ -10,7 +10,6 @@
 #import "UserController.h"
 #import "FamilyController.h"
 #import "NetworkController.h"
-#import <AFOAuth2Manager.h>
 #import <FBSDKAccessToken.h>
 #import <FBSDKProfile.h>
 #import <FBSDKGraphRequest.h>
@@ -118,54 +117,54 @@ static NSString * const AllUsersKey = @"allUsers";
     
 }
 
--(void)aFOAuthAttemptRegister {
-    
-    NSURL *baseURL = [NSURL URLWithString:@"http://api.jc2dev.com/"];
-    AFOAuth2Manager *oAuth2Manager = [[AFOAuth2Manager alloc]initWithBaseURL:baseURL clientID:clientIDKey secret:clientSecretKey];
-    
-    oAuth2Manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    oAuth2Manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-//    FBSDKAccessToken *token =[FBSDKAccessToken currentAccessToken];
-//    [oAuth2Manager authenticateUsingOAuthWithURLString:@"api-token-auth/"
-//                                              username:@"Steve"
-//                                              password:@"steve"
-//                                                 scope:@"email"
-//                                               success:^(AFOAuthCredential *credential) {
-//                                                   NSLog(@"Token: %@", credential.accessToken);
-//                                               }
-//                                               failure:^(NSError *error) {
-//                                                   NSLog(@"Error: %@", error);
-//                                               }];
-//    [oAuth2Manager authenticateUsingOAuthWithURLString:@"api-token-auth/" parameters:userInfo success:^(AFOAuthCredential *credential) {
-//         NSLog(@"Token: %@", credential.accessToken);
-//    } failure:^(NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
-    
-//    AFHTTPRequestOperationManager *manager =
-//    [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+//-(void)aFOAuthAttemptRegister {
 //    
-//    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:uN password:pw];
+//    NSURL *baseURL = [NSURL URLWithString:@"http://api.jc2dev.com/"];
+//    AFOAuth2Manager *oAuth2Manager = [[AFOAuth2Manager alloc]initWithBaseURL:baseURL clientID:clientIDKey secret:clientSecretKey];
 //    
-//    [manager GET:@"register-user/"
-//      parameters:nil
-//         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//             NSLog(@"Success: %@", responseObject);
-//         }
-//         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//             NSLog(@"Failure: %@", error);
-//         }];
+//    oAuth2Manager.responseSerializer = [AFJSONResponseSerializer serializer];
+//    oAuth2Manager.requestSerializer = [AFJSONRequestSerializer serializer];
 //    
-//    //Storing Credentials
-//    NSString *tokenString = [[FBSDKAccessToken currentAccessToken] tokenString];
-//    NSString *tokenType = [[FBSDKAccessToken currentAccessToken]appID];
+////    FBSDKAccessToken *token =[FBSDKAccessToken currentAccessToken];
+////    [oAuth2Manager authenticateUsingOAuthWithURLString:@"api-token-auth/"
+////                                              username:@"Steve"
+////                                              password:@"steve"
+////                                                 scope:@"email"
+////                                               success:^(AFOAuthCredential *credential) {
+////                                                   NSLog(@"Token: %@", credential.accessToken);
+////                                               }
+////                                               failure:^(NSError *error) {
+////                                                   NSLog(@"Error: %@", error);
+////                                               }];
+////    [oAuth2Manager authenticateUsingOAuthWithURLString:@"api-token-auth/" parameters:userInfo success:^(AFOAuthCredential *credential) {
+////         NSLog(@"Token: %@", credential.accessToken);
+////    } failure:^(NSError *error) {
+////        NSLog(@"Error: %@", error);
+////    }];
 //    
-//    AFOAuthCredential *credential = [AFOAuthCredential credentialWithOAuthToken:tokenString tokenType:tokenType];
+////    AFHTTPRequestOperationManager *manager =
+////    [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+////    
+////    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:uN password:pw];
+////    
+////    [manager GET:@"register-user/"
+////      parameters:nil
+////         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+////             NSLog(@"Success: %@", responseObject);
+////         }
+////         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+////             NSLog(@"Failure: %@", error);
+////         }];
+////    
+////    //Storing Credentials
+////    NSString *tokenString = [[FBSDKAccessToken currentAccessToken] tokenString];
+////    NSString *tokenType = [[FBSDKAccessToken currentAccessToken]appID];
+////    
+////    AFOAuthCredential *credential = [AFOAuthCredential credentialWithOAuthToken:tokenString tokenType:tokenType];
+////    
+////    [AFOAuthCredential storeCredential:credential withIdentifier:@"FamilyCheckInID"];
 //    
-//    [AFOAuthCredential storeCredential:credential withIdentifier:@"FamilyCheckInID"];
-    
-}
+//}
 
 -(void)getProfileInformation {
     
@@ -175,10 +174,10 @@ static NSString * const AllUsersKey = @"allUsers";
     self.profileUserFirstN = profile.firstName;
     self.profileUserLastN = profile.lastName;
     
-    NSString *pathToPicture = [profile imagePathForPictureMode:FBSDKProfilePictureModeNormal size:CGSizeMake(250, 250)];
+//    NSString *pathToPicture = [profile imagePathForPictureMode:FBSDKProfilePictureModeNormal size:CGSizeMake(250, 250)];
 //    FBSDKGraphRequest *request =
     
-    FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
+//    FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
     
 }
 

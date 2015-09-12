@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>AFOAuth2Manager.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08002405062EFD9E795CB9F623EE4312</key>
+		<key>1C698A471BBC0BAC52FE43A652A17307</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>49849607249B69A3267D5FF8F953A864</key>
+		<key>369D2BD1EC4C6EE5327157F7A36A4958</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>544C9B47A78B1121BA816B43AD78F205</key>
+		<key>3B00F5FE13C2A95B446B621320C3A1B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68FFF98BEB6E4A55692A4D0A20245D82</key>
+		<key>44D14C9ADE28F2D813AF82936406E34F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7523B473C5EB88F47ABC63A8A3675CB0</key>
+		<key>4EDA37F58A7527EFC246F196EE310527</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B4193481FC14B07CA36524289E3E923</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F270267410A8E12A0473597E8ECFA1AB</key>
+		<key>D2D3AE9A7AFA2EAFCA8273DBB65C821E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

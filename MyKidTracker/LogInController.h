@@ -17,7 +17,7 @@
 
 //-(void)userLogon;
 //-(void)getSomeInfo;
--(void)aFOAuthAttemptRegister;
+//-(void)aFOAuthAttemptRegister;
 -(void)getUserInfo;
 
 @end
