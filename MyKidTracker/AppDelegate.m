@@ -20,6 +20,7 @@
 #import "ToDoItem+Additions.h"
 #import "ToDoListDetailViewTableViewController.h"
 
+
 @interface AppDelegate () <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NotificationsController *notificationController;
@@ -119,9 +120,11 @@
         }
     }
     ToDoItem *toDo = tmpLocation.toDoLists;
+    [ToDoItemController sharedInstance].needsDone = tmpLocation.toDoLists;
+    
     if (toDo.itemIsCompleted == NO) {
         if (toDo.userForItem == addUser) {
-            [alertController addAction:[UIAlertAction actionWithTitle:@"You have something that needs to be done here\nCheck in and see the item" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Check in and see your to-do list" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
                 [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
 //                NotificationsController *controller = [NotificationsController new];

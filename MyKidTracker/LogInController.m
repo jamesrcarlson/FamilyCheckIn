@@ -10,11 +10,9 @@
 #import "UserController.h"
 #import "FamilyController.h"
 #import "NetworkController.h"
-#import <FBSDKAccessToken.h>
-#import <FBSDKProfile.h>
-#import <FBSDKGraphRequest.h>
-#import <FBSDKGraphRequestConnection.h>
 
+
+static NSString * const URLStringKey = @"http://api.jc2dev.com/";
 static NSString * const clientIDKey = @"qET1UVJIgRs43N1zW61dByL5kCOYOJ4rwPQC44zk";
 static NSString * const clientSecretKey = @"sOMAOCsvSYS5OjxWWUOb6ujGHh3YgZEZTouPJrvF9RRYQeplf8YGQkwc99EaF3JCsKoQD4mmA7mk0fhJsDzaEbEv0eoLh53J1ZwYLip32XwISgLlyOA4VH0UGoXwzi9x";
 
@@ -24,9 +22,6 @@ static NSString * const AllUsersKey = @"allUsers";
 
 @property (strong, nonatomic) NetworkController *networkC;
 @property (strong, nonatomic) Family *usersFamily;
-@property (strong, nonatomic) NSString *profileUserID;
-@property (strong, nonatomic) NSString *profileUserFirstN;
-@property (strong, nonatomic) NSString *profileUserLastN;
 
 
 
@@ -78,7 +73,7 @@ static NSString * const AllUsersKey = @"allUsers";
 //    __block NSInteger successInt = 0;//need the block statement so that it can be modified in the block below
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        AFHTTPSessionManager *api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.jc2dev.com/"]];
+        AFHTTPSessionManager *api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
         api.responseSerializer = [AFJSONResponseSerializer serializer];
         api.requestSerializer = [AFJSONRequestSerializer serializer];
         NSString *pw = @"steve";
@@ -98,7 +93,7 @@ static NSString * const AllUsersKey = @"allUsers";
     });
 }
 -(void)getMoreUserInfo {
-    NSURL *baseURL = [NSURL URLWithString:@"http://api.jc2dev.com/"];
+    NSURL *baseURL = [NSURL URLWithString:URLStringKey];
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -110,11 +105,31 @@ static NSString * const AllUsersKey = @"allUsers";
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"Success: %@", responseObject);
+             [self getAllUserInfo];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Failure: %@", error);
          }];
     
+}
+-(void)getAllUserInfo {
+    
+    NSURL *baseURL = [NSURL URLWithString:URLStringKey];
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"token %@", self.theToken] forHTTPHeaderField:@"Authorization"];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    [manager GET:@"families/"
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"Success: %@", responseObject);
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Failure: %@", error);
+         }];
 }
 
 //-(void)aFOAuthAttemptRegister {
@@ -165,40 +180,6 @@ static NSString * const AllUsersKey = @"allUsers";
 ////    [AFOAuthCredential storeCredential:credential withIdentifier:@"FamilyCheckInID"];
 //    
 //}
-
--(void)getProfileInformation {
-    
-    FBSDKProfile *profile = [FBSDKProfile new];
-    
-    self.profileUserID = profile.userID;
-    self.profileUserFirstN = profile.firstName;
-    self.profileUserLastN = profile.lastName;
-    
-//    NSString *pathToPicture = [profile imagePathForPictureMode:FBSDKProfilePictureModeNormal size:CGSizeMake(250, 250)];
-//    FBSDKGraphRequest *request =
-    
-//    FBSDKGraphRequestConnection *connection = [FBSDKGraphRequestConnection new];
-    
-}
-
-
-/*
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- If you happen to be having this issue with Django rest framework and the routers the problem might be related to the trailing slash being clipped by the NSUrlRequest. if the trailing slash is clipped then django will have to redirect your request, to avoid this you can use Trailing_slash = True like this
- 
- router = routers.DefaultRouter(trailing_slash=False)
- 
- Wow. We have been using Django rest and freaking out trying to figure why IOS was not sending the Authorization token header, and this was it, NSURLRequest was removing the trailing slash
- */
 
 -(void)saveTheUserData {
     //get the user info and save it as the current user

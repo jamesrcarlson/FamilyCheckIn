@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FBSDKAccessToken.h>
+#import <FBSDKProfile.h>
+#import <FBSDKGraphRequest.h>
+#import <FBSDKGraphRequestConnection.h>
+#import <FBSDKCoreKit.h>
 
 
 @interface FacebookController : NSObject

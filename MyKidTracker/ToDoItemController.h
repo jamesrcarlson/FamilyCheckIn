@@ -12,6 +12,7 @@
 @interface ToDoItemController : NSObject
 
 @property (strong, nonatomic) NSArray *toDoLists;
+@property (strong, nonatomic) ToDoItem *needsDone;
 
 + (ToDoItemController *)sharedInstance;
 

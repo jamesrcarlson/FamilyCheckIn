@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *checkInLocation;
 @property (strong, nonatomic) IBOutlet UILabel *checkInTime;
 @property (strong, nonatomic) IBOutlet MKMapView *checkInMapView;
+@property (strong, nonatomic) IBOutlet UILabel *timeSpent;
 @property (strong, nonatomic) CLLocationManager *checkinLocationManager;
 
 @end
@@ -47,6 +48,11 @@
     CheckOut *checkout = checkin.checkout;
     self.CheckInUserName.text = [NSString stringWithFormat:@"%@ %@",user.userFirstName, user.userLastName];
     self.checkInTime.text = [NSString stringWithFormat:@"Check-in Time: \n%@ \nCheck-out time\n%@",checkin.date, checkout.checkoutTime];
+    
+    NSTimeInterval timeInterval = [checkout.checkoutTime timeIntervalSinceDate:checkin.date];
+    int minutes = timeInterval / 60;
+    int hours = timeInterval / 60 / 60;
+    self.timeSpent.text = [NSString stringWithFormat:@"Elapsed time %d hours:%d minutes", hours,minutes];
 }
 
 - (void) setPoints {

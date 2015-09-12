@@ -1,8 +1,8 @@
 //
 //  Family.h
-//  MyKidTracker
+//  FamilyCheckIn
 //
-//  Created by James Carlson on 9/2/15.
+//  Created by James Carlson on 9/12/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -14,26 +14,27 @@
 @interface Family : NSManagedObject
 
 @property (nonatomic, retain) NSString * familysName;
-@property (nonatomic, retain) NSSet *toDoList;
-@property (nonatomic, retain) NSSet *familyUsers;
+@property (nonatomic, retain) NSNumber * synced;
 @property (nonatomic, retain) NSSet *familyLocations;
+@property (nonatomic, retain) NSSet *familyUsers;
+@property (nonatomic, retain) NSSet *toDoList;
 @end
 
 @interface Family (CoreDataGeneratedAccessors)
 
-- (void)addToDoListObject:(ToDoItem *)value;
-- (void)removeToDoListObject:(ToDoItem *)value;
-- (void)addToDoList:(NSSet *)values;
-- (void)removeToDoList:(NSSet *)values;
+- (void)addFamilyLocationsObject:(Location *)value;
+- (void)removeFamilyLocationsObject:(Location *)value;
+- (void)addFamilyLocations:(NSSet *)values;
+- (void)removeFamilyLocations:(NSSet *)values;
 
 - (void)addFamilyUsersObject:(User *)value;
 - (void)removeFamilyUsersObject:(User *)value;
 - (void)addFamilyUsers:(NSSet *)values;
 - (void)removeFamilyUsers:(NSSet *)values;
 
-- (void)addFamilyLocationsObject:(Location *)value;
-- (void)removeFamilyLocationsObject:(Location *)value;
-- (void)addFamilyLocations:(NSSet *)values;
-- (void)removeFamilyLocations:(NSSet *)values;
+- (void)addToDoListObject:(ToDoItem *)value;
+- (void)removeToDoListObject:(ToDoItem *)value;
+- (void)addToDoList:(NSSet *)values;
+- (void)removeToDoList:(NSSet *)values;
 
 @end

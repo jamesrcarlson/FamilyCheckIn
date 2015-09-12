@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CheckIn" representedClassName="CheckIn" syncable="YES">
+        <attribute name="beenSynced" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="checkInLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="checkIns" inverseEntity="Location" syncable="YES"/>
@@ -10,18 +11,21 @@
     <entity name="CheckOut" representedClassName="CheckOut" syncable="YES">
         <attribute name="checkoutTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wasSynced" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="checkIn" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CheckIn" inverseName="checkout" inverseEntity="CheckIn" syncable="YES"/>
         <relationship name="checkoutLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="checkouts" inverseEntity="Location" syncable="YES"/>
         <relationship name="userCheckout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="checkouts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Family" representedClassName="Family" syncable="YES">
         <attribute name="familysName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synced" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="familyLocations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Location" inverseName="familysForLocation" inverseEntity="Location" syncable="YES"/>
         <relationship name="familyUsers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="User" inverseName="myFamily" inverseEntity="User" syncable="YES"/>
         <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ToDoItem" inverseName="familyForItem" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gotSynced" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationSnippet" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationTitle" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,6 +43,7 @@
         <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="syncedAlready" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="familyForItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="toDoList" inverseEntity="Family" syncable="YES"/>
         <relationship name="itemLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="toDoLists" inverseEntity="Location" syncable="YES"/>
         <relationship name="userForItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="toDoList" inverseEntity="User" syncable="YES"/>
@@ -47,6 +52,7 @@
         <attribute name="activeUser" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="currentlyCheckedIn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="familyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="syncedBefore" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userFirstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userLastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -59,11 +65,11 @@
         <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="userForItem" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CheckIn" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="CheckOut" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Family" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Location" positionX="0" positionY="0" width="128" height="195"/>
-        <element name="ToDoItem" positionX="0" positionY="0" width="128" height="180"/>
-        <element name="User" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="CheckIn" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="CheckOut" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="Family" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="Location" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="ToDoItem" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="User" positionX="0" positionY="0" width="128" height="255"/>
     </elements>
 </model>

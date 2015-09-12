@@ -1,8 +1,8 @@
 //
 //  Location.h
-//  MyKidTracker
+//  FamilyCheckIn
 //
-//  Created by James Carlson on 9/2/15.
+//  Created by James Carlson on 9/12/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -19,10 +19,11 @@
 @property (nonatomic, retain) NSString * locationTitle;
 @property (nonatomic, retain) NSString * longitude;
 @property (nonatomic, retain) NSNumber * radius;
+@property (nonatomic, retain) NSNumber * gotSynced;
 @property (nonatomic, retain) NSSet *checkIns;
 @property (nonatomic, retain) CheckOut *checkouts;
-@property (nonatomic, retain) ToDoItem *toDoLists;
 @property (nonatomic, retain) NSSet *familysForLocation;
+@property (nonatomic, retain) ToDoItem *toDoLists;
 @end
 
 @interface Location (CoreDataGeneratedAccessors)

@@ -1,8 +1,8 @@
 //
 //  ToDoItem.m
-//  MyKidTracker
+//  FamilyCheckIn
 //
-//  Created by James Carlson on 8/27/15.
+//  Created by James Carlson on 9/12/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -14,14 +14,15 @@
 
 @implementation ToDoItem
 
+@dynamic assignedFamily;
 @dynamic completed;
 @dynamic dueDate;
-@dynamic assignedFamily;
 @dynamic itemDescription;
 @dynamic itemTitle;
 @dynamic locationName;
-@dynamic userForItem;
+@dynamic syncedAlready;
 @dynamic familyForItem;
 @dynamic itemLocation;
+@dynamic userForItem;
 
 @end

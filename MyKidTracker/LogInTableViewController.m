@@ -30,6 +30,8 @@
 @property (strong, nonatomic) CheckOut *checkout;
 @property (strong, nonatomic) Location *location;
 @property (strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property (strong, nonatomic) IBOutlet UIView *Cell3View;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 
 
@@ -45,6 +47,34 @@
     self.loginButton.delegate = self;
     self.loginButton.readPermissions = @[@"public_profile", @"email"];
     
+    
+//    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 0, self.view.frame.size.width, 200)];
+//    [self.Cell3View addSubview:imageView];
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
+                                           parameters:@{@"fields": @"picture, email"}]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSString *pictureURL = [NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
+                 
+                 NSLog(@"%@",result);
+
+                 NSLog(@"email is %@", [result objectForKey:@"email"]);
+                 
+                 NSData  *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
+                 self.imageView.image = [UIImage imageWithData:data];
+                 
+             }
+             else{
+                 NSLog(@"%@", [error localizedDescription]);
+             }
+         }];
+
+    }
+
+    
     if ([self.loginButton.titleLabel.text isEqualToString:@"Log out"]) {
         if ([FamilyController sharedInstance].families.count < 1) {
             RegisterViewController *registerView = (RegisterViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
@@ -57,15 +87,15 @@
     
     self.navigationItem.rightBarButtonItem = forward;
     
-    if ([FamilyController sharedInstance].families.count < 1) {
-        self.family = [[FamilyController sharedInstance]createFamilyWithName:@"Stewart"];
-        
-        self.user = [[UserController sharedInstance]createUserWithFamily:self.family firstname:@"Joe" lastName:@"Todd" emailAddress:@"joe@gmail.com" phoneNumber:@8013100077 userRole:NO isActiveUser:YES];
-        
-        self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"The one place" infoSnippet:@"This is another place" lattitude:@"37.316935" longitude:@"-122.21962" radius:@(25)];
-        self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"Home" infoSnippet:@"This is one last test" lattitude:@"37.311146" longitude:@"-122.10962" radius:@(15)];
-        
-    }
+//    if ([FamilyController sharedInstance].families.count < 1) {
+//        self.family = [[FamilyController sharedInstance]createFamilyWithName:@"Stewart"];
+//        
+//        self.user = [[UserController sharedInstance]createUserWithFamily:self.family firstname:@"Joe" lastName:@"Todd" emailAddress:@"joe@gmail.com" phoneNumber:@8013100077 userRole:NO isActiveUser:YES];
+//        
+//        self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"The one place" infoSnippet:@"This is another place" lattitude:@"37.316935" longitude:@"-122.21962" radius:@(25)];
+//        self.location = [[LocationController sharedInstance]createLocationWithFamily:self.family title:@"Home" infoSnippet:@"This is one last test" lattitude:@"37.311146" longitude:@"-122.10962" radius:@(15)];
+//        
+//    }
 
 }
 
@@ -74,7 +104,7 @@
 //    self.logInController = [LogInController new];
     
 //    [self.logInController userLogon];
-    [self.logInController getUserInfo];
+//    [self.logInController getUserInfo];
 
 }
 
@@ -92,15 +122,6 @@
     NSLog(@"%@",[FBSDKAccessToken currentAccessToken].tokenString);
     NSLog(@"%@",result);
     
-    if ([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-             if (!error) {
-                 NSLog(@"fetched user:%@", result);
-             }
-         }];
-    }
-
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
