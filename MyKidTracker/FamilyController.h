@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Family.h"
+#import "Family+Additions.h"
 
 @interface FamilyController : NSObject
 

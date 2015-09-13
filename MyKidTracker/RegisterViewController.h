@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol userDidRegisterDelegate <NSObject>
+
+-(void)userDidRegisterName:(NSString *)name password:(NSString *)password;
+
+@end
+
 @interface RegisterViewController : UITableViewController
+
+@property (strong, nonatomic) id <userDidRegisterDelegate>delegate;
 
 @end

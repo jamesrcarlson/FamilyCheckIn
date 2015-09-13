@@ -34,4 +34,11 @@
     self.activeUser = @(isTheActiveUser);
 }
 
+-(BOOL)wasSyncedBefore {
+    return self.syncedBefore.boolValue;
+}
+-(void)setWasSyncedBefore:(BOOL)wasSyncedBefore {
+    self.syncedBefore = @(wasSyncedBefore);
+}
+
 @end

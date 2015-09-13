@@ -11,5 +11,6 @@
 @interface ToDoItem (Additions)
 
 @property (nonatomic, assign) BOOL itemIsCompleted;
+@property (nonatomic, assign) BOOL wasSyncedAlready;
 
 @end

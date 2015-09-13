@@ -16,4 +16,7 @@
 
 @interface FacebookController : NSObject
 
+
+-(void)getProfileInformation;
+
 @end

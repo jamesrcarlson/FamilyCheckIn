@@ -29,48 +29,82 @@ static NSString * const AllUsersKey = @"allUsers";
 
 @implementation LogInController
 
-//-(void)userLogon {
-//    NSString *pw = @"steve";
-//    NSString *uN = @"steve";
-////    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
-//    NSDictionary *userInfo = @{@"username": uN,
-//                               @"password": pw,
-//                               };
-//    
-//    [[NetworkController api]POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-//       self.networkC.token  = responseObject[@"token"];
-//        self.theToken  = responseObject[@"token"];
-//        NSLog(@"success: %@", responseObject);
-//        [self getSomeInfo];
-////        [self getUserInfo];
-//    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
-//        NSLog(@"fail: %@", error);
-//    }];
-//    
-//
-//    
-//}
+-(void)userLogon {
+    NSString *pw = @"steve";
+    NSString *uN = @"steve";
+//    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
+    NSDictionary *userInfo = @{@"username": uN,
+                               @"password": pw,
+                               };
+    
+    [[NetworkController api]POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+       self.networkC.token  = responseObject[@"token"];
+        self.theToken  = responseObject[@"token"];
+        NSLog(@"success: %@", responseObject);
+        [self getSomeInfo];
+//        [self getUserInfo];
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+        NSLog(@"fail: %@", error);
+    }];
+    
 
-//-(void)getSomeInfo {
-//    
+    
+}
+
+-(void)getSomeInfo {
+    
 //    NSString *pw = @"steve";
 //    NSString *uN = @"steve";
 //    //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
 //    NSDictionary *userInfo = @{@"username": uN,
 //                               @"password": pw,
 //                               };
-//        [[NetworkController api]GET:@"get-user-info/" parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-//            self.networkC.token  = responseObject[@"token"];
-//            self.theToken  = responseObject[@"token"];
-//            NSLog(@"success: %@", responseObject);
-////            [self getUserInfo];
-//        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
-//            NSLog(@"fail: %@", error);
-//        }];
-//}
+        [[NetworkController api]GET:@"get-user-info/" parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+            self.networkC.token  = responseObject[@"token"];
+            self.theToken  = responseObject[@"token"];
+            NSLog(@"success: %@", responseObject);
+//            [self getUserInfo];
+        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+            NSLog(@"fail: %@", error);
+        }];
+}
+
+-(void)registerUserWithName:(NSString *)firstName lastName:(NSString *)lastName familyName:(NSString *)family userRole:(BOOL)userRole {
+    
+}
+
+-(void)registerFacebookUserFamily:(NSString *)familyName userRole:(BOOL)userRole{
+    
+}
+
+-(void)registerGoogleUserFamily:(NSString *)familyName userRole:(BOOL)userRole {
+    
+}
+
+-(void)customUserName:(NSString *)username password:(NSString *)password {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        AFHTTPSessionManager *api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
+        api.responseSerializer = [AFJSONResponseSerializer serializer];
+        api.requestSerializer = [AFJSONRequestSerializer serializer];
+        //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
+        NSDictionary *userInfo = @{@"username": username,
+                                   @"password": password,
+                                   };
+        [api POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+            self.networkC.token  = responseObject[@"token"];
+            self.theToken  = responseObject[@"token"];
+            NSLog(@"success: %@", responseObject);
+            [self getMoreUserInfo];
+            self.loggedIn = YES;
+            [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccessKey object:nil];
+        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+            NSLog(@"fail: %@", error);
+        }];
+    });
+}
 
 -(void)getUserInfo {
-//    __block NSInteger successInt = 0;//need the block statement so that it can be modified in the block below
     
     dispatch_async(dispatch_get_main_queue(), ^{
         AFHTTPSessionManager *api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
@@ -92,6 +126,7 @@ static NSString * const AllUsersKey = @"allUsers";
         }];
     });
 }
+
 -(void)getMoreUserInfo {
     NSURL *baseURL = [NSURL URLWithString:URLStringKey];
     
@@ -112,6 +147,7 @@ static NSString * const AllUsersKey = @"allUsers";
          }];
     
 }
+
 -(void)getAllUserInfo {
     
     NSURL *baseURL = [NSURL URLWithString:URLStringKey];

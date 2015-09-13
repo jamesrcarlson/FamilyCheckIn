@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Location.h"
+#import "Location+Additions.h"
 #import "FamilyController.h"
 #import <UIKit/UIKit.h>
 @import MapKit;

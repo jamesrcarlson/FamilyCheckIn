@@ -13,5 +13,6 @@
 @property (nonatomic, assign) BOOL isParent;
 @property (nonatomic, assign) BOOL isCheckedIn;
 @property (nonatomic, assign) BOOL isTheActiveUser;
+@property (nonatomic, assign) BOOL wasSyncedBefore;
 
 @end

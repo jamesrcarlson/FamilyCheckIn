@@ -21,4 +21,12 @@
     self.completed = @(itemIsCompleted);
     
 }
+
+-(BOOL)wasSyncedAlready {
+    return self.syncedAlready.boolValue;
+}
+-(void)setWasSyncedAlready:(BOOL)wasSyncedAlready {
+    self.syncedAlready = @(wasSyncedAlready);
+}
+
 @end

@@ -10,12 +10,9 @@
 
 @interface RegisterViewController ()<UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *emailAddress;
-@property (strong, nonatomic) IBOutlet UITextField *firstName;
-@property (strong, nonatomic) IBOutlet UITextField *lastName;
-@property (strong, nonatomic) IBOutlet UITextField *phoneNumber;
+@property (strong, nonatomic) IBOutlet UITextField *userNameField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *familyName;
-@property (strong, nonatomic) IBOutlet UITextField *password;
 @property (assign, nonatomic) BOOL parent;
 
 @end
@@ -24,14 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.parent = NO;
 }
 
 - (IBAction)parentSelected:(id)sender {
     NSLog(@"The switch was flipped");
-//    if (self) {
-//        <#statements#>
-//    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,9 +36,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 8) {
+    if (indexPath.row == 5) {
         //send the registration information
         NSLog(@"The registration was sent");
+        [self.delegate userDidRegisterName:self.userNameField.text password:self.passwordField.text];
     }
     
 }

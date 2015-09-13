@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CheckIn.h"
+#import "CheckIn+Additions.h"
 
 @interface CheckInController : NSObject
 

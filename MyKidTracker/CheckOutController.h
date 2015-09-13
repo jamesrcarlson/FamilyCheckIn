@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CheckOut.h"
+#import "CheckOut+Additions.h"
 
 @interface CheckOutController : NSObject
 
