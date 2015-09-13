@@ -57,10 +57,6 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)pickedDate:(id)sender {
-    
-}
-
 -(void)userDidSelectLocation:(Location *)location locationTitle:(NSString *)locationTitle withLocation:(NSString *)longitude latitude:(NSString *)latitude{
     self.location = location;
     self.locationTitleHolder = locationTitle;

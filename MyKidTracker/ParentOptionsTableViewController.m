@@ -30,20 +30,12 @@
     [super didReceiveMemoryWarning];
 }
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
-//
-//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 6;
-//}
-
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     if (section == 0) {
         UIImage *image = [UIImage imageNamed:@"download.jpeg"];
         UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-        imageView.frame = CGRectMake(0,0, self.view.frame.size.width,self.view.frame.size.height / 3);
+        imageView.frame = CGRectMake(0,0, self.view.frame.size.width,200);
         
         return imageView;
     } else {
@@ -89,15 +81,5 @@
     }
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

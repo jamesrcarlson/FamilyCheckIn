@@ -45,16 +45,6 @@
     [self.tableView reloadData];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 8;
-}
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -62,10 +52,7 @@
         SetNewLocationMapViewController *setNewLocation = (SetNewLocationMapViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"SetNewLocationMapView"];
         
         setNewLocation.delegate = self;
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                                          style:UIBarButtonItemStyleDone
-                                                                         target:nil
-                                                                         action:nil];
+        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:nil action:nil];
         [[self navigationItem] setBackBarButtonItem:newBackButton];
         [self.navigationController pushViewController:setNewLocation animated:YES];
     }
@@ -93,8 +80,6 @@
             }]];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"I want to change something" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-                //            self.textField.text = @"";
-                //            [self needBetterInput];
             }]];
             
             [self presentViewController:alertController animated:YES completion:nil];

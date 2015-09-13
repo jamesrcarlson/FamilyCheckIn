@@ -38,26 +38,12 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
     for (CheckOut *chekout in currentUser.checkIns) {
         [self.theCheckOuts addObject:chekout];
     }
-    
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender {
-//    if (!self.objects) {
-//        self.objects = [[NSMutableArray alloc] init];
-//    }
-//    //    [self.objects insertObject:[NSDate date] atIndex:0];
-//    NSString * myString = [NSString stringWithFormat:@"My New Data that was broght in:"];
-//    [self.objects insertObject:myString  atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -76,10 +62,6 @@ typedef NS_ENUM(NSUInteger, TableViewsection){
             return self.theCheckOuts.count;
     }
 }
-
-//-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
-//    return 30;
-//}
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     TableViewsection tableViewsection = section;

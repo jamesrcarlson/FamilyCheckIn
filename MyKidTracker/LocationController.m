@@ -78,13 +78,5 @@
     [location.managedObjectContext deleteObject:location];
     [self save];
 }
-//
-//- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-//    
-//}
-//
-//- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-//    
-//}
 
 @end

@@ -16,7 +16,6 @@
 		61646CD11B92059000C67A7D /* ToDoItem+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61646CD01B92059000C67A7D /* ToDoItem+Additions.m */; };
 		61658FD81B867C5D000CCC7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FD71B867C5D000CCC7A /* main.m */; };
 		61658FDB1B867C5D000CCC7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FDA1B867C5D000CCC7A /* AppDelegate.m */; };
-		61658FDE1B867C5D000CCC7A /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61658FDD1B867C5D000CCC7A /* InitialViewController.m */; };
 		61658FE11B867C5D000CCC7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61658FDF1B867C5D000CCC7A /* Main.storyboard */; };
 		61658FE31B867C5D000CCC7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61658FE21B867C5D000CCC7A /* Images.xcassets */; };
 		61658FE61B867C5D000CCC7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61658FE41B867C5D000CCC7A /* LaunchScreen.xib */; };
@@ -49,7 +48,6 @@
 		617A57E81BA5F54F00D80DD6 /* Location+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 617A57E71BA5F54F00D80DD6 /* Location+Additions.m */; };
 		617A57EB1BA5F5B100D80DD6 /* Family+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 617A57EA1BA5F5B100D80DD6 /* Family+Additions.m */; };
 		617A57EE1BA5F61B00D80DD6 /* CheckOut+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 617A57ED1BA5F61B00D80DD6 /* CheckOut+Additions.m */; };
-		618560C91B9673280087A92D /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618560C81B9673280087A92D /* NotificationsController.m */; };
 		6189508E1B9B8BA100F80873 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6189508D1B9B8BA100F80873 /* Podfile */; };
 		61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */; };
 		61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */; };
@@ -93,8 +91,6 @@
 		61658FD71B867C5D000CCC7A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61658FD91B867C5D000CCC7A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		61658FDA1B867C5D000CCC7A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		61658FDC1B867C5D000CCC7A /* InitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
-		61658FDD1B867C5D000CCC7A /* InitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		61658FE01B867C5D000CCC7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61658FE21B867C5D000CCC7A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		61658FE51B867C5D000CCC7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -153,8 +149,6 @@
 		617A57EA1BA5F5B100D80DD6 /* Family+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Family+Additions.m"; sourceTree = "<group>"; };
 		617A57EC1BA5F61B00D80DD6 /* CheckOut+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CheckOut+Additions.h"; sourceTree = "<group>"; };
 		617A57ED1BA5F61B00D80DD6 /* CheckOut+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CheckOut+Additions.m"; sourceTree = "<group>"; };
-		618560C71B9673280087A92D /* NotificationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsController.h; sourceTree = "<group>"; };
-		618560C81B9673280087A92D /* NotificationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsController.m; sourceTree = "<group>"; };
 		6189508D1B9B8BA100F80873 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		61CD4EE81B8FF17700AC9423 /* ToDoListsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListsTableViewController.h; sourceTree = "<group>"; };
 		61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListsTableViewController.m; sourceTree = "<group>"; };
@@ -318,8 +312,6 @@
 				610B675A1B9FC05800E3DFC6 /* FacebookController.m */,
 				616D687F1B99283500798E05 /* LogInController.h */,
 				616D68801B99283500798E05 /* LogInController.m */,
-				618560C71B9673280087A92D /* NotificationsController.h */,
-				618560C81B9673280087A92D /* NotificationsController.m */,
 				615523891B9129070001FB75 /* FamilyController.h */,
 				6155238A1B9129070001FB75 /* FamilyController.m */,
 				6168F0261B86B132003F175F /* CheckInController.h */,
@@ -374,8 +366,6 @@
 			children = (
 				61D085261B9A95D10033B5E6 /* LogInTableViewController.h */,
 				61D085271B9A95D10033B5E6 /* LogInTableViewController.m */,
-				61658FDC1B867C5D000CCC7A /* InitialViewController.h */,
-				61658FDD1B867C5D000CCC7A /* InitialViewController.m */,
 				61658FFB1B867C87000CCC7A /* RegisterViewController.h */,
 				61658FFC1B867C87000CCC7A /* RegisterViewController.m */,
 				61D0E8FF1B8EACE500C8B290 /* CreateToDoListTableViewController.h */,
@@ -558,7 +548,6 @@
 				6173F2B01B97CC8600B32067 /* ToDoListDetailViewTableViewController.m in Sources */,
 				6165900A1B867C87000CCC7A /* ChildCheckInViewController.m in Sources */,
 				6163E9271B920A5D00D529E5 /* FamiliesTableViewController.m in Sources */,
-				61658FDE1B867C5D000CCC7A /* InitialViewController.m in Sources */,
 				61CFB13B1B88EFDD00946AD3 /* SetNewLocationMapViewController.m in Sources */,
 				6173F2AD1B97CC7400B32067 /* LocationDeatilsTableViewController.m in Sources */,
 				617A57EB1BA5F5B100D80DD6 /* Family+Additions.m in Sources */,
@@ -575,7 +564,6 @@
 				6163E92A1B9216AF00D529E5 /* UserListTableViewController.m in Sources */,
 				61658FD81B867C5D000CCC7A /* main.m in Sources */,
 				617705B71BA4BB8400595B84 /* CheckOut.m in Sources */,
-				618560C91B9673280087A92D /* NotificationsController.m in Sources */,
 				610B675B1B9FC05800E3DFC6 /* FacebookController.m in Sources */,
 				61D0E9011B8EACE500C8B290 /* CreateToDoListTableViewController.m in Sources */,
 				616590111B867DC0000CCC7A /* MapViewController.m in Sources */,

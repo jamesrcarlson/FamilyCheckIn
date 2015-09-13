@@ -57,7 +57,6 @@
 
 - (void) setPoints {
     
-//    CheckIn *checkin = self.theCheckIn;
     Location *location = self.theCheckIn.checkInLocation;
     self.checkInLocation.text = location.locationTitle;
     
@@ -105,10 +104,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 10;
-//}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     

@@ -83,20 +83,9 @@
         
         LocationAnnotation *dropPin = [[LocationAnnotation alloc] init];
         
-        self.latitudeText = [NSString stringWithFormat:@"%f",locCoord.latitude];
-        self.longitudeText = [NSString stringWithFormat:@"%f",locCoord.longitude];
-//        NSLog(@"location :%@, %@",newLocation.locationLatitude, newLocation.locationLongitude);
-//        dropPin.latitude = [NSNumber numberWithDouble:locCoord.latitude];
-//        dropPin.longitude = [NSNumber numberWithDouble:locCoord.longitude];
         dropPin.coordinate = locCoord;
         [self.mapView addAnnotation:dropPin];
     }
-}
-
-- (void) setNewPoint {
-    
-    
-    
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
@@ -129,6 +118,5 @@
     };
     
 }
-
 
 @end

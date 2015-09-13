@@ -127,20 +127,15 @@
             [alertController addAction:[UIAlertAction actionWithTitle:@"Check in and see your to-do list" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
                 [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
-//                NotificationsController *controller = [NotificationsController new];
-//                [controller presentDetailTableViewWithToDoItem:toDo];
                 
                 NSLog(@"Checked in and loaded the To-Do-Item");
-//                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main.storyboard" bundle: nil];
                 
                 ToDoListDetailViewTableViewController *detailView = (ToDoListDetailViewTableViewController *)[[[[self window] rootViewController] storyboard]instantiateViewControllerWithIdentifier:@"ToDoListDetailViewTableViewController"];
                 
                 detailView.toDoItemDetail = toDo;
                 
                 UINavigationController *navCont = (UINavigationController *)self.window.rootViewController;
-//                navCont.navigationBar.backItem = [[UINavigationItem alloc]initWithTitle:@"back"];
                 [navCont pushViewController:detailView animated:YES];
-//                [navCont.topViewController presentViewController:detailView animated:YES completion:nil];
             }]];
             
         }
@@ -201,12 +196,7 @@
     UILocalNotification *locNotification = [[UILocalNotification alloc] init];
     locNotification.alertBody = @"You have arrived!";
     locNotification.regionTriggersOnce = YES;
-    
-//    locNotification.region = [[CLCircularRegion alloc]
-//                              initWithCenter:LOC_
-//                              radius:LOC_RADIUS
-//                              identifier:LOC_IDENTIFIER];
-    
+        
     [[UIApplication sharedApplication] scheduleLocalNotification:locNotification];
 }
 
