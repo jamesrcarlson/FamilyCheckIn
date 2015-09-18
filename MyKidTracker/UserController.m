@@ -20,16 +20,42 @@
     return sharedInstance;
 }
 
-- (User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role isActiveUser:(BOOL)isActive {
+-(User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userID:(NSNumber *)iD userPhoto:(NSData *)photo userRole:(BOOL)role isCheckedIn:(BOOL)checkedIn userSynced:(BOOL)synced {
     
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    
     user.myFamily = family;
     user.userFirstName = firstname;
     user.userLastName = lastName;
     user.userEmail = email;
     user.userPhoneNumber = number;
     user.isParent = role;
-    user.isTheActiveUser = isActive;
+    user.userPhoto = photo;
+    user.userID = iD;
+    user.isTheActiveUser = NO;
+    user.isCheckedIn = checkedIn;
+    user.wasSyncedBefore = synced;
+    
+    [self saveToPersistentStorage];
+    
+    return user;
+}
+
+-(User *)createActiveUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userID:(NSNumber *)iD userPhoto:(NSData *)photo userRole:(BOOL)role userSynced:(BOOL)synced {
+    
+    User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    
+    user.myFamily = family;
+    user.userFirstName = firstname;
+    user.userLastName = lastName;
+    user.userEmail = email;
+    user.userPhoneNumber = number;
+    user.isParent = role;
+    user.userPhoto = photo;
+    user.userID = iD;
+    user.isTheActiveUser = YES;
+    user.isCheckedIn = NO;
+    
     
     [self saveToPersistentStorage];
     

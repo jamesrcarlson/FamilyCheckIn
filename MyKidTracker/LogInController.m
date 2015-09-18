@@ -22,55 +22,28 @@
 
 @implementation LogInController
 
--(void)userLogon {
-    NSString *pw = @"steve";
-    NSString *uN = @"steve";
-//    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
-    NSDictionary *userInfo = @{@"username": uN,
+-(void)userLogon:(NSString *)username password:(NSString *)pw {
+    NSDictionary *userInfo = @{@"username": username,
                                @"password": pw,
                                };
     
     [[NetworkController api]POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
         self.token.token  = responseObject[@"token"];
         NSLog(@"success: %@", responseObject);
-        [self getSomeInfo];
-//        [self getUserInfo];
+        [self getMoreUserInfo];
+        [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccessKey object:nil];
     } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         NSLog(@"fail: %@", error);
     }];
-    
-
-    
 }
 
--(void)getSomeInfo {
+-(void)registerUser:(NSString *)userName password:(NSString *)pw WithName:(NSString *)firstName lastName:(NSString *)lastName familyName:(NSString *)family userRole:(BOOL)userRole {
     
-//    NSString *pw = @"steve";
-//    NSString *uN = @"steve";
-//    //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
-//    NSDictionary *userInfo = @{@"username": uN,
-//                               @"password": pw,
-//                               };
-        [[NetworkController api]GET:@"get-user-info/" parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-            self.token.token  = responseObject[@"token"];
-            NSLog(@"success: %@", responseObject);
-//            [self getUserInfo];
-        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
-            NSLog(@"fail: %@", error);
-        }];
-}
-
--(void)registerUserWithName:(NSString *)firstName lastName:(NSString *)lastName familyName:(NSString *)family userRole:(BOOL)userRole {
-    AFHTTPSessionManager *api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
-    api.responseSerializer = [AFJSONResponseSerializer serializer];
-    api.requestSerializer = [AFJSONRequestSerializer serializer];
-    NSString *pw = @"steve";
-    NSString *uN = @"steve";
     //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
-    NSDictionary *userInfo = @{@"username": uN,
+    NSDictionary *userInfo = @{@"username": userName,
                                @"password": pw,
                                };
-    [api POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+    [[NetworkController api] POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
         self.token.token  = responseObject[@"token"];
         NSLog(@"success: %@", responseObject);
         [self getMoreUserInfo];
@@ -131,47 +104,8 @@
     //already removed the OAuth2Manager
 }
 
--(void)customUserName:(NSString *)username password:(NSString *)password {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        AFHTTPSessionManager *api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
-        api.responseSerializer = [AFJSONResponseSerializer serializer];
-        api.requestSerializer = [AFJSONRequestSerializer serializer];
-        //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
-        NSDictionary *userInfo = @{@"username": username,
-                                   @"password": password,
-                                   };
-        [api POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-            self.token.token  = responseObject[@"token"];
-            NSLog(@"success: %@", responseObject);
-            [self getMoreUserInfo];
-            self.loggedIn = YES;
-            [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccessKey object:nil];
-        } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
-            NSLog(@"fail: %@", error);
-        }];
-    });
-}
-
--(void)getUserInfo {
-    
-    NSString *pw = @"steve";
-    NSString *uN = @"steve";
-    //    UIImage *image = [UIImage imageNamed:@"download.jpeg"];
-    NSDictionary *userInfo = @{@"username": uN,
-                               @"password": pw,
-                               };
-    [[NetworkController api] POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-        self.token.token  = responseObject[@"token"];
-        NSLog(@"success: %@", responseObject);
-        [self getMoreUserInfo];
-    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
-        NSLog(@"fail: %@", error);
-    }];
-}
-
--(void)getMoreUserInfo {    
-    [[NetworkController manager] GET:@"get-user-info/"
+-(void)getMoreUserInfo {
+    [[NetworkController manager]GET:@"get-user-info/"
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"Success: %@", responseObject);
@@ -180,13 +114,10 @@
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Failure: %@", error);
          }];
-    
 }
 
 -(void)getAllUserInfo {
-    
-//    [[[NetworkController manager]requestSerializer] setValue:[NSString stringWithFormat:@"token %@", self.theToken] forHTTPHeaderField:@"Authorization"];
-    [[NetworkController manager] GET:@"families/"
+    [[NetworkController manager]GET:@"families/"
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"Success: %@", responseObject);
@@ -194,10 +125,6 @@
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Failure: %@", error);
          }];
-}
-
--(void)saveTheUserData {
-    //get the user info and save it as the current user
 }
 
 @end

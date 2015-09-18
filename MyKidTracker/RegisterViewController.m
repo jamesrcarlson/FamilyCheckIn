@@ -1,6 +1,6 @@
 //
 //  RegisterViewController.m
-//  KidTracker
+//  FamilyCheckIn
 //
 //  Created by James Carlson on 8/18/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *userNameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *familyName;
+@property (strong, nonatomic) IBOutlet UISwitch *parentSwitch;
 @property (assign, nonatomic) BOOL parent;
 
 @end
@@ -25,6 +26,9 @@
 }
 
 - (IBAction)parentSelected:(id)sender {
+//    if (self.parentSwitch.state = 0) {
+//        <#statements#>
+//    }
     NSLog(@"The switch was flipped");
 
 }

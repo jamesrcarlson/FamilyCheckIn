@@ -9,15 +9,9 @@
 #import "NetworkController.h"
 #import <FBSDKAccessToken.h>
 
-@interface NetworkController ()
-
-@property (strong, nonatomic) Token *token;
-
-@end
 
 @implementation NetworkController
 
-@synthesize token;
 
 + (AFHTTPSessionManager *)api {
     
@@ -33,17 +27,17 @@
 }
 
 + (AFHTTPRequestOperationManager *)manager {
+    
+    Token *token;
     static AFHTTPRequestOperationManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
+        manager =[[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
         [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//        [manager.requestSerializer setValue:[NSString stringWithFormat:@"token %@", [token]] forHTTPHeaderField:@"Authorization"];
-
+        [manager.requestSerializer setValue:token.token forHTTPHeaderField:@"Authorization"];
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-
     });
     return manager;
 }

@@ -1,6 +1,6 @@
 //
 //  LogOnTableViewController.h
-//  MyKidTracker
+//  FamilyCheckIn
 //
 //  Created by James Carlson on 9/4/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.

@@ -802,7 +802,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J81-nL-l8D">
                                                     <rect key="frame" x="97" y="7" width="495" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1019,7 +1019,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8c5-tL-7qh">
                                                     <rect key="frame" x="97" y="7" width="495" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1148,6 +1148,7 @@
                     </tableView>
                     <connections>
                         <outlet property="familyName" destination="sqj-y3-ABZ" id="NYK-99-JfL"/>
+                        <outlet property="parentSwitch" destination="wwR-jd-gAu" id="aHc-Uv-AzC"/>
                         <outlet property="passwordField" destination="8c5-tL-7qh" id="QKW-KT-qOl"/>
                         <outlet property="userNameField" destination="0D7-eV-0br" id="7wi-8n-bvL"/>
                     </connections>

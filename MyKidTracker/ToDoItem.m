@@ -2,7 +2,7 @@
 //  ToDoItem.m
 //  FamilyCheckIn
 //
-//  Created by James Carlson on 9/12/15.
+//  Created by James Carlson on 9/18/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -21,6 +21,7 @@
 @dynamic itemTitle;
 @dynamic locationName;
 @dynamic syncedAlready;
+@dynamic toDoItemID;
 @dynamic familyForItem;
 @dynamic itemLocation;
 @dynamic userForItem;

@@ -1,6 +1,6 @@
 //
 //  LogOnTableViewController.m
-//  MyKidTracker
+//  FamilyCheckIn
 //
 //  Created by James Carlson on 9/4/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import "LogInTableViewController.h"
 #import "LogInController.h"
+#import "ParentOptionsTableViewController.h"
+#import "RegisterViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKAccessToken.h>
-#import "ParentOptionsTableViewController.h"
-#import "RegisterViewController.h"
 
 #import "FamilyController.h"
 #import "CheckInController.h"
@@ -55,8 +55,6 @@
     if (self.logInController.loggedIn == YES) {
         [self pushTheNextView];
     }
-//    [self.logInController userLogon];
-//    [self.logInController getUserInfo];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -116,17 +114,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 3) {
-        [self.logInController customUserName:self.userName.text password:self.password.text];
+        [self.logInController userLogon:self.userName.text password:self.password.text];
+    }
+    if (indexPath.row == 5) {
+        [self pushRegisterViewController];
     }
 }
 
 -(void)loginSuccess {
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Login was successful" message:@"Enjoy the ride" preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:alert animated:YES completion:nil];
-
     [self pushTheNextView];
-    
 }
 
 -(void)loginFailure {

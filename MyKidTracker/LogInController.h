@@ -19,13 +19,11 @@ static NSString * const loginSuccessKey = @"loginSuccessful";
 @property (strong, nonatomic) NSString *passW;
 @property (assign, nonatomic) BOOL loggedIn;
 
--(void)userLogon;
-//-(void)getSomeInfo;
+-(void)userLogon:(NSString *)username password:(NSString *)pw ;
+
 //-(void)aFOAuthAttemptRegister;
 
--(void)customUserName:(NSString *)username password:(NSString *)password;
--(void)getUserInfo;
--(void)registerUserWithName:(NSString *)firstName lastName:(NSString *)lastName familyName:(NSString *)family userRole:(BOOL)userRole;
+-(void)registerUser:(NSString *)userName password:(NSString *)pw WithName:(NSString *)firstName lastName:(NSString *)lastName familyName:(NSString *)family userRole:(BOOL)userRole;
 -(void)registerFacebookUserFamily:(NSString *)familyName userRole:(BOOL)userRole;
 -(void)registerGoogleUserFamily:(NSString *)familyName userRole:(BOOL)userRole;
 

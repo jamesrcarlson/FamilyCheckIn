@@ -15,7 +15,9 @@
 
 + (UserController *)sharedInstance;
 
-- (User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userRole:(BOOL)role isActiveUser:(BOOL)isActive;
+-(User *)createUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userID:(NSNumber *)iD userPhoto:(NSData *)photo userRole:(BOOL)role isCheckedIn:(BOOL)checkedIn userSynced:(BOOL)synced;
+
+-(User *)createActiveUserWithFamily:(Family *)family firstname:(NSString *)firstname lastName:(NSString *)lastName emailAddress:(NSString *)email phoneNumber:(NSNumber *)number userID:(NSNumber *)iD userPhoto:(NSData *)photo userRole:(BOOL)role userSynced:(BOOL)synced;
 
 - (void)removeEntry:(User *)user;
 

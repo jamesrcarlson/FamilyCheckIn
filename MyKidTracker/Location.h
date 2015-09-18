@@ -2,7 +2,7 @@
 //  Location.h
 //  FamilyCheckIn
 //
-//  Created by James Carlson on 9/12/15.
+//  Created by James Carlson on 9/18/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -14,12 +14,13 @@
 @interface Location : NSManagedObject
 
 @property (nonatomic, retain) NSString * address;
+@property (nonatomic, retain) NSNumber * gotSynced;
 @property (nonatomic, retain) NSString * latitude;
 @property (nonatomic, retain) NSString * locationSnippet;
 @property (nonatomic, retain) NSString * locationTitle;
 @property (nonatomic, retain) NSString * longitude;
 @property (nonatomic, retain) NSNumber * radius;
-@property (nonatomic, retain) NSNumber * gotSynced;
+@property (nonatomic, retain) NSNumber * locationID;
 @property (nonatomic, retain) NSSet *checkIns;
 @property (nonatomic, retain) CheckOut *checkouts;
 @property (nonatomic, retain) NSSet *familysForLocation;

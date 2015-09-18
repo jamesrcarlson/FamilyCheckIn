@@ -2,7 +2,7 @@
 //  User.m
 //  FamilyCheckIn
 //
-//  Created by James Carlson on 9/12/15.
+//  Created by James Carlson on 9/18/15.
 //  Copyright (c) 2015 JC2DEV, LLC. All rights reserved.
 //
 
@@ -18,13 +18,14 @@
 @dynamic activeUser;
 @dynamic currentlyCheckedIn;
 @dynamic familyName;
+@dynamic syncedBefore;
 @dynamic userEmail;
 @dynamic userFirstName;
 @dynamic userLastName;
 @dynamic userPhoneNumber;
 @dynamic userPhoto;
 @dynamic userRole;
-@dynamic syncedBefore;
+@dynamic userID;
 @dynamic checkIns;
 @dynamic checkouts;
 @dynamic myFamily;
