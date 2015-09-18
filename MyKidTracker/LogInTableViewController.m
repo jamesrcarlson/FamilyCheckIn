@@ -55,6 +55,8 @@
     if (self.logInController.loggedIn == YES) {
         [self pushTheNextView];
     }
+//    [self.logInController userLogon];
+//    [self.logInController getUserInfo];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

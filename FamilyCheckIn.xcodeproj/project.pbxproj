@@ -49,6 +49,7 @@
 		617A57EB1BA5F5B100D80DD6 /* Family+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 617A57EA1BA5F5B100D80DD6 /* Family+Additions.m */; };
 		617A57EE1BA5F61B00D80DD6 /* CheckOut+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 617A57ED1BA5F61B00D80DD6 /* CheckOut+Additions.m */; };
 		6189508E1B9B8BA100F80873 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6189508D1B9B8BA100F80873 /* Podfile */; };
+		618971141BACA0EA0005B4CC /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971131BACA0EA0005B4CC /* Token.m */; };
 		61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */; };
 		61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */; };
 		61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */; };
@@ -150,6 +151,8 @@
 		617A57EC1BA5F61B00D80DD6 /* CheckOut+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CheckOut+Additions.h"; sourceTree = "<group>"; };
 		617A57ED1BA5F61B00D80DD6 /* CheckOut+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CheckOut+Additions.m"; sourceTree = "<group>"; };
 		6189508D1B9B8BA100F80873 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		618971121BACA0EA0005B4CC /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		618971131BACA0EA0005B4CC /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
 		61CD4EE81B8FF17700AC9423 /* ToDoListsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListsTableViewController.h; sourceTree = "<group>"; };
 		61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListsTableViewController.m; sourceTree = "<group>"; };
 		61CD4EEB1B8FFDC800AC9423 /* User+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Additions.h"; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				617705BF1BA4BB8400595B84 /* ToDoItem.m */,
 				61646CCF1B92059000C67A7D /* ToDoItem+Additions.h */,
 				61646CD01B92059000C67A7D /* ToDoItem+Additions.m */,
+				618971121BACA0EA0005B4CC /* Token.h */,
+				618971131BACA0EA0005B4CC /* Token.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				618971141BACA0EA0005B4CC /* Token.m in Sources */,
 				6168F02E1B86B14D003F175F /* UserController.m in Sources */,
 				617705C31BA4BB8400595B84 /* CheckIn.m in Sources */,
 				6176CE561B93FB2500EC4B22 /* CheckOutController.m in Sources */,

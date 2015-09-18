@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CheckIn" representedClassName="CheckIn" syncable="YES">
         <attribute name="beenSynced" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="checkInID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="checkInLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="checkIns" inverseEntity="Location" syncable="YES"/>
@@ -9,6 +10,7 @@
         <relationship name="primaryUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="checkIns" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="CheckOut" representedClassName="CheckOut" syncable="YES">
+        <attribute name="checkOutID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="checkoutTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wasSynced" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -17,6 +19,7 @@
         <relationship name="userCheckout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="checkouts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Family" representedClassName="Family" syncable="YES">
+        <attribute name="familyID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="familysName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="synced" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="familyLocations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Location" inverseName="familysForLocation" inverseEntity="Location" syncable="YES"/>
@@ -27,6 +30,7 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gotSynced" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="locationSnippet" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
@@ -44,6 +48,7 @@
         <attribute name="itemTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="syncedAlready" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="toDoItemID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="familyForItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Family" inverseName="toDoList" inverseEntity="Family" syncable="YES"/>
         <relationship name="itemLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="toDoLists" inverseEntity="Location" syncable="YES"/>
         <relationship name="userForItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="toDoList" inverseEntity="User" syncable="YES"/>
@@ -55,6 +60,7 @@
         <attribute name="syncedBefore" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userFirstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="userLastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userPhoneNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="userPhoto" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
@@ -65,11 +71,11 @@
         <relationship name="toDoList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="userForItem" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CheckIn" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="CheckOut" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="Family" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Location" positionX="0" positionY="0" width="128" height="210"/>
-        <element name="ToDoItem" positionX="0" positionY="0" width="128" height="195"/>
-        <element name="User" positionX="0" positionY="0" width="128" height="255"/>
+        <element name="CheckIn" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="CheckOut" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Family" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="Location" positionX="0" positionY="0" width="128" height="225"/>
+        <element name="ToDoItem" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="User" positionX="0" positionY="0" width="128" height="270"/>
     </elements>
 </model>

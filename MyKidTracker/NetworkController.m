@@ -9,15 +9,22 @@
 #import "NetworkController.h"
 #import <FBSDKAccessToken.h>
 
+@interface NetworkController ()
+
+@property (strong, nonatomic) Token *token;
+
+@end
 
 @implementation NetworkController
+
+@synthesize token;
 
 + (AFHTTPSessionManager *)api {
     
     static AFHTTPSessionManager *api = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.jc2dev.com/"]];
+        api = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
         api.responseSerializer = [AFJSONResponseSerializer serializer];
         api.requestSerializer = [AFJSONRequestSerializer serializer];
         
@@ -25,26 +32,30 @@
     return api;
 }
 
--(void)getUserInfo {
-    NSURL *baseURL = [NSURL URLWithString:@"http://api.jc2dev.com/"];
-    
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager.requestSerializer setValue:self.token forHTTPHeaderField:@"Authorization: Token "];
-    [manager GET:@"get-user-info/"
-      parameters:nil
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"Success: %@", responseObject);
-         }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             NSLog(@"Failure: %@", error);
-         }];
-    
++ (AFHTTPRequestOperationManager *)manager {
+    static AFHTTPRequestOperationManager *manager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLStringKey]];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//        [manager.requestSerializer setValue:[NSString stringWithFormat:@"token %@", [token]] forHTTPHeaderField:@"Authorization"];
+
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+
+    });
+    return manager;
 }
 
+- (NSString *)encodeImageToBase64String:(UIImage *)image {
+    return [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+}
 
-
+- (UIImage *)decodeBase64ToImage:(NSString *)strEncodedData {
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodedData options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    return [UIImage imageWithData:data];
+}
 
 // put this into the code to add the token to the session [self.apiSession.requestSerializer setValue:account.currentAuthToken forHTTPHeaderField:@"X-Auth-Token”];`
 @end

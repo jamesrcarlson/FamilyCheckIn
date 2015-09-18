@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Token.h"
 
 static NSString * const loginFailureKey = @"loginFailed";
 static NSString * const loginSuccessKey = @"loginSuccessful";
@@ -16,10 +17,9 @@ static NSString * const loginSuccessKey = @"loginSuccessful";
 
 @property (strong, nonatomic) NSString *userN;
 @property (strong, nonatomic) NSString *passW;
-@property (strong, nonatomic) NSString *theToken;
 @property (assign, nonatomic) BOOL loggedIn;
 
-//-(void)userLogon;
+-(void)userLogon;
 //-(void)getSomeInfo;
 //-(void)aFOAuthAttemptRegister;
 

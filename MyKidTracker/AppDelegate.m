@@ -11,7 +11,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import "NotificationsController.h"
 #import "LocationController.h"
 #import "LogInController.h"
 #import "UserController.h"
@@ -23,7 +22,6 @@
 
 @interface AppDelegate () <MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (strong, nonatomic) NotificationsController *notificationController;
 
 @end
 
@@ -32,24 +30,6 @@
 // https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/RegionMonitoring/RegionMonitoring.html#//apple_ref/doc/uid/TP40009497-CH9-SW1
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
-    
-    self.notificationController = [NotificationsController new];
-    switch ([CLLocationManager authorizationStatus]) {
-        case kCLAuthorizationStatusNotDetermined:
-            break;
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
-            [self.notificationController registerNotifications];
-            break;
-        case kCLAuthorizationStatusAuthorizedAlways:
-            [self.notificationController setUpLocations];
-            break;
-        case kCLAuthorizationStatusDenied:
-        case kCLAuthorizationStatusRestricted:
-            [self.notificationController alertUserToStatus];
-            break;
-    }
     
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
