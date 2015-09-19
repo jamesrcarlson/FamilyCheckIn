@@ -48,8 +48,9 @@
 		6189711A1BACA8430005B4CC /* CheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971191BACA8430005B4CC /* CheckIn.m */; };
 		6189711D1BACA8430005B4CC /* CheckOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189711C1BACA8430005B4CC /* CheckOut.m */; };
 		618971201BACA8430005B4CC /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189711F1BACA8430005B4CC /* Family.m */; };
-		618971231BACA8430005B4CC /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971221BACA8430005B4CC /* Location.m */; };
 		618971261BACA8430005B4CC /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971251BACA8430005B4CC /* ToDoItem.m */; };
+		618971291BACDDC40005B4CC /* LocalToDoItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971281BACDDC40005B4CC /* LocalToDoItemsTableViewController.m */; };
+		6189712C1BACE1090005B4CC /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189712B1BACE1090005B4CC /* Location.m */; };
 		61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */; };
 		61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */; };
 		61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */; };
@@ -149,10 +150,12 @@
 		6189711C1BACA8430005B4CC /* CheckOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckOut.m; sourceTree = "<group>"; };
 		6189711E1BACA8430005B4CC /* Family.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Family.h; sourceTree = "<group>"; };
 		6189711F1BACA8430005B4CC /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
-		618971211BACA8430005B4CC /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		618971221BACA8430005B4CC /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		618971241BACA8430005B4CC /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
 		618971251BACA8430005B4CC /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
+		618971271BACDDC40005B4CC /* LocalToDoItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalToDoItemsTableViewController.h; sourceTree = "<group>"; };
+		618971281BACDDC40005B4CC /* LocalToDoItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalToDoItemsTableViewController.m; sourceTree = "<group>"; };
+		6189712A1BACE1090005B4CC /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		6189712B1BACE1090005B4CC /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		61CD4EE81B8FF17700AC9423 /* ToDoListsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListsTableViewController.h; sourceTree = "<group>"; };
 		61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListsTableViewController.m; sourceTree = "<group>"; };
 		61CD4EEB1B8FFDC800AC9423 /* User+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Additions.h"; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				6163E92D1B92297600D529E5 /* CheckinDetailsTableViewController.m */,
 				61CD4EE81B8FF17700AC9423 /* ToDoListsTableViewController.h */,
 				61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */,
+				618971271BACDDC40005B4CC /* LocalToDoItemsTableViewController.h */,
+				618971281BACDDC40005B4CC /* LocalToDoItemsTableViewController.m */,
 				6173F2AE1B97CC8600B32067 /* ToDoListDetailViewTableViewController.h */,
 				6173F2AF1B97CC8600B32067 /* ToDoListDetailViewTableViewController.m */,
 				6163E9251B920A5D00D529E5 /* FamiliesTableViewController.h */,
@@ -336,10 +341,10 @@
 		6168F0331B86B184003F175F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6189712A1BACE1090005B4CC /* Location.h */,
+				6189712B1BACE1090005B4CC /* Location.m */,
 				618971241BACA8430005B4CC /* ToDoItem.h */,
 				618971251BACA8430005B4CC /* ToDoItem.m */,
-				618971211BACA8430005B4CC /* Location.h */,
-				618971221BACA8430005B4CC /* Location.m */,
 				6189711E1BACA8430005B4CC /* Family.h */,
 				6189711F1BACA8430005B4CC /* Family.m */,
 				6189711B1BACA8430005B4CC /* CheckOut.h */,
@@ -558,10 +563,11 @@
 				6173F2AD1B97CC7400B32067 /* LocationDeatilsTableViewController.m in Sources */,
 				617A57EB1BA5F5B100D80DD6 /* Family+Additions.m in Sources */,
 				616D68811B99283500798E05 /* LogInController.m in Sources */,
-				618971231BACA8430005B4CC /* Location.m in Sources */,
 				6168F02B1B86B141003F175F /* ToDoItemController.m in Sources */,
+				618971291BACDDC40005B4CC /* LocalToDoItemsTableViewController.m in Sources */,
 				6168F0311B86B157003F175F /* LocationController.m in Sources */,
 				61658FDB1B867C5D000CCC7A /* AppDelegate.m in Sources */,
+				6189712C1BACE1090005B4CC /* Location.m in Sources */,
 				6168F0281B86B132003F175F /* CheckInController.m in Sources */,
 				616590091B867C87000CCC7A /* ChildrenViewController.m in Sources */,
 				618971201BACA8430005B4CC /* Family.m in Sources */,

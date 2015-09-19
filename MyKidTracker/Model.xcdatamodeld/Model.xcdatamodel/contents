@@ -38,7 +38,7 @@
         <relationship name="checkIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="checkInLocation" inverseEntity="CheckIn" syncable="YES"/>
         <relationship name="checkouts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CheckOut" inverseName="checkoutLocation" inverseEntity="CheckOut" syncable="YES"/>
         <relationship name="familysForLocation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Family" inverseName="familyLocations" inverseEntity="Family" syncable="YES"/>
-        <relationship name="toDoLists" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="itemLocation" inverseEntity="ToDoItem" syncable="YES"/>
+        <relationship name="toDoLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="itemLocation" inverseEntity="ToDoItem" syncable="YES"/>
     </entity>
     <entity name="ToDoItem" representedClassName="ToDoItem" syncable="YES">
         <attribute name="assignedFamily" optional="YES" attributeType="String" syncable="YES"/>

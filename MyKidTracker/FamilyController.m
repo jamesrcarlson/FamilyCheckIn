@@ -8,6 +8,7 @@
 
 #import "FamilyController.h"
 #import "Stack.h"
+#import "NetworkController.h"
 
 @implementation FamilyController
 
@@ -24,6 +25,11 @@
     Family *aFamily = [NSEntityDescription insertNewObjectForEntityForName:@"Family" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     aFamily.familysName = familyName;
     
+    [[NetworkController manager]POST:@"families/" parameters:familyName success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
+        //do something
+    } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
+        //do something
+    }];
     [self saveToPersistentStorage];
     return aFamily;
 }

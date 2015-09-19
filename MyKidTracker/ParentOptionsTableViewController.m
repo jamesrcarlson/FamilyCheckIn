@@ -14,6 +14,7 @@
 #import "ToDoListsTableViewController.h"
 #import "ToDoListDetailViewTableViewController.h"
 #import "ToDoItemController.h"
+#import "LocalToDoItemsTableViewController.h"
 
 @interface ParentOptionsTableViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -77,6 +78,10 @@
             detailView.toDoItemDetail = [ToDoItemController sharedInstance].needsDone;
             [self.navigationController pushViewController:detailView animated:YES];
             
+        }
+        if (indexPath.row == 1) {
+            LocalToDoItemsTableViewController *local = (LocalToDoItemsTableViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"LocalToDoItems"];
+            [self.navigationController pushViewController:local animated:YES];
         }
     }
     

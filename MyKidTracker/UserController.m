@@ -8,6 +8,7 @@
 
 #import "UserController.h"
 #import "Stack.h"
+#import "NetworkController.h"
 
 @implementation UserController
 
@@ -36,6 +37,14 @@
     user.isCheckedIn = checkedIn;
     user.wasSyncedBefore = synced;
     
+    NSDictionary *dictionary = @{
+                                 
+                                 };
+    [[NetworkController manager]POST:@"users/" parameters:dictionary success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
+        //do something
+    } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
+        //do something
+    }];
     [self saveToPersistentStorage];
     
     return user;
@@ -56,7 +65,14 @@
     user.isTheActiveUser = YES;
     user.isCheckedIn = NO;
     
-    
+    NSDictionary *dictionary = @{
+                                 
+                                 };
+    [[NetworkController manager]POST:@"locations/" parameters:dictionary success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
+        //do something
+    } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
+        //do something
+    }];
     [self saveToPersistentStorage];
     
     return user;

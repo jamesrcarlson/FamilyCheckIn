@@ -10,6 +10,7 @@
 #import "Stack.h"
 #import "UserController.h"
 #import "CheckInController.h"
+#import "NetworkController.h"
 
 @implementation CheckOutController
 
@@ -34,6 +35,14 @@
     theCheckin.checkout = checkOut;
     [[CheckInController sharedInstance]save];
 
+    NSDictionary *dictionary = @{
+                                 
+                                 };
+    [[NetworkController manager]POST:@"locations/" parameters:dictionary success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
+        //do something
+    } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
+        //do something
+    }];
     [self saveToPersistentStorage];
     
     return checkOut;

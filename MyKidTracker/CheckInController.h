@@ -12,6 +12,7 @@
 @interface CheckInController : NSObject
 
 @property (strong, nonatomic) NSArray *checkins;
+@property (strong, nonatomic) Location *atLocation;
 
 + (CheckInController *)sharedInstance;
 

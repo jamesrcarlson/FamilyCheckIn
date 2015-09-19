@@ -15,8 +15,7 @@ static NSString * const loginSuccessKey = @"loginSuccessful";
 
 @interface LogInController : NSObject
 
-@property (strong, nonatomic) NSString *userN;
-@property (strong, nonatomic) NSString *passW;
+
 @property (assign, nonatomic) BOOL loggedIn;
 
 -(void)userLogon:(NSString *)username password:(NSString *)pw ;
@@ -24,7 +23,9 @@ static NSString * const loginSuccessKey = @"loginSuccessful";
 //-(void)aFOAuthAttemptRegister;
 
 -(void)registerUser:(NSString *)userName password:(NSString *)pw WithName:(NSString *)firstName lastName:(NSString *)lastName familyName:(NSString *)family userRole:(BOOL)userRole;
+
 -(void)registerFacebookUserFamily:(NSString *)familyName userRole:(BOOL)userRole;
+
 -(void)registerGoogleUserFamily:(NSString *)familyName userRole:(BOOL)userRole;
 
 @end

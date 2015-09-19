@@ -9,6 +9,7 @@
 #import "CheckInController.h"
 #import "Stack.h"
 #import "UserController.h"
+#import "NetworkController.h"
 
 @implementation CheckInController
 
@@ -30,6 +31,14 @@
     checkIn.locationName = locationName;
     checkIn.date = date;
     
+    NSDictionary *dictionary = @{
+                                 
+                                 };
+    [[NetworkController manager]POST:@"locations/" parameters:dictionary success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
+        //do something
+    } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
+        //do something
+    }];
     [self saveToPersistentStorage];
     
     return checkIn;

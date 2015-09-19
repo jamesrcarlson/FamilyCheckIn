@@ -30,7 +30,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *password;
 
 
-
 @end
 
 @implementation LogInTableViewController
@@ -47,11 +46,15 @@
     
     UIBarButtonItem *forward = [[UIBarButtonItem alloc]initWithTitle:@"Use the App" style:UIBarButtonItemStylePlain target:self action:@selector(pushTheNextView)];
     
+    
     if ([FBSDKAccessToken currentAccessToken]) {
         self.logInController.loggedIn = YES;
         self.navigationItem.rightBarButtonItem = forward;
     }
-
+    if (self.logInController.loggedIn == YES) {
+        self.navigationItem.rightBarButtonItem = forward;
+        [self pushTheNextView];
+    }
     if (self.logInController.loggedIn == YES) {
         [self pushTheNextView];
     }

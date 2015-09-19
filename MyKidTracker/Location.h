@@ -24,7 +24,7 @@
 @property (nonatomic, retain) NSSet *checkIns;
 @property (nonatomic, retain) CheckOut *checkouts;
 @property (nonatomic, retain) NSSet *familysForLocation;
-@property (nonatomic, retain) ToDoItem *toDoLists;
+@property (nonatomic, retain) NSSet *toDoLists;
 @end
 
 @interface Location (CoreDataGeneratedAccessors)
@@ -38,5 +38,10 @@
 - (void)removeFamilysForLocationObject:(Family *)value;
 - (void)addFamilysForLocation:(NSSet *)values;
 - (void)removeFamilysForLocation:(NSSet *)values;
+
+- (void)addToDoListsObject:(ToDoItem *)value;
+- (void)removeToDoListsObject:(ToDoItem *)value;
+- (void)addToDoLists:(NSSet *)values;
+- (void)removeToDoLists:(NSSet *)values;
 
 @end

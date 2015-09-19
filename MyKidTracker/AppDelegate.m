@@ -93,18 +93,28 @@
             tmpLocation = location;
         }
     }
+    
     User *addUser;
     for (User *user in [UserController sharedInstance].users) {
         if (user.isTheActiveUser == YES) {
             addUser = user;
         }
     }
-    ToDoItem *toDo = tmpLocation.toDoLists;
-    [ToDoItemController sharedInstance].needsDone = tmpLocation.toDoLists;
+    ToDoItem *toDo;
+    for (ToDoItem *theItem in tmpLocation.toDoLists) {
+        if (theItem.itemIsCompleted == NO) {
+            toDo = theItem;
+        }
+    };
+    [ToDoItemController sharedInstance].needsDone = toDo;
     
+    CheckInController *checkin = [CheckInController new];
+    checkin.atLocation = tmpLocation;
+    
+
     if (toDo.itemIsCompleted == NO) {
         if (toDo.userForItem == addUser) {
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Check in and see your to-do list" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Check in and see to-do list" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
                 [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
                 
@@ -142,8 +152,6 @@
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Ignore It" style:UIAlertActionStyleCancel handler:nil]];
     }
-    
-    
     
     UINavigationController *navCont = (UINavigationController *)self.window.rootViewController;
     [navCont.topViewController presentViewController:alertController animated:YES completion:nil];
