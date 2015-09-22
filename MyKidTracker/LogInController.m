@@ -108,7 +108,7 @@
     [[NetworkController manager]GET:@"get-user-info/"
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"Success: %@", responseObject);
+             NSLog(@"Success: Get-user-Info: %@", responseObject);
              [self getAllUserInfo];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -120,7 +120,7 @@
     [[NetworkController manager]GET:@"families/"
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             NSLog(@"Success: %@", responseObject);
+             NSLog(@"Success: Families: %@", responseObject);
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Failure: %@", error);

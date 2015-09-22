@@ -1095,6 +1095,35 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="187" id="HvB-Uz-iHp">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HvB-Uz-iHp" id="oK1-tO-wJf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a profile pic:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOi-LD-xT8">
+                                                    <rect key="frame" x="28" y="11" width="132" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="132" id="aaC-fa-0AW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xMo-1D-GlX">
+                                                    <rect key="frame" x="168" y="11" width="424" height="167.5"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xMo-1D-GlX" firstAttribute="bottom" secondItem="oK1-tO-wJf" secondAttribute="bottomMargin" id="0Ji-uA-Ttt"/>
+                                                <constraint firstItem="sOi-LD-xT8" firstAttribute="top" secondItem="oK1-tO-wJf" secondAttribute="topMargin" constant="3" id="6N6-Iu-879"/>
+                                                <constraint firstItem="sOi-LD-xT8" firstAttribute="leading" secondItem="oK1-tO-wJf" secondAttribute="leadingMargin" constant="20" id="Oca-DS-sPR"/>
+                                                <constraint firstItem="xMo-1D-GlX" firstAttribute="trailing" secondItem="oK1-tO-wJf" secondAttribute="trailingMargin" id="RU9-cL-nHs"/>
+                                                <constraint firstItem="xMo-1D-GlX" firstAttribute="top" secondItem="oK1-tO-wJf" secondAttribute="topMargin" constant="3" id="l4X-Nl-hlc"/>
+                                                <constraint firstItem="xMo-1D-GlX" firstAttribute="leading" secondItem="sOi-LD-xT8" secondAttribute="trailing" constant="8" id="vez-He-sxk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="I77-Bf-aJ6">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
