@@ -114,10 +114,15 @@
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"Success: Get-user-Info: %@", responseObject);
-             
-             NSLog([NSString stringWithFormat:@"%@",[responseObject objectForKey:@"email"]]);
-             NSLog([NSString stringWithFormat:@"%@",[responseObject objectForKey:@"first_name"]]);
-
+             BOOL exists;
+             for (User *theUser in [UserController sharedInstance].users) {
+                 if ([theUser.userEmail isEqualToString:responseObject[@"email"]]) {
+                     exists = YES;
+                 }
+             }
+//             if (exists == NO) {
+//                 [UserController sharedInstance]createActiveUserWithFamily:<#(Family *)#> firstname:<#(NSString *)#> lastName:<#(NSString *)#> emailAddress:<#(NSString *)#> phoneNumber:<#(NSNumber *)#> userID:<#(NSNumber *)#> userPhoto:<#(NSData *)#> userRole:<#(BOOL)#> userSynced:<#(BOOL)#>
+//             }
              [self getAllUserInfo];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -136,9 +141,11 @@
                  
                  //sync families
                  BOOL familyExists = NO;
-                 for (Family *newFamily in [FamilyController sharedInstance].families) {
-                     if ([newFamily.familysName isEqualToString:dict[@"name"]]) {
-                         familyExists = YES;
+                 if ([FamilyController sharedInstance].families) {
+                     for (Family *newFamily in [FamilyController sharedInstance].families) {
+                         if ([newFamily.familysName isEqualToString:dict[@"name"]]) {
+                             familyExists = YES;
+                         }
                      }
                  }
                  if (familyExists == NO) {
@@ -160,14 +167,21 @@
                  //sync locations
                  for (NSDictionary *locdict in dict[@"locations"]) {
                      BOOL exists = NO;
-                     for (Location *location in [LocationController sharedInstance].locations) {
-                         if ([location.locationTitle isEqualToString:locdict[@"title"]]) {
-                             exists = YES;
-                         }
+                         for (Location *location in [LocationController sharedInstance].locations) {
+                             if ([location.locationTitle isEqualToString:locdict[@"title"]]) {
+                                 exists = YES;
+                             }
                      }
+                     
                      if (exists == NO) {
-                         [[LocationController sharedInstance]createLocationWithFamily:family title:locdict[@"title"] infoSnippet:locdict[@"description"] lattitude:locdict[@"lat"] longitude:locdict[@"lng"] radius:locdict[@"radius"] synced:YES];
-                         NSLog(@"location created");
+//                         NSNumber *number = [NSNumber new];
+//                         number = locdict[@"family"];
+                         for (Family *locFamily in [FamilyController sharedInstance].families) {
+                             if ([locFamily.familyID isEqual:locdict[@"family"]]) {
+                                 [[LocationController sharedInstance]createLocationWithFamily:locFamily title:locdict[@"title"] infoSnippet:locdict[@"description"] lattitude:[NSString stringWithFormat:@"%@",locdict[@"lat"]] longitude:[NSString stringWithFormat:@"%@",locdict[@"lng"]] radius:locdict[@"radius"] synced:YES];
+                                 NSLog(@"location created");
+                             }
+                         }
                      }
                      for (NSDictionary *todo in locdict[@"todos"]) {
                          Location *theLocation;
@@ -176,11 +190,20 @@
                                  theLocation = location;
                              }
                          }
-                         BOOL completed;
+                         BOOL completed = YES;
                          if (todo[@"completed"] == 0) {
                              completed = NO;
                          }
-                         [[ToDoItemController sharedInstance]createToDoItemWithTitle:todo[@"title"] details:todo[@"description"] location:theLocation familyName:family assignedUser:user dueDate:[self.networkC convertStringToDate:todo[@"due_date"]] isCompleted:completed synced:YES];
+                         BOOL exists = NO;
+                         for (ToDoItem *todoItem in [ToDoItemController sharedInstance].toDoLists) {
+                             if ([todoItem.itemTitle isEqualToString:todo[@"title"]]) {
+                                 exists = YES;
+                             }
+                         }
+                         if (exists == NO) {
+                             [[ToDoItemController sharedInstance]createToDoItemWithTitle:todo[@"title"] details:todo[@"description"] location:theLocation familyName:family assignedUser:user dueDate:[self.networkC convertStringToDate:todo[@"due_date"]] isCompleted:completed synced:YES];
+                         }
+                         
                      }
                  }
              }

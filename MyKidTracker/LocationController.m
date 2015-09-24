@@ -47,14 +47,16 @@
     
     [[UIApplication sharedApplication] scheduleLocalNotification:locNotification];
 
-    NSDictionary *dictionary = @{
-                                 
-                                 };
-    [[NetworkController manager]POST:@"locations/" parameters:dictionary success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
-        //do something
-    } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
-        //do something
-    }];
+    if (synced == NO) {
+        NSDictionary *dictionary = @{
+                                     
+                                     };
+        [[NetworkController manager]POST:@"users/" parameters:dictionary success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
+            //do something
+        } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
+            //do something
+        }];
+    }
     [self saveToPersistentStorage];
     
     return location;

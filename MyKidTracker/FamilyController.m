@@ -25,12 +25,14 @@
     Family *aFamily = [NSEntityDescription insertNewObjectForEntityForName:@"Family" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     aFamily.familysName = familyName;
     aFamily.familyID = number;
+    if (synced == NO) {
+        [[NetworkController manager]POST:@"families/" parameters:familyName success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
+            //do something
+        } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
+            //do something
+        }];
+    }
     
-    [[NetworkController manager]POST:@"families/" parameters:familyName success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
-        //do something
-    } failure:^(AFHTTPRequestOperation * __nonnull task, NSError * __nonnull error) {
-        //do something
-    }];
     [self saveToPersistentStorage];
     return aFamily;
 }
