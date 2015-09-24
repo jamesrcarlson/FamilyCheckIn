@@ -120,7 +120,7 @@
 }
 
 - (void) saveData {
-    [[ToDoItemController sharedInstance]createToDoItemWithTitle:self.itemTitleTextField.text details:self.itemDescriptionTextField.text location:self.location familyName:self.theFamily assignedUser:self.userSelected dueDate:self.datePicker.date isCompleted:NO];
+    [[ToDoItemController sharedInstance]createToDoItemWithTitle:self.itemTitleTextField.text details:self.itemDescriptionTextField.text location:self.location familyName:self.theFamily assignedUser:self.userSelected dueDate:self.datePicker.date isCompleted:NO synced:NO];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -15,7 +15,7 @@
 
 + (FamilyController *)sharedInstance;
 
-- (Family *)createFamilyWithName:(NSString *)familyName;
+- (Family *)createFamilyWithName:(NSString *)familyName familyNumber:(NSNumber *)number synced:(BOOL)synced;
 
 - (void)removeFamily:(Family *)theFamily;
 

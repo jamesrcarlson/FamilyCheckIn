@@ -101,7 +101,7 @@
     numberF.numberStyle = NSNumberFormatterDecimalStyle;
     NSNumber *myNumber = [numberF numberFromString:self.radiusTextField.text];
     
-    [[LocationController sharedInstance]createLocationWithFamily:self.theSelectedFamily title:self.locationTitleTextField.text infoSnippet:self.locationDescriptionTextField.text lattitude:self.locationLatitude longitude:self.locationLongitude radius:myNumber];
+    [[LocationController sharedInstance]createLocationWithFamily:self.theSelectedFamily title:self.locationTitleTextField.text infoSnippet:self.locationDescriptionTextField.text lattitude:self.locationLatitude longitude:self.locationLongitude radius:myNumber synced:NO];
     
 }
 

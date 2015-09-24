@@ -66,5 +66,18 @@
     return [UIImage imageWithData:data];
 }
 
+- (NSString *)convertDateToString:(NSDate *)date {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ"];
+    return [dateFormatter stringFromDate:date];
+}
+
+- (NSDate *)convertStringToDate:(NSString *)dateString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ"];
+    NSDate *date = [dateFormatter dateFromString:dateString];
+    return date;
+}
+
 // put this into the code to add the token to the session [self.apiSession.requestSerializer setValue:account.currentAuthToken forHTTPHeaderField:@"X-Auth-Token”];`
 @end

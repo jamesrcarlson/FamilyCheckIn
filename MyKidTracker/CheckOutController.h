@@ -15,7 +15,7 @@
 
 + (CheckOutController *)sharedInstance;
 
-- (CheckOut *)createCheckOutWithLocation:(Location *)location user:(User *)userName checkIn:(CheckIn *)theCheckin locationName:(NSString *)locationName checkOutDate:(NSDate *)date;
+- (CheckOut *)createCheckOutWithLocation:(Location *)location user:(User *)userName checkIn:(CheckIn *)theCheckin locationName:(NSString *)locationName checkOutDate:(NSDate *)date synced:(BOOL)synced;
 
 - (void)removeCheckOutItem:(CheckOut *)checkOut;
 

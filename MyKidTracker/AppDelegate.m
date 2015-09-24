@@ -99,7 +99,7 @@
         if (toDo.userForItem == addUser) {
             [alertController addAction:[UIAlertAction actionWithTitle:@"Check in and see to-do list" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
-                [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
+                [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date] synced:NO];
                 
                 NSLog(@"Checked in and loaded the To-Do-Item");
                 
@@ -117,7 +117,7 @@
     if (addUser.isCheckedIn == NO) {
         [alertController addAction:[UIAlertAction actionWithTitle:@"Check In" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
-            [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date]];
+            [[CheckInController sharedInstance]createCheckInWithLocation:tmpLocation user:addUser locationName:tmpLocation.locationTitle checkInDate:[NSDate date] synced:NO];
             NSLog(@"Checked in");
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Ignore It" style:UIAlertActionStyleCancel handler:nil]];
@@ -130,7 +130,7 @@
                     lastCheckin = checkin;
                 }
             }
-            [[CheckOutController sharedInstance]createCheckOutWithLocation:tmpLocation user:addUser checkIn:lastCheckin locationName:tmpLocation.locationTitle checkOutDate:[NSDate date]];
+            [[CheckOutController sharedInstance]createCheckOutWithLocation:tmpLocation user:addUser checkIn:lastCheckin locationName:tmpLocation.locationTitle checkOutDate:[NSDate date] synced:NO];
             NSLog(@"Checked out");
         }]];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Ignore It" style:UIAlertActionStyleCancel handler:nil]];

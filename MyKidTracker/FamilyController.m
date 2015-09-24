@@ -21,9 +21,10 @@
     return sharedInstance;
 }
 
-- (Family *)createFamilyWithName:(NSString *)familyName {
+- (Family *)createFamilyWithName:(NSString *)familyName familyNumber:(NSNumber *)number synced:(BOOL)synced{
     Family *aFamily = [NSEntityDescription insertNewObjectForEntityForName:@"Family" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     aFamily.familysName = familyName;
+    aFamily.familyID = number;
     
     [[NetworkController manager]POST:@"families/" parameters:familyName success:^(AFHTTPRequestOperation * __nonnull task, id __nonnull success) {
         //do something

@@ -28,4 +28,7 @@ static NSString * const AllUsersKey = @"allUsers";
 
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodedData;
 
+- (NSString *)convertDateToString:(NSDate *)date;
+- (NSDate *)convertStringToDate:(NSString *)dateString;
+
 @end

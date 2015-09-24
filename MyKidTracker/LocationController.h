@@ -18,7 +18,7 @@
 
 + (LocationController *)sharedInstance;
 
-- (Location *)createLocationWithFamily: (Family *)family title:(NSString *)title infoSnippet:(NSString *)snippet lattitude:(NSString *)lattitude longitude:(NSString *)longitude radius:(NSNumber *)radius ;
+- (Location *)createLocationWithFamily: (Family *)family title:(NSString *)title infoSnippet:(NSString *)snippet lattitude:(NSString *)lattitude longitude:(NSString *)longitude radius:(NSNumber *)radius synced:(BOOL)synced;
 
 - (void)removeLocation:(Location *)location;
 

@@ -23,7 +23,7 @@
     return sharedInstance;
 }
 
-- (CheckOut *)createCheckOutWithLocation:(Location *)location user:(User *)userName checkIn:(CheckIn *)theCheckin locationName:(NSString *)locationName checkOutDate:(NSDate *)date {
+- (CheckOut *)createCheckOutWithLocation:(Location *)location user:(User *)userName checkIn:(CheckIn *)theCheckin locationName:(NSString *)locationName checkOutDate:(NSDate *)date synced:(BOOL)synced{
     
     CheckOut *checkOut = [NSEntityDescription insertNewObjectForEntityForName:@"CheckOut" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
     checkOut.checkoutLocation = location;
