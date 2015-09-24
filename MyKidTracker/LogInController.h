@@ -19,6 +19,7 @@ static NSString * const loginSuccessKey = @"loginSuccessful";
 @property (assign, nonatomic) BOOL loggedIn;
 
 -(void)userLogon:(NSString *)username password:(NSString *)pw ;
+-(void)fbUserLogon;
 
 //-(void)aFOAuthAttemptRegister;
 

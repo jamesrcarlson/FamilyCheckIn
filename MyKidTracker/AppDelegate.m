@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "LocationController.h"
@@ -19,11 +17,6 @@
 #import "ToDoItem+Additions.h"
 #import "ToDoListDetailViewTableViewController.h"
 
-
-@interface AppDelegate () <MKMapViewDelegate, CLLocationManagerDelegate>
-
-
-@end
 
 @implementation AppDelegate
 
@@ -38,16 +31,6 @@
         application.applicationIconBadgeNumber = 0;
         
     }
-    
-    
-    CLLocationManager *locationManager = [CLLocationManager new];
-    MKMapView *myMapView = [MKMapView new];
-    myMapView.delegate = self;
-    
-    [locationManager setDelegate:self];
-    [locationManager requestAlwaysAuthorization];
-    [myMapView setShowsUserLocation:YES];
-    
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
 }

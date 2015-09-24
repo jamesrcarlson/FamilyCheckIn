@@ -40,7 +40,6 @@
     self.logInController = [LogInController new];
     [self registerNotifications];
     
-    self.loginButton = [[FBSDKLoginButton alloc] init];
     self.loginButton.delegate = self;
     self.loginButton.readPermissions = @[@"public_profile", @"email"];
     
@@ -50,12 +49,11 @@
     if ([FBSDKAccessToken currentAccessToken]) {
         self.logInController.loggedIn = YES;
         self.navigationItem.rightBarButtonItem = forward;
-    }
-    if (self.logInController.loggedIn == YES) {
+    }else if (self.logInController.loggedIn == YES) {
         self.navigationItem.rightBarButtonItem = forward;
         [self pushTheNextView];
     }
-    if (self.logInController.loggedIn == YES) {
+        if (self.logInController.loggedIn == YES) {
         [self pushTheNextView];
     }
 }
@@ -65,22 +63,21 @@
     
 }
 
-- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+-(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
     
-    NSLog(@"loged in with FB");
-    NSLog(@"%@",[FBSDKAccessToken currentAccessToken].tokenString);
-    NSLog(@"%@",result);
+//    NSLog(@"loged in with FB");
+//    NSLog(@"%@",[FBSDKAccessToken currentAccessToken].tokenString);
+//    NSLog(@"%@",result);
     if ([FBSDKAccessToken currentAccessToken]) {
-        
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
                                            parameters:@{@"fields": @"picture, email"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error) {
                  NSString *pictureURL = [NSString stringWithFormat:@"%@",[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
                  
-                 NSLog(@"%@",result);
-                 
-                 NSLog(@"email is %@", [result objectForKey:@"email"]);
+//                 NSLog(@"%@",result);
+//                 
+//                 NSLog(@"email is %@", [result objectForKey:@"email"]);
                  
                  NSData  *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
                  self.imageView.image = [UIImage imageWithData:data];
@@ -97,6 +94,8 @@
             [self pushRegisterViewController];
         }
     }
+    self.logInController.loggedIn = YES;
+    [self pushTheNextView];
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {

@@ -51,6 +51,7 @@
 		618971261BACA8430005B4CC /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971251BACA8430005B4CC /* ToDoItem.m */; };
 		618971291BACDDC40005B4CC /* LocalToDoItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971281BACDDC40005B4CC /* LocalToDoItemsTableViewController.m */; };
 		6189712C1BACE1090005B4CC /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189712B1BACE1090005B4CC /* Location.m */; };
+		61A6F6E91BB36FEF001FD67C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A6F6E81BB36FEF001FD67C /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
 		61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */; };
 		61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */; };
 		61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */; };
@@ -156,6 +157,7 @@
 		618971281BACDDC40005B4CC /* LocalToDoItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalToDoItemsTableViewController.m; sourceTree = "<group>"; };
 		6189712A1BACE1090005B4CC /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		6189712B1BACE1090005B4CC /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		61A6F6E81BB36FEF001FD67C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		61CD4EE81B8FF17700AC9423 /* ToDoListsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListsTableViewController.h; sourceTree = "<group>"; };
 		61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListsTableViewController.m; sourceTree = "<group>"; };
 		61CD4EEB1B8FFDC800AC9423 /* User+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Additions.h"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		61658FC91B867C5D000CCC7A = {
 			isa = PBXGroup;
 			children = (
+				61A6F6E81BB36FEF001FD67C /* Default-568h@2x.png */,
 				6189508D1B9B8BA100F80873 /* Podfile */,
 				61658FD41B867C5D000CCC7A /* FamilyCheckIn */,
 				61658FEE1B867C5D000CCC7A /* FamilyCheckInTests */,
@@ -449,7 +452,7 @@
 		61658FCA1B867C5D000CCC7A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "JC2DEV, LLC";
 				TargetAttributes = {
 					61658FD11B867C5D000CCC7A = {
@@ -491,6 +494,7 @@
 				6165900E1B867C87000CCC7A /* download.jpeg in Resources */,
 				61658FE61B867C5D000CCC7A /* LaunchScreen.xib in Resources */,
 				61658FE31B867C5D000CCC7A /* Images.xcassets in Resources */,
+				61A6F6E91BB36FEF001FD67C /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +651,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -713,9 +718,11 @@
 			baseConfigurationReference = 6B21B27EAC68932320B4E15D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MyKidTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JC2DEV.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = FamilyCheckIn;
 			};
 			name = Debug;
@@ -725,9 +732,11 @@
 			baseConfigurationReference = 4A723C48E6650FA5C5EB70A8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MyKidTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JC2DEV.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = FamilyCheckIn;
 			};
 			name = Release;
@@ -746,6 +755,7 @@
 				);
 				INFOPLIST_FILE = MyKidTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JC2DEV.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = FamilyCheckInTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyKidTracker.app/MyKidTracker";
 			};
@@ -761,6 +771,7 @@
 				);
 				INFOPLIST_FILE = MyKidTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JC2DEV.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = FamilyCheckInTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyKidTracker.app/MyKidTracker";
 			};

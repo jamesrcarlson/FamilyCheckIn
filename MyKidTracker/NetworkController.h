@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 #import <UIKit/UIKit.h>
-#import "Token.h"
 
 static NSString * const URLStringKey = @"http://api.jc2dev.com/";
 static NSString * const clientIDKey = @"qET1UVJIgRs43N1zW61dByL5kCOYOJ4rwPQC44zk";
@@ -19,8 +18,11 @@ static NSString * const AllUsersKey = @"allUsers";
 
 @interface NetworkController : NSObject
 
+@property (strong, nonatomic) NSString *token;
+
 + (AFHTTPSessionManager *)api;
 + (AFHTTPRequestOperationManager *)manager;
++ (AFHTTPRequestOperationManager *)fbManager;
 
 - (NSString *)encodeImageToBase64String:(UIImage *)image;
 

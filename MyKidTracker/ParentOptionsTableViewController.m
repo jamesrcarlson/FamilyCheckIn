@@ -15,8 +15,12 @@
 #import "ToDoListDetailViewTableViewController.h"
 #import "ToDoItemController.h"
 #import "LocalToDoItemsTableViewController.h"
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ParentOptionsTableViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+
+@interface ParentOptionsTableViewController ()<UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate>
 
 @end
 
@@ -24,7 +28,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CLLocationManager *locationManager = [CLLocationManager new];
+    MKMapView *myMapView = [MKMapView new];
+    myMapView.delegate = self;
     
+    [locationManager setDelegate:self];
+    [locationManager requestAlwaysAuthorization];
+    [myMapView setShowsUserLocation:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

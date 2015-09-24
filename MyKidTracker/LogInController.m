@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) NetworkController *networkC;
 @property (strong, nonatomic) Family *usersFamily;
-@property (strong, nonatomic) Token *token;
 
 @end
 
@@ -127,4 +126,15 @@
          }];
 }
 
+-(void)fbUserLogon {
+    [[NetworkController fbManager]GET:@"get-user-info/"
+                         parameters:nil
+                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                NSLog(@"Success: Get-user-Info: %@", responseObject);
+                                [self getAllUserInfo];
+                            }
+                            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                NSLog(@"Failure: %@", error);
+                            }];
+}
 @end
