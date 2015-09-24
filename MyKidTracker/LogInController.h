@@ -8,13 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "Token.h"
 
 static NSString * const loginFailureKey = @"loginFailed";
 static NSString * const loginSuccessKey = @"loginSuccessful";
 
 @interface LogInController : NSObject
-
 
 @property (assign, nonatomic) BOOL loggedIn;
 

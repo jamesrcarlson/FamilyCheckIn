@@ -7,7 +7,6 @@
 //
 
 #import "NetworkController.h"
-#import <FBSDKAccessToken.h>
 
 
 @implementation NetworkController
@@ -28,7 +27,6 @@
 
 + (AFHTTPRequestOperationManager *)manager {
     
-    Token *token;
     static AFHTTPRequestOperationManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -36,7 +34,7 @@
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
         [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [manager.requestSerializer setValue:[NSString stringWithFormat:@"token %@",token.token] forHTTPHeaderField:@"Authorization"];
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"token %@",[TheToken sharedInstance].token] forHTTPHeaderField:@"Authorization"];
 //        [manager.requestSerializer setValue:token.token forHTTPHeaderField:[NSString stringWithFormat:@"Authorization: %@", token.token]];
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     });
@@ -45,7 +43,7 @@
 
 + (AFHTTPRequestOperationManager *)fbManager {
     
-    NSString *token = [FBSDKAccessToken currentAccessToken].tokenString;
+    NSString *fbToken = [FBSDKAccessToken currentAccessToken].tokenString;
     static AFHTTPRequestOperationManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -53,7 +51,7 @@
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
         [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization: Bearer facebook"];
+        [manager.requestSerializer setValue:fbToken forHTTPHeaderField:@"Authorization: Bearer facebook"];
         manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     });
     return manager;

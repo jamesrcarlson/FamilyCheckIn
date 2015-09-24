@@ -43,7 +43,6 @@
 		617A57EB1BA5F5B100D80DD6 /* Family+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 617A57EA1BA5F5B100D80DD6 /* Family+Additions.m */; };
 		617A57EE1BA5F61B00D80DD6 /* CheckOut+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 617A57ED1BA5F61B00D80DD6 /* CheckOut+Additions.m */; };
 		6189508E1B9B8BA100F80873 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6189508D1B9B8BA100F80873 /* Podfile */; };
-		618971141BACA0EA0005B4CC /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971131BACA0EA0005B4CC /* Token.m */; };
 		618971171BACA8420005B4CC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971161BACA8420005B4CC /* User.m */; };
 		6189711A1BACA8430005B4CC /* CheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971191BACA8430005B4CC /* CheckIn.m */; };
 		6189711D1BACA8430005B4CC /* CheckOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189711C1BACA8430005B4CC /* CheckOut.m */; };
@@ -52,6 +51,7 @@
 		618971291BACDDC40005B4CC /* LocalToDoItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618971281BACDDC40005B4CC /* LocalToDoItemsTableViewController.m */; };
 		6189712C1BACE1090005B4CC /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189712B1BACE1090005B4CC /* Location.m */; };
 		61A6F6E91BB36FEF001FD67C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A6F6E81BB36FEF001FD67C /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
+		61A6F6EC1BB38F64001FD67C /* TheToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A6F6EB1BB38F64001FD67C /* TheToken.m */; settings = {ASSET_TAGS = (); }; };
 		61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */; };
 		61CD4EED1B8FFDC800AC9423 /* User+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */; };
 		61CFB1381B88ED2B00946AD3 /* ParentOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CFB1371B88ED2B00946AD3 /* ParentOptionsTableViewController.m */; };
@@ -141,8 +141,6 @@
 		617A57EC1BA5F61B00D80DD6 /* CheckOut+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CheckOut+Additions.h"; sourceTree = "<group>"; };
 		617A57ED1BA5F61B00D80DD6 /* CheckOut+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CheckOut+Additions.m"; sourceTree = "<group>"; };
 		6189508D1B9B8BA100F80873 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		618971121BACA0EA0005B4CC /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
-		618971131BACA0EA0005B4CC /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
 		618971151BACA8420005B4CC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		618971161BACA8420005B4CC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		618971181BACA8430005B4CC /* CheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckIn.h; sourceTree = "<group>"; };
@@ -158,6 +156,8 @@
 		6189712A1BACE1090005B4CC /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		6189712B1BACE1090005B4CC /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		61A6F6E81BB36FEF001FD67C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		61A6F6EA1BB38F64001FD67C /* TheToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheToken.h; sourceTree = "<group>"; };
+		61A6F6EB1BB38F64001FD67C /* TheToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheToken.m; sourceTree = "<group>"; };
 		61CD4EE81B8FF17700AC9423 /* ToDoListsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListsTableViewController.h; sourceTree = "<group>"; };
 		61CD4EE91B8FF17700AC9423 /* ToDoListsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListsTableViewController.m; sourceTree = "<group>"; };
 		61CD4EEB1B8FFDC800AC9423 /* User+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Additions.h"; sourceTree = "<group>"; };
@@ -344,6 +344,8 @@
 		6168F0331B86B184003F175F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				61A6F6EA1BB38F64001FD67C /* TheToken.h */,
+				61A6F6EB1BB38F64001FD67C /* TheToken.m */,
 				6189712A1BACE1090005B4CC /* Location.h */,
 				6189712B1BACE1090005B4CC /* Location.m */,
 				618971241BACA8430005B4CC /* ToDoItem.h */,
@@ -368,8 +370,6 @@
 				61CD4EEC1B8FFDC800AC9423 /* User+Additions.m */,
 				61646CCF1B92059000C67A7D /* ToDoItem+Additions.h */,
 				61646CD01B92059000C67A7D /* ToDoItem+Additions.m */,
-				618971121BACA0EA0005B4CC /* Token.h */,
-				618971131BACA0EA0005B4CC /* Token.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -545,7 +545,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				618971141BACA0EA0005B4CC /* Token.m in Sources */,
 				6168F02E1B86B14D003F175F /* UserController.m in Sources */,
 				6176CE561B93FB2500EC4B22 /* CheckOutController.m in Sources */,
 				6189711D1BACA8430005B4CC /* CheckOut.m in Sources */,
@@ -585,6 +584,7 @@
 				618971261BACA8430005B4CC /* ToDoItem.m in Sources */,
 				616590111B867DC0000CCC7A /* MapViewController.m in Sources */,
 				61CD4EEA1B8FF17700AC9423 /* ToDoListsTableViewController.m in Sources */,
+				61A6F6EC1BB38F64001FD67C /* TheToken.m in Sources */,
 				618971171BACA8420005B4CC /* User.m in Sources */,
 				616590081B867C87000CCC7A /* RegisterViewController.m in Sources */,
 				616590191B868A7D000CCC7A /* Model.xcdatamodeld in Sources */,

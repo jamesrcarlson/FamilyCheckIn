@@ -10,10 +10,12 @@
 #import "UserController.h"
 #import "FamilyController.h"
 #import "NetworkController.h"
+#import "TheToken.h"
 
 
 @interface LogInController ()
 
+@property (strong, nonatomic) TheToken *theToken;
 @property (strong, nonatomic) NetworkController *networkC;
 @property (strong, nonatomic) Family *usersFamily;
 
@@ -27,7 +29,7 @@
                                };
     
     [[NetworkController api]POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-        self.token.token  = responseObject[@"token"];
+        [TheToken sharedInstance].token  = responseObject[@"token"];
         NSLog(@"success: %@", responseObject);
         [self getMoreUserInfo];
         [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccessKey object:nil];
@@ -43,7 +45,7 @@
                                @"password": pw,
                                };
     [[NetworkController api] POST:@"api-token-auth/" parameters:userInfo success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
-        self.token.token  = responseObject[@"token"];
+        self.theToken.token  = responseObject[@"token"];
         NSLog(@"success: %@", responseObject);
         [self getMoreUserInfo];
     } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
